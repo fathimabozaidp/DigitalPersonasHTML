@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online</title>
+    <link rel="stylesheet" href="css/orderOnline.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>      
+</head>
+<body>
+    <div id="div_orderOnline_AllContainer">
+        <header>
+            <div id="div_orderOnline_TopSectionContainer">
+                <div id="div_OrderOnline_BackButton" class="backButton">
+                    <a href="index.html" style="color: #008080;" title="Back"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                <div id="div_orderOnline_TopSection_HeaderData">
+                    <div id="div_magicPizzaImageLinkWithText">
+                        <a href="index.html" title="Home"><img src="images/icons/magicPizzaIcon.jpeg" style="width: 50px; border-radius: 25px;"></a>
+                        <a href="index.html" style="color: #008080;" title="Home"><p id="para_onlineOrder_MagicPizzaText">Magic Pizza Cafe</p></a>                  
+                    </div> 
+                    <!-- <div id="div_magicPizza_About_Info">
+                        <p id="para_onlineOrder_PizzasDesserts_Text"><h3>Pizzas, Desserts, Beverages</h3></p>
+                        <p id="para_onlineOrder_KurnoolText" style="font-size: small;"> 11am - 10:30pm(today)<i class="fa fa-info-circle" title="Opening Hours : Mon-Sun (11am - 10:30pm)"></i></p>
+                        <p></p>
+                    </div>                        -->
+                </div>
+        
+                <div id="div_onlineOrder_Header_TopRightSectionContainer">
+                    <div id="div_onlineOrder_DiningStarWithText">
+                        <div id="div_onlineOrder_DiningStar">
+                            <div>4.1</div>
+                            <div><i class = "fa fa-star" style="font-size:14px"></i></div>
+                        </div>
+                        <div id="div_onlineOrder_DiningText">
+                            <div>157</div>
+                            <div style="font-size: small;">Dining Ratings<hr></div>
+                           
+                        </div>
+                    </div>
+                    <div id="div_onlineOrder_DeliveryStarWithText">
+                        <div id="div_onlineOrder_DeliveryStar">
+                            <div>4.0</div>
+                            <div><i class = "fa fa-star" style="font-size:14px"></i></div>
+                        </div>
+                        <div id="div_onlineOrder_DeliveryText">
+                            <div>1,505</div>
+                            <div style="font-size: small;">Delivery Ratings<hr></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="div_OnlineOrder_HeaderNavigation">
+                   
+                    <div id="div_buttonLinks"> 
+                        <!-- <div>
+                            <button id="button_Dining" class="headerNavigationButton">
+                                <a href="dining.html" title="Book a Table" style="color:  #008080;font-size: 25px;"><i class="fa fa-table"></i></a>
+                            </button>
+                        </div> -->
+                       <div>
+                            <button id="button_Orders" class="headerNavigationButton">
+                                <a href="orderHistory.html" title="Order History" style="color:  #008080;font-size: 25px;"><i class="fa fa-history"></i></a>
+                            </button> 
+                       </div>
+                        <div>
+                            <button id="button_HeaderCart" class="headerNavigationButton">
+                               <a href="orderDetails.html" title="Cart" style="color:#008080;font-size: 17px; text-decoration: none;"><i class="fa fa-cart-arrow-down" id="icon_HeaderCart" style="font-size: 25px;" onclick="showItemsInCart()"></i>Cart</a> 
+                            </button> 
+                        </div>                                
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <section id="section_OnlineDelivery_MidSection">
+            <!-- <div id="div_PageLinksContainer" style="opacity: 0.7;background-color: rgba(248, 172, 164, 0.37);height:50px;margin-top: 10px;border-radius: 10px;">
+                 <div id="div_PageLinks" style="display: flex; margin-left: 20%;">
+                    <div style="padding-top: 25px;">
+                        <a href="" style=" margin-left: 10px; text-decoration: none;">Overview</a>
+                     </div>
+                     <div style="padding-top: 25px;">
+                        <a href="" style=" margin-left: 10px; text-decoration: none;">Order Online</a>
+                     </div>
+                     <div style="padding-top: 25px;">
+                        <a href="" style=" margin-left: 10px; text-decoration: none;">Reviews</a>
+                     </div>
+                     <div style="padding-top: 25px;">
+                        <a href="" style=" margin-left: 10px; text-decoration: none;">Photos</a>
+                     </div>
+                 </div> -->
+            </div>
+            <div id="div_orderOnline_MidSectionContainer" >
+                <div id="div_orderOnline_LeftSectionContainer" style="opacity: 0.7;background-color: rgba(248, 172, 164, 0.37); height:510px;margin-top:17px;border-radius: 20px;">
+                    <div id="div_orderOnline_MenuContainer" style="margin-left: 20px; margin-top: 50px;" >
+                        <h2>Menu</h2>
+                        <div class="scrollMenu">
+                            <div onclick="displayItems('div_Grid_AllContainer')">All</div>
+                            <div onclick="displayItems('div_BiryaniContainer')">Biryanis(4)</div>
+                            <div onclick="displayItems('div_BreadsContainer')">Breads(5)</div>
+                            <div onclick="displayItems('div_CakesContainer')">Cakes(6)</div> 
+                            <div onclick="displayItems('div_CurriesContainer')">Curries(5)</div>                                                               
+                            <div onclick="displayItems('div_FriesContainer')">Fries(3)</div>
+                            <div onclick="displayItems('div_MacaronsContainer')">Macarons(4)</div>                     
+                            <div onclick="displayItems('div_MojitoContainer')">Mojitos(3)</div>
+                            <div onclick="displayItems('div_PastriesContainer')">Pastries(4)</div>
+                            <div onclick="displayItems('div_PizzaContainer')">Pizzas(3)</div>                           
+                            <div onclick="displayItems('div_shawarmaContainer')">Shawarmas(3)</div>                        
+                        </div>
+                    </div>
+                </div>
+                <div id="div_Grid_AllContainer" class="scrollItems" style="opacity: 0.9 ;background-color: rgba(248, 172, 164, 0.37); margin-left: 15px; border-radius: 15px;">
+                    <div id="div_GridContainer_SearchItems" >
+                        <i class="fa fa-search" style="margin-left: 240px;"></i>
+                        <input id="input_Search" type="text" style="border-radius: 20px;width: 500px;height:20px;background-color: antiquewhite; border: none;margin-bottom: 15px;margin-top: 15px;" placeholder="Search Item" onkeyup="searchDishes()">
+                    </div>
+                    <div id="div_shawarmaContainer">                    
+                        <div id="div_Grid_Item1Container"  class="div_FoodItems">
+                            <div id="div_Item1_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item1_Image">
+                                    <img id="item1_Img" src="images/orderOnline/nonveg_shawarma.png" />
+                                </div>   
+                                <div id="div_Grid_Item1_Price">
+                                    <p id="item1_Rupee"><i class="fa fa-rupee">140</i></p>
+                                 </div>
+                            </div>                       
+                            <div id="div_Item1_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item1_Name">
+                                    <p id="item1_Name" class="itemName">Special Shawarma</p>
+                                </div>
+                                <div id="div_Grid_Item1_Description">
+                                    <p class="itemDescription">Spicy Chicken, Khubus bread, Lettuce, Garlic Mayyonaise</p>
+                                </div>
+                                <div id="div_Grid_Item1_Ratings">                       
+                                    <p class="para_Ratings">                     
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </p>                       
+                                </div>
+                            </div>
+                            <div id="div_StepInput1_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item1_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item1" class="removeItemButton" onclick="decreaseItemValue('button_remove_item1', 'input_item1')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item1" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item1" class="addItemButton" onclick="increaseItemValue('button_remove_item1', 'input_item1')"><i class="fa fa-plus"></i></button>   
+                                </div>
+                                <div id="div_Grid_Item1_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" name="addToCartButton" class="addToCartButton" onclick="showMessage('input_item1','item1_Name','item1_Rupee')">Add to Cart</button> 
+                                    <!-- </a>                                    -->
+                                </div>
+                            </div> 
+                        </div>
+    
+                        <div id="div_Grid_Item2Container" class="div_FoodItems">
+                            <div id="div_Item2_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item2_Image">
+                                    <img id="item2_Img" src="images/orderOnline/nonveg_shawarma2.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item2_Price">
+                                    <p id="item2_Rupee"><i class="fa fa-rupee">110</i></p>
+                                 </div>
+                            </div>
+                            <div id="div_Item2_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">                           
+                                <div id="div_Grid_Item2_Name">
+                                    <p id="item2_Name" class="itemName">Regular Shawarma</p>
+                                </div>
+                                <div id="div_Grid_Item2_Description">
+                                    <p class="itemDescription">Chicken, Rumali Roti, Lettuce, Vegetables, Mayyonaise</p>
+                                </div>                             
+                                <div id="div_Grid_Item2_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                    </p>                       
+                                </div>
+                            </div>
+                            <div id="div_StepInput2_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item2_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item2" class="removeItemButton" onclick="decreaseItemValue('button_remove_item2', 'input_item2')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item2" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item2" class="addItemButton" onclick="increaseItemValue('button_remove_item2', 'input_item2')" ><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item2_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item2','item2_Name','item2_Rupee')">Add to Cart</button>
+                                    <!-- </a>                                     -->
+                                </div>
+                            </div>  
+                        </div>
+    
+                        <div id="div_Grid_Item3Container" class="div_FoodItems">
+                            <div id="div_Item3_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item3_Image">
+                                    <img id="item3_Img" src="images/orderOnline/plate_shawarma.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item3_Price"> 
+                                    <p id="item3_Rupee"><i class="fa fa-rupee"></i>220</p>
+                                 </div>
+                            </div>
+                            <div id="div_Item3_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item3_Name">
+                                    <p id="item3_Name" class="itemName">Plate Shawarma</p>
+                                </div>
+                                <div id="div_Grid_Item3_Description">
+                                    <p class="itemDescription">Tandoori Roti, Chicken tikka, Lettuce, Vegetables, Mayyonaise, Fries</p>
+                                </div>
+                                <div id="div_Grid_Item3_Ratings">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </p>                   
+                                </div>
+                            </div>                       
+                            <div id="div_StepInput3_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item3_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item3" class="removeItemButton" onclick="decreaseItemValue('button_remove_item3', 'input_item3')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item3" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item3" class="addItemButton" onclick="increaseItemValue('button_remove_item3', 'input_item3')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item3_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item3','item3_Name','item3_Rupee')">Add to Cart</button>
+                                    <!-- </a>                                     -->
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+    
+                    <div id="div_FriesContainer">
+                        <div id="div_Grid_Item4Container" class="div_FoodItems">
+                            <div id="div_Item4_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item4_Image">
+                                    <img id="item4_Img" src="images/orderOnline/honeychillifries.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item4_Price">
+                                    <p id="item4_Rupee"><i class="fa fa-rupee"></i>160</p>
+                                </div>
+                            </div>
+                            <div id="div_Item4_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item4_Name">
+                                    <p id="item4_Name" class="itemName">Honey Chilli Fries</p>
+                                </div>
+                                <div id="div_Grid_Item4_Description">
+                                    <p class="itemDescription">Potato Fries sauted in Honey Chilli Sauce</p>
+                                </div>
+                                <div id="div_Grid_Item4_Rating">                       
+                                    <p class="para_Ratings">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star-o"></span>
+                                            <span class="fa fa-star-o"></span>
+                                        </p>
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput4_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item4_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item4" class="removeItemButton" onclick="decreaseItemValue('button_remove_item4', 'input_item4')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item4" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item4" class="addItemButton" onclick="increaseItemValue('button_remove_item4', 'input_item4')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item4_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item4','item4_Name','item4_Rupee')">Add to Cart</button>
+                                    <!-- </a>                                     -->
+                                </div>
+                            </div>                            
+                        </div>
+                        <div id="div_Grid_Item5Container" class="div_FoodItems">
+                            <div id="div_Item5_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item5_Image">
+                                    <img id="item5_Img" src="images/orderOnline/periperifries.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item5_Price">
+                                    <p id="item5_Rupee"><i class="fa fa-rupee"></i>120</p>
+                                </div>
+                            </div>
+                            <div id="div_Item5_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item5_Name">
+                                    <p id="item5_Name" class="itemName">Peri Peri Fries</p>
+                                </div>
+                                <div id="div_Grid_Item5_Description">
+                                    <p class="itemDescription">Description</p>
+                                </div>
+                                <div id="div_Grid_Item5_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </p>                   
+                                </div>
+                            </div>                      
+                           <div id="div_StepInput5_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item5_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item5" class="removeItemButton" onclick="decreaseItemValue('button_remove_item5', 'input_item5')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item5" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item5" class="addItemButton" onclick="increaseItemValue('button_remove_item5', 'input_item5','item5_Rupee')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item5_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item5','item5_Name','item5_Rupee')">Add to Cart</button>
+                                    <!-- </a>                                     -->
+                                </div>
+                            </div>                        
+                        </div>
+                        <div id="div_Grid_Item6Container" class="div_FoodItems">
+                            <div id="div_Item6_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item6_Image">
+                                    <img id="item6_Img" src="images/orderOnline/fries.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item6_Price">
+                                    <p id="item6_Rupee"><i class="fa fa-rupee"></i>80</p>
+                                </div>
+                            </div>
+                            <div id="div_Item6_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item6_Name">
+                                    <p id="item6_Name" class="itemName">Fries</p>
+                                </div>
+                                <div id="div_Grid_Item6_Description">
+                                    <p class="itemDescription">Description</p>
+                                </div>
+                                <div id="div_Grid_Item6_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput6_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item6_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item6" class="removeItemButton" onclick="decreaseItemValue('button_remove_item6', 'input_item6')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item6" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item6" class="addItemButton" onclick="increaseItemValue('button_remove_item6', 'input_item6')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item6_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item6','item6_Name','item6_Rupee')">Add to Cart</button>
+                                    <!-- </a>                                     -->
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+                
+                    <div id="div_PizzaContainer">
+                        <div id="div_Grid_Item7Container" class="div_FoodItems">
+                            <div id="div_Item7_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item7_Image">
+                                    <img id="item7_Img" src="images/orderOnline/veg_pizza.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item7_Price">
+                                    <p id="item7_Rupee"><i class="fa fa-rupee"></i>185</p>
+                                </div>
+                            </div>
+                            <div id="div_Item7_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item7_Name">
+                                    <p id="item7_Name" class="itemName">Veg Pizza</p>
+                                </div>
+                                <div id="div_Grid_Item7_Description">
+                                    <p class="itemDescription">Description</p>
+                                </div>
+                                <div id="div_Grid_Item7_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput7_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item7_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item7" class="removeItemButton" onclick="decreaseItemValue('button_remove_item7', 'input_item7')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item7" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item7" class="addItemButton" onclick="increaseItemValue('button_remove_item7', 'input_item7')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item7_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item7','item7_Name','item7_Rupee')">Add to Cart</button>
+                                    <!-- </a>                                     -->
+                                </div>
+                            </div>                        
+                        </div>
+    
+                        <div id="div_Grid_Item8Container" class="div_FoodItems">
+                            <div id="div_Item8_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item8_Image">
+                                    <img id="item8_Img" src="images/orderOnline/nonveg_pizza.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item8_Price">
+                                    <p id="item8_Rupee"><i class="fa fa-rupee"></i>225</p>
+                                </div>
+                            </div>
+                            <div id="div_Item8_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item8_Name">
+                                    <p id="item8_Name" class="itemName">Chicken Pizza</p>
+                                </div>
+                                <div id="div_Grid_Item8_Description">
+                                    <p class="itemDescription">Description</p>
+                                </div>                       
+                                <div id="div_Grid_Item8_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput8_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item8_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item8" class="removeItemButton" onclick="decreaseItemValue('button_remove_item8', 'input_item8')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item8" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item8" class="addItemButton" onclick="increaseItemValue('button_remove_item8', 'input_item8')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item8_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item8','item8_Name','item8_Rupee')">Add to Cart</button>
+                                    <!-- </a>  -->
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div id="div_Grid_Item9Container" class="div_FoodItems">
+                            <div id="div_Item9_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item9_Image">
+                                    <img id="item9_Img" src="images/orderOnline/margherita.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item9_Price">
+                                    <p id="item9_Rupee"><i class="fa fa-rupee"></i>190</p>
+                                </div>
+                            </div>
+                            <div id="div_Item9_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item9_Name">
+                                    <p id="item9_Name" class="itemName">Margherita</p>
+                                </div>
+                                <div id="div_Grid_Item9_Description">
+                                    <p class="itemDescription">Description</p>
+                                </div>
+                                <div id="div_Grid_Item9_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                        <span class="fa fa-star-o"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput9_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item9_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item9" class="removeItemButton" onclick="decreaseItemValue('button_remove_item9', 'input_item9')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item9" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item9" class="addItemButton" onclick="increaseItemValue('button_remove_item9', 'input_item9')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item9_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item9','item9_Name','item9_Rupee')">Add to Cart</button>
+                                    <!-- </a>                                     -->
+                                </div>
+                            </div>                        
+                        </div>
+    
+                    </div>
+    
+                    <div id="div_MojitoContainer">
+                        <div id="div_Grid_Item10Container" class="div_FoodItems">
+                            <div id="div_Item10_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item10_Image">
+                                    <img id="item10_Img" src="images/orderOnline/strawberry_mojito.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item10_Price">
+                                    <p id="item10_Rupee"><i class="fa fa-rupee"></i>170</p>
+                                </div>
+                            </div>
+                            <div id="div_Item10_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item10_Name">
+                                    <p id="item10_Name" class="itemName">Strawberry Mojito</p>
+                                </div>
+                                <div id="div_Grid_Item10_Description">
+                                    <p class="itemDescription">Strawberry Mojito</p>
+                                </div>
+                                <div id="div_Grid_Item10_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>                           
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput10_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item10_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item10" class="removeItemButton" onclick="decreaseItemValue('button_remove_item10', 'input_item10')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item10" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item10" class="addItemButton" onclick="increaseItemValue('button_remove_item10', 'input_item10')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item10_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item10','item10_Name','item10_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>                        
+                        </div>
+                        <div id="div_Grid_Item11Container" class="div_FoodItems">
+                            <div id="div_Item11_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item11_Image">
+                                    <img id="item11_Img" src="images/orderOnline/kiwi_mojito.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item11_Price">
+                                    <p id="item11_Rupee"><i class="fa fa-rupee"></i>190</p>
+                                </div>
+                            </div>
+                            <div id="div_Item11_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item11_Name">
+                                    <p id="item11_Name" class="itemName">Kiwi Mojito</p>
+                                </div>
+                                <div id="div_Grid_Item11_Name">
+                                    <p class="itemDescription">Description</p>
+                                </div>
+                                <div id="div_Grid_Item11_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput11_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item11_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item11" class="removeItemButton" onclick="decreaseItemValue('button_remove_item11', 'input_item11')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item11" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item11" class="addItemButton" onclick="increaseItemValue('button_remove_item11', 'input_item11')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item11_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item11','item11_Name','item11_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>                    
+                        </div>
+    
+                        <div id="div_Grid_Item12Container" class="div_FoodItems">
+                            <div id="div_Item12_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item12_Image">
+                                    <img id="item12_Img" src="images/orderOnline/blueberry_mojito.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item12_Price">
+                                    <p id="item12_Rupee"><i class="fa fa-rupee"></i>220</p>
+                                    </div>
+                            </div>
+                            <div id="div_Item12_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item12_Name">
+                                    <p id="item12_Name" class="itemName">Blueberry Mojito</p>
+                                </div>
+                                <div id="div_Grid_Item12_Description">
+                                    <p class="itemDescription">Description</p>
+                                </div>
+                                <div id="div_Grid_Item12_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>                                                    
+                            <div id="div_StepInput12_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item12_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item12" class="removeItemButton" onclick="decreaseItemValue('button_remove_item12', 'input_item12')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item12" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item12" class="addItemButton" onclick="increaseItemValue('button_remove_item12', 'input_item12')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item12_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item12','item12_Name','item12_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>                    
+                        </div>
+    
+                    </div> 
+                    
+                    <div id="div_BreadsContainer">
+                        <div id="div_Grid_Item13Container" class="div_FoodItems">
+                            <div id="div_Item13_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item13_Image">
+                                    <img id="item13_Img" src="images/orderOnline/bread_roti.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item13_Price">
+                                    <p id="item13_Rupee"><i class="fa fa-rupee"></i>40</p>
+                                </div>
+                            </div>
+                            <div id="div_Item13_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item13_Name">
+                                    <p id="item13_Name" class="itemName">Roti/Chapati</p>
+                                </div>
+                                <div id="div_Grid_Item13_Description">
+                                    <p class="itemDescription">Bread made with wheat</p>
+                                </div>
+                                <div id="div_Grid_Item13_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput13_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item13_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item13" class="removeItemButton" onclick="decreaseItemValue('button_remove_item13', 'input_item13')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item13" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item13" class="addItemButton" onclick="increaseItemValue('button_remove_item13', 'input_item13')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item13_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item13','item13_Name','item13_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>      
+                        </div>
+    
+                        <div id="div_Grid_Item14Container" class="div_FoodItems">
+                            <div id="div_Item14_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item14_Image">
+                                    <img id="item14_Img" src="images/orderOnline/bread_tandoori_roti.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item14_Price">
+                                    <p id="item14_Rupee"><i class="fa fa-rupee"></i>60</p>
+                                </div>
+                            </div>
+                            <div id="div_Item14_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item14_Name">
+                                    <p id="item14_Name" class="itemName">Tandoori Roti</p>
+                                </div>
+                                <div id="div_Grid_Item14_Description">
+                                    <p class="itemDescription">Fermented Bread, Sesame seeds, Butter</p>
+                                </div>
+                                <div id="div_Grid_Item14_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput14_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item14_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item14" class="removeItemButton" onclick="decreaseItemValue('button_remove_item14', 'input_item14')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item14" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item14" class="addItemButton" onclick="increaseItemValue('button_remove_item14', 'input_item14')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item14_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item14','item14_Name','item14_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>      
+                        </div>                                
+    
+                        <div id="div_Grid_Item15Container" class="div_FoodItems">
+                            <div id="div_Item15_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item15_Image">
+                                    <img id="item15_Img" src="images/orderOnline/bread_naan.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item15_Price">
+                                    <p id="item15_Rupee"><i class="fa fa-rupee"></i>55</p>
+                                </div>
+                            </div>
+                            <div id="div_Item15_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item15_Name">
+                                    <p id="item15_Name" class="itemName">Naan</p>
+                                </div>
+                                <div id="div_Grid_Item15_Description">
+                                    <p class="itemDescription">Fermented Bread, Butter</p>
+                                </div>
+                                <div id="div_Grid_Item15_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput15_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item15_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item15" class="removeItemButton" onclick="decreaseItemValue('button_remove_item15', 'input_item15')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item15" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item15" class="addItemButton" onclick="increaseItemValue('button_remove_item15', 'input_item15')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item15_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item15','item15_Name','item15_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>      
+                        </div>
+    
+                        <div id="div_Grid_Item16Container" class="div_FoodItems">
+                            <div id="div_Item16_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item16_Image">
+                                    <img id="item16_Img" src="images/orderOnline/bread_kulcha.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item16_Price">
+                                    <p id="item16_Rupee"><i class="fa fa-rupee"></i>70</p>
+                                </div>
+                            </div>
+                            <div id="div_Item16_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item16_Name">
+                                    <p id="item16_Name" class="itemName">Kulcha</p>
+                                </div>
+                                <div id="div_Grid_Item16_Description">
+                                    <p class="itemDescription">Bread, Potatoes, Greens, Chilli, Butter</p>
+                                </div>
+                                <div id="div_Grid_Item16_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput16_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item16_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item16" class="removeItemButton" onclick="decreaseItemValue('button_remove_item16', 'input_item16')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item16" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item16" class="addItemButton" onclick="increaseItemValue('button_remove_item16', 'input_item16')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item16_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item16','item16_Name','item16_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>      
+                        </div>
+    
+                        <div id="div_Grid_Item17Container" class="div_FoodItems">
+                            <div id="div_Item17_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item17_Image">
+                                    <img id="item17_Img" src="images/orderOnline/bread_veg_paratha.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item17_Price">
+                                    <p id="item17_Rupee"><i class="fa fa-rupee"></i>90</p>
+                                </div>
+                            </div>
+                            <div id="div_Item17_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item17_Name">
+                                    <p id="item17_Name" class="itemName">Veg Paratha</p>
+                                </div>
+                                <div id="div_Grid_Item17_Description">
+                                    <p class="itemDescription">Wheat Bread, Carrot, Beans, Peas, Butter</p>
+                                </div>
+                                <div id="div_Grid_Item17_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput17_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item17_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item17" class="removeItemButton" onclick="decreaseItemValue('button_remove_item17', 'input_item17')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item17" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item17" class="addItemButton" onclick="increaseItemValue('button_remove_item17', 'input_item17')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item17_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item17','item17_Name','item17_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>      
+                        </div>
+                          
+                    </div>
+    
+                    <div id="div_CurriesContainer">
+                        <div id="div_Grid_Item18Container" class="div_FoodItems">
+                            <div id="div_Item18_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item18_Image">
+                                    <img id="item18_Img" src="images/orderOnline/curry_veg_kadai.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item18_Price">
+                                    <p id="item18_Rupee"><i class="fa fa-rupee">230</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item18_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item18_Name">
+                                    <p id="item18_Name" class="itemName">Veg Kadai</p>
+                                </div>
+                                <div id="div_Grid_Item18_Description">
+                                    <p class="itemDescription">Carrots, Beans, Tomatoes, Onions </p>
+                                </div>
+                                <div id="div_Grid_Item18_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput18_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item18_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item18" class="removeItemButton" onclick="decreaseItemValue('button_remove_item18', 'input_item18')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item18" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item18" class="addItemButton" onclick="increaseItemValue('button_remove_item18', 'input_item18')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item18_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item18','item18_Name','item18_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+                        </div>
+    
+                        <div id="div_Grid_Item19Container" class="div_FoodItems">
+                            <div id="div_Item19_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item19_Image">
+                                    <img id="item19_Img" src="images/orderOnline/curry_matar_paneer.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item19_Price">
+                                    <p id="item19_Rupee"><i class="fa fa-rupee">280</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item19_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item19_Name">
+                                    <p id="item19_Name" class="itemName">Matar Paneer</p>
+                                </div>
+                                <div id="div_Grid_Item19_Description">
+                                    <p class="itemDescription">Paneer, Matar(Peas), Butter, Onion, Tomatoes</p>
+                                </div>
+                                <div id="div_Grid_Item19_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput19_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item19_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item19" class="removeItemButton" onclick="decreaseItemValue('button_remove_item19', 'input_item19')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item19" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item19" class="addItemButton" onclick="increaseItemValue('button_remove_item19', 'input_item19')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item19_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item19','item19_Name','item19_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+                        </div>
+    
+                        <div id="div_Grid_Item20Container" class="div_FoodItems">
+                            <div id="div_Item20_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item20_Image">
+                                    <img id="item20_Img" src="images/orderOnline/curry_lauki_kofta.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item20_Price">
+                                    <p id="item20_Rupee"><i class="fa fa-rupee">270</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item20_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item20_Name">
+                                    <p id="item20_Name" class="itemName">Lauki Kofta Curry</p>
+                                </div>
+                                <div id="div_Grid_Item20_Description">
+                                    <p class="itemDescription">Lauki, Tomatoes, Onions, Cashews</p>
+                                </div>
+                                <div id="div_Grid_Item20_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput20_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item20_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item20" class="removeItemButton" onclick="decreaseItemValue('button_remove_item20', 'input_item20')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item20" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item20" class="addItemButton" onclick="increaseItemValue('button_remove_item20', 'input_item20')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item20_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item20','item20_Name','item20_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+                        </div>
+    
+                        <div id="div_Grid_Item21Container" class="div_FoodItems">
+                            <div id="div_Item21_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item21_Image">
+                                    <img id="item21_Img" src="images/orderOnline/curry_chicken_malai.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item21_Price">
+                                    <p id="item21_Rupee"><i class="fa fa-rupee">350</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item21_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item21_Name">
+                                    <p id="item21_Name" class="itemName">Chicken Malai</p>
+                                </div>
+                                <div id="div_Grid_Item21_Description">
+                                    <p class="itemDescription">Chicken, Malai, Onions, Tomatoes</p>
+                                </div>
+                                <div id="div_Grid_Item21_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput21_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item21_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item21" class="removeItemButton" onclick="decreaseItemValue('button_remove_item21', 'input_item21')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item21" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item21" class="addItemButton" onclick="increaseItemValue('button_remove_item21', 'input_item21')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item21_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item21','item21_Name','item21_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+                        </div>
+    
+                        <div id="div_Grid_Item22Container" class="div_FoodItems">
+                            <div id="div_Item22_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item22_Image">
+                                    <img id="item22_Img" src="images/orderOnline/chicken_tikka_masala_curry.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item22_Price">
+                                    <p id="item22_Rupee"><i class="fa fa-rupee">310</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item22_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item22_Name">
+                                    <p id="item22_Name" class="itemName">Chicken Tikka Masala</p>
+                                </div>
+                                <div id="div_Grid_Item22_Description">
+                                    <p class="itemDescription">Chicken Tikka, Butter, Onion, Tomatoes</p>
+                                </div>
+                                <div id="div_Grid_Item22_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput22_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item22_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item22" class="removeItemButton" onclick="decreaseItemValue('button_remove_item22', 'input_item22')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item22" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item22" class="addItemButton" onclick="increaseItemValue('button_remove_item22', 'input_item22','item22_Rupee')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item22_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item22','item22_Name','item22_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+                        </div>
+    
+                    </div>
+    
+                    <div id="div_BiryaniContainer">
+                        <div id="div_Grid_Item23Container" class="div_FoodItems">
+                            <div id="div_Item23_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item23_Image">
+                                    <img id="item23_Img" src="images/orderOnline/biryani_veg.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item23_Price">
+                                    <p id="item23_Rupee"><i class="fa fa-rupee">180</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item23_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item23_Name">
+                                    <p id="item23_Name" class="itemName">Veg Biryani</p>
+                                </div>
+                                <div id="div_Grid_Item23_Description">
+                                    <p class="itemDescription">Rice, Vegetables, Onions, Raita, Salad</p>
+                                </div>
+                                <div id="div_Grid_Item23_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput23_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item23_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item23" class="removeItemButton" onclick="decreaseItemValue('button_remove_item23', 'input_item23')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item23" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item23" class="addItemButton" onclick="increaseItemValue('button_remove_item23', 'input_item23')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item23_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item23','item23_Name','item23_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+                        </div>
+    
+                        <div id="div_Grid_Item24Container" class="div_FoodItems">
+                            <div id="div_Item24_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item24_Image">
+                                    <img id="item24_Img" src="images/orderOnline/biryani_mushroom.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item24_Price">
+                                    <p id="item24_Rupee"><i class="fa fa-rupee">210</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item24_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item24_Name">
+                                    <p id="item24_Name" class="itemName">Mushroom Biryani</p>
+                                </div>
+                                <div id="div_Grid_Item24_Description">
+                                    <p class="itemDescription">Rice, Mushrooms, Onions, Raita, Salad</p>
+                                </div>
+                                <div id="div_Grid_Item24_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput24_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item24_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item24" class="removeItemButton" onclick="decreaseItemValue('button_remove_item24', 'input_item24')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item24" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item24" class="addItemButton" onclick="increaseItemValue('button_remove_item24', 'input_item24')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item24_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item24','item24_Name','item24_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+                            
+                        </div>
+    
+                        <div id="div_Grid_Item25Container" class="div_FoodItems">
+                            <div id="div_Item25_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item25_Image">
+                                    <img id="item25_Img" src="images/orderOnline/biryani_chicken_dum.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item25_Price">
+                                    <p id="item25_Rupee"><i class="fa fa-rupee">280</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item25_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item25_Name">
+                                    <p id="item25_Name" class="itemName">Chicken Dum Biryani</p>
+                                </div>
+                                <div id="div_Grid_Item25_Description">
+                                    <p class="itemDescription">Rice, Chicken, Onions, Raita, Salad</p>
+                                </div>
+                                <div id="div_Grid_Item25_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div> 
+                            <div id="div_StepInput25_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item25_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item25" class="removeItemButton" onclick="decreaseItemValue('button_remove_item25', 'input_item25')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item25" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item25" class="addItemButton" onclick="increaseItemValue('button_remove_item25', 'input_item25')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item25_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item25','item25_Name','item25_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item26Container" class="div_FoodItems">
+                            <div id="div_Item26_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item26_Image">
+                                    <img id="item26_Img" src="images/orderOnline/biryani_mutton_dum.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item26_Price">
+                                    <p id="item26_Rupee"><i class="fa fa-rupee">300</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item26_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item26_Name">
+                                    <p id="item26_Name" class="itemName">Mutton Biryani</p>
+                                </div>
+                                <div id="div_Grid_Item26_Description">
+                                    <p class="itemDescription">Rice, Mutton, Onions, Raita, Salad</p>
+                                </div>
+                                <div id="div_Grid_Item26_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput26_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item26_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item26" class="removeItemButton" onclick="decreaseItemValue('button_remove_item26', 'input_item26')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item26" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item26" class="addItemButton" onclick="increaseItemValue('button_remove_item26', 'input_item26')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item26_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item26','item26_Name','item26_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                    </div>
+                
+                    <div id="div_PastriesContainer">
+                        <div id="div_Grid_Item27Container" class="div_FoodItems">
+                            <div id="div_Item27_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item27_Image">
+                                    <img id="item27_Img" src="images/orderOnline/pastries1.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item27_Price">
+                                    <p id="item27_Rupee"><i class="fa fa-rupee">110</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item27_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item27_Name">
+                                    <p id="item27_Name" class="itemName">Belgium Chocolate Pastry</p>
+                                </div>
+                                <div id="div_Grid_Item27_Description">
+                                    <p class="itemDescription">Biscuit Crust, Belgium Chocolate, Chocolate Cake, Chocolate cream</p>
+                                </div>
+                                <div id="div_Grid_Item27_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput27_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item27_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item27" class="removeItemButton" onclick="decreaseItemValue('button_remove_item27', 'input_item27')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item27" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item27" class="addItemButton" onclick="increaseItemValue('button_remove_item27', 'input_item27')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item27_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item27','item27_Name','item27_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item28Container" class="div_FoodItems">
+                            <div id="div_Item28_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item28_Image">
+                                    <img id="item28_Img" src="images/orderOnline/pastries2.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item28_Price">
+                                    <p id="item28_Rupee"><i class="fa fa-rupee">150</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item28_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item28_Name">
+                                    <p id="item28_Name" class="itemName">KitKat Chocolate Pastry</p>
+                                </div>
+                                <div id="div_Grid_Item28_Description">
+                                    <p class="itemDescription">KitKat Chocolate, Chocolate Cake, Chocolate cream</p>
+                                </div>
+                                <div id="div_Grid_Item28_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput28_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item28_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item28" class="removeItemButton" onclick="decreaseItemValue('button_remove_item28', 'input_item28')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item28" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item28" class="addItemButton" onclick="increaseItemValue('button_remove_item28', 'input_item28')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item28_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item28','item28_Name','item28_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item29Container" class="div_FoodItems">
+                            <div id="div_Item29_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item29_Image">
+                                    <img id="item29_Img" src="images/orderOnline/pastries3.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item29_Price">
+                                    <p id="item29_Rupee"><i class="fa fa-rupee">140</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item29_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item29_Name">
+                                    <p id="item29_Name" class="itemName">BlueBerry Cheesecake Pastry</p>
+                                </div>
+                                <div id="div_Grid_Item29_Description">
+                                    <p class="itemDescription">Biscuit Crust, Cheese Cake, BlueBerry Jam, Blueberries</p>
+                                </div>
+                                <div id="div_Grid_Item29_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput29_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item29_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item29" class="removeItemButton" onclick="decreaseItemValue('button_remove_item29', 'input_item29')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item29" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item29" class="addItemButton" onclick="increaseItemValue('button_remove_item29', 'input_item29')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item29_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item29','item29_Name','item29_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item30Container" class="div_FoodItems">
+                            <div id="div_Item30_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item30_Image">
+                                    <img id="item30_Img" src="images/orderOnline/pastries4.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item30_Price">
+                                    <p id="item30_Rupee"><i class="fa fa-rupee">160</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item30_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item30_Name">
+                                    <p id="item30_Name" class="itemName">Mango Cheesecake Pastry</p>
+                                </div>
+                                <div id="div_Grid_Item30_Description">
+                                    <p class="itemDescription">Biscuit Crust, Cheese Cake, Mango Jam, Mango Pieces</p>
+                                </div>
+                                <div id="div_Grid_Item30_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput30_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item30_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item30" class="removeItemButton" onclick="decreaseItemValue('button_remove_item30', 'input_item30')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item30" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item30" class="addItemButton" onclick="increaseItemValue('button_remove_item30', 'input_item30')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item30_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item30','item30_Name','item30_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+                    </div>
+    
+                    <div id="div_CakesContainer">
+                        <div id="div_Grid_Item31Container" class="div_FoodItems">
+                            <div id="div_Item31_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item31_Image">
+                                    <img id="item31_Img" src="images/orderOnline/cake_blackforest.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item31_Price">
+                                    <p id="item31_Rupee"><i class="fa fa-rupee">800</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item31_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item31_Name">
+                                    <p id="item31_Name" class="itemName">Black Forest Cake</p>
+                                </div>
+                                <div id="div_Grid_Item31_Description">
+                                    <p class="itemDescription">Chocolate Cake, Chocolate Ganache, Chocolate shards, Cherries</p>
+                                </div>
+                                <div id="div_Grid_Item31_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput31_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item31_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item31" class="removeItemButton" onclick="decreaseItemValue('button_remove_item31', 'input_item31')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item31" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item31" class="addItemButton" onclick="increaseItemValue('button_remove_item31', 'input_item31')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item31_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item31','item31_Name','item31_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item32Container" class="div_FoodItems">
+                            <div id="div_Item32_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item32_Image">
+                                    <img id="item32_Img" src="images/orderOnline/cake_dates_walnuts.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item32_Price">
+                                    <p id="item32_Rupee"><i class="fa fa-rupee">1100</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item32_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item32_Name">
+                                    <p id="item32_Name" class="itemName">Dates Walnuts Cake</p>
+                                </div>
+                                <div id="div_Grid_Item32_Description">
+                                    <p class="itemDescription">Plum Cake, Dates, Walnuts</p>
+                                </div>
+                                <div id="div_Grid_Item32_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput32_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item32_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item32" class="removeItemButton" onclick="decreaseItemValue('button_remove_item32', 'input_item32')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item32" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item32" class="addItemButton" onclick="increaseItemValue('button_remove_item32', 'input_item32')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item32_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item32','item32_Name','item32_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item33Container" class="div_FoodItems">
+                            <div id="div_Item33_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item33_Image">
+                                    <img id="item33_Img" src="images/orderOnline/cake_fruit.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item33_Price">
+                                    <p id="item33_Rupee"><i class="fa fa-rupee">1300</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item33_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item33_Name">
+                                    <p id="item33_Name"
+                                    class="itemName">Fruit Cake</p>
+                                </div>
+                                <div id="div_Grid_Item33_Description">
+                                    <p class="itemDescription">Cool Cake, Fruits, Cherries, Chocolate Decoration</p>
+                                </div>
+                                <div id="div_Grid_Item33_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput33_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item33_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item33" class="removeItemButton" onclick="decreaseItemValue('button_remove_item33', 'input_item33')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item33" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item33" class="addItemButton" onclick="increaseItemValue('button_remove_item33', 'input_item33')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item33_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item33','item33_Name','item33_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item34Container" class="div_FoodItems">
+                            <div id="div_Item34_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item34_Image">
+                                    <img id="item34_Img" src="images/orderOnline/cake_rasmalai.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item34_Price">
+                                    <p id="item34_Rupee"><i class="fa fa-rupee">1600</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item34_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item34_Name">
+                                    <p id="item34_Name" class="itemName">Rasmalai Cake</p>
+                                </div>
+                                <div id="div_Grid_Item34_Description">
+                                    <p class="itemDescription">Sponge cake soaked in Rasmali, Rasmalai Cream, Rasmali Pieces, Pistachios Decoration</p>
+                                </div>
+                                <div id="div_Grid_Item34_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput34_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item34_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item34" class="removeItemButton" onclick="decreaseItemValue('button_remove_item34', 'input_item34')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item34" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item34" class="addItemButton" onclick="increaseItemValue('button_remove_item34', 'input_item34')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item34_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item34','item34_Name','item34_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item35Container" class="div_FoodItems">
+                            <div id="div_Item35_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item35_Image">
+                                    <img id="item35_Img" src="images/orderOnline/cake_truffle.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item35_Price">
+                                    <p id="item35_Rupee"><i class="fa fa-rupee">1000</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item35_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item35_Name">
+                                    <p id="item35_Name" class="itemName">Chocolate Truffle Cake</p>
+                                </div>
+                                <div id="div_Grid_Item35_Description">
+                                    <p class="itemDescription">Chocolate Cake, Choco Chips, Chocoloate Ganache, Chocolate Cream</p>
+                                </div>
+                                <div id="div_Grid_Item35_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput35_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item35_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item35" class="removeItemButton" onclick="decreaseItemValue('button_remove_item35', 'input_item35')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item35" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item35" class="addItemButton" onclick="increaseItemValue('button_remove_item35', 'input_item35')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item35_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item35','item35_Name','item35_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item36Container" class="div_FoodItems">
+                            <div id="div_Item36_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item36_Image">
+                                    <img id="item36_Img" src="images/orderOnline/cake_vanilla.png" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item36_Price">
+                                    <p id="item36_Rupee"><i class="fa fa-rupee">700</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item36_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item36_Name">
+                                    <p id="item36_Name" class="itemName">Vanilla Fondant Cake</p>
+                                </div>
+                                <div id="div_Grid_Item36_Description">
+                                    <p class="itemDescription">Vanilla Infused Cake, Fondant, Glitter Decoration</p>
+                                </div>
+                                <div id="div_Grid_Item36_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput36_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item36_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item36" class="removeItemButton" onclick="decreaseItemValue('button_remove_item36', 'input_item36')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item36" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item36" class="addItemButton" onclick="increaseItemValue('button_remove_item36', 'input_item36')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item36_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item36','item36_Name','item36_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                    </div> 
+    
+                    <div id="div_MacaronsContainer">
+                        <div id="div_Grid_Item37Container" class="div_FoodItems">
+                            <div id="div_Item37_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item37_Image">
+                                    <img id="item37_Img" src="images/orderOnline/macaron_blueberry.jpg" alt="Image Unavailable"/>
+                                </div>                                
+                                <div id="div_Grid_Item37_Price">
+                                    <p id="item37_Rupee"><i class="fa fa-rupee">300</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item37_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item37_Name">
+                                    <p id="item37_Name" class="itemName">BlueBerry Macaron (4 Pieces)</p>
+                                </div>
+                                <div id="div_Grid_Item37_Description">
+                                    <p class="itemDescription">Sandwich cookie made from meringue, almond flour, sugar with blueberry compote</p>
+                                </div>
+                                <div id="div_Grid_Item37_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput37_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item37_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item37" class="removeItemButton" onclick="decreaseItemValue('button_remove_item37', 'input_item37')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item37" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item37" class="addItemButton" onclick="increaseItemValue('button_remove_item37', 'input_item37')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item37_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item37','item37_Name','item37_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item38Container" class="div_FoodItems">
+                            <div id="div_Item38_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item38_Image">
+                                    <img id="item38_Img" src="images/orderOnline/macaron_peach.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item38_Price">
+                                    <p id="item38_Rupee"><i class="fa fa-rupee">450</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item38_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item38_Name">
+                                    <p id="item38_Name" class="itemName">Peach Macaron (4 Pieces)</p>
+                                </div>
+                                <div id="div_Grid_Item38_Description">
+                                    <p class="itemDescription">Sandwich cookie made from meringue, almond flour, sugar with peach compote</p>
+                                </div>
+                                <div id="div_Grid_Item38_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput38_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item38_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item38" class="removeItemButton" onclick="decreaseItemValue('button_remove_item38', 'input_item38')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item38" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item38" class="addItemButton" onclick="increaseItemValue('button_remove_item38', 'input_item38')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item38_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item38','item38_Name','item38_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item39Container" class="div_FoodItems">
+                            <div id="div_Item39_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item39_Image">
+                                    <img id="item39_Img" src="images/orderOnline/macaron_pista.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item39_Price">
+                                    <p id="item39_Rupee"><i class="fa fa-rupee">500</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item39_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item39_Name">
+                                    <p id="item39_Name" class="itemName">Pista Macaron (4 Pieces)</p>
+                                </div>
+                                <div id="div_Grid_Item39_Description">
+                                    <p class="itemDescription">Sandwich cookie made from meringue, almond flour, sugar with pista cream filling</p>
+                                </div>
+                                <div id="div_Grid_Item39_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput39_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item39_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item39" class="removeItemButton" onclick="decreaseItemValue('button_remove_item39', 'input_item39')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item39" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item39" class="addItemButton" onclick="increaseItemValue('button_remove_item39', 'input_item39')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item39_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item39','item39_Name','item39_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+    
+                        <div id="div_Grid_Item40Container" class="div_FoodItems">
+                            <div id="div_Item40_ImagePriceContainer" class="div_Item_ImagePriceContainer">
+                                <div id="div_Grid_Item40_Image">
+                                    <img id="item40_Img" src="images/orderOnline/macaron_assorted.jpg" alt="Image Unavailable"/>
+                                </div>
+                                <div id="div_Grid_Item40_Price">
+                                    <p id="item40_Rupee"><i class="fa fa-rupee">450</i></p>
+                                </div>
+                            </div>
+                            <div id="div_Item40_Name_Description_Ratings_Container" class="div_Item_Name_Description_Ratings_Container">
+                                <div id="div_Grid_Item40_Name">
+                                    <p id="item40_Name" class="itemName">Assorted Macarons (3 Pieces)</p>
+                                </div>
+                                <div id="div_Grid_Item40_Description">
+                                    <p class="itemDescription">Blueberry, Peach, Pista Macarons</p>
+                                </div>
+                                <div id="div_Grid_Item40_Rating">                       
+                                    <p class="para_Ratings">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span> 
+                                    </p>                   
+                                </div>
+                            </div>
+                            <div id="div_StepInput40_CartButtonContainer" class="div_StepInput_CartButtonContainer">
+                                <div id="div_Grid_Item40_Quantity" class="div_Grid_Item_Quantity">
+                                    <button id="button_remove_item40" class="removeItemButton" onclick="decreaseItemValue('button_remove_item40', 'input_item40')"><i class="fa fa-minus"></i></button>
+                                    <input type="number" id="input_item40" class="inputItem" value="1" min="0" readonly >
+                                    <button id="button_add_item40" class="addItemButton" onclick="increaseItemValue('button_remove_item40', 'input_item40')"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div id="div_Grid_Item40_AddToCartButton">
+                                    <!-- <a href="orderDetails.html"> -->
+                                        <button id="button_AddToCart" class="addToCartButton" onclick="showMessage('input_item40','item40_Name','item40_Rupee')">Add to Cart</button>
+                                    <!-- </a> -->
+                                </div>
+                            </div> 
+    
+                        </div>
+                    </div>                      
+                        
+                </div>
+
+                <div id="div_Advertisement_ViewCartContainer" style="width: 320px; opacity: 1;background-color: rgba(248, 172, 164, 0.37);height:510px;margin-left: 15px; margin-top: 17px;border-radius: 20px;">
+                    <div id="div_Advertisement" style="height:50%;  ">
+                        <img src="images/orderOnline/cake_Jar.png" style="border-radius: 20px; margin-left: 40px;margin-top: 20px; height: 340px;"/>
+                        <h1 class="h1_ComingSoon" style="position: absolute; top: 30%; left: 89%; transform: translate(-50%, -50%); text-align: center;font-size: larger;color:white">COMING SOON</h1>
+                    </div>
+                    <div id="div_ViewCart_Button" style="height: 20%;margin-top: 170px; margin-left: 120px;">
+                        <button id="button_ViewCart" style="opacity: 1;background-color: #008080; width:100px; height:35px; border: none;border-radius: 25px;" >
+                            <a href="orderDetails.html" title="Cart" style="text-decoration: none; font-weight: bold; font-size: medium;color: white;font-family: Georgia, 'Times New Roman', Times, serif;">View Cart</a>
+                        </button>
+                    </div>  
+                </div>
+
+            </div>
+        </section>
+      
+
+        <footer>
+            <div id="div_homePage_Footer_AllContainer">
+                <div id="div_homePage_Footer_DownloadLinksContainer">
+                    <a href="https://apps.apple.com/in/app/zomato-food-delivery-dining/id434613896?_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3Kz00sydfNzC8GAFKYbuoiAAAA" target="_blank"><img src="images/homePage/download_AppleStore.png" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.application.zomato&_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3STcxLKcrPTAEABp6kzyEAAAA%3D" target="_blank"><img src="images/homePage/download_PlayStore.png" /></a>
+                </div>
+                <div id="div_homePage_Footer_SocialLinksContainer">
+                    <a href="https://www.facebook.com/zomato" target="_blank" title="Facebook"><img src="images/icons/facebook.png"/></a>
+                    <a href="https://www.instagram.com/zomato/" target="_blank"  title="Instagram"><img src="images/icons/instagram.png"/></a>
+                    <a href="https://in.linkedin.com/company/zomato" target="_blank"  title="LinkedIn"><img src="images/icons/linkedIn.png"/></a>
+                    <a href="https://www.youtube.com/zomato" target="_blank"  title="Youtube"><img src="images/icons/youtube.png"/></a>             
+                </div>
+            </div>
+        </footer>
+    </div>
+ 
+    <script type="text/javascript" src="js/orderOnline.js"></script>
+</body>
+</html>

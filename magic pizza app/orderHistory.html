@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <link rel="stylesheet" href="css/orderOnline.css">
+    <link rel="stylesheet" href="css/orderHistory.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+</head>
+<body>
+    <div id="div_orderHistory_AllContainer">
+        <header>
+            <div id="div_orderOnline_TopSectionContainer">
+                <div id="div_OrderOnline_BackButton" class="backButton">
+                    <a href="orderDetails.html" style="color: #008080;" title="Back"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                <div id="div_orderOnline_TopSection_HeaderData">
+                    <div id="div_magicPizzaImageLinkWithText">
+                        <a href="index.html" title="Home"><img src="images/icons/magicPizzaIcon.jpeg" style="width: 50px; border-radius: 25px;"></a>
+                        <a href="index.html" style="color: #008080;" title="Home"><p id="para_onlineOrder_MagicPizzaText">Magic Pizza Cafe</p></a>                  
+                    </div> 
+                    <!-- <div id="div_magicPizza_About_Info">
+                        <p id="para_onlineOrder_PizzasDesserts_Text"><h3>Pizzas, Desserts, Beverages</h3></p>
+                        <p id="para_onlineOrder_KurnoolText" style="font-size: small;"> 11am - 10:30pm(today)<i class="fa fa-info-circle" title="Opening Hours : Mon-Sun (11am - 10:30pm)"></i></p>
+                        <p></p>
+                    </div>                        -->
+                </div>
+        
+                <div id="div_onlineOrder_Header_TopRightSectionContainer">
+                    <div id="div_onlineOrder_DiningStarWithText">
+                        <div id="div_onlineOrder_DiningStar">
+                            <div>4.1</div>
+                            <div><i class = "fa fa-star" style="font-size:14px"></i></div>
+                        </div>
+                        <div id="div_onlineOrder_DiningText">
+                            <div>157</div>
+                            <div style="font-size: small;">Dining Ratings<hr></div>
+                           
+                        </div>
+                    </div>
+                    <div id="div_onlineOrder_DeliveryStarWithText">
+                        <div id="div_onlineOrder_DeliveryStar">
+                            <div>4.0</div>
+                            <div><i class = "fa fa-star" style="font-size:14px"></i></div>
+                        </div>
+                        <div id="div_onlineOrder_DeliveryText">
+                            <div>1,505</div>
+                            <div style="font-size: small;">Delivery Ratings<hr></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="div_OnlineOrder_HeaderNavigation">
+                   
+                    <div id="div_buttonLinks"> 
+                        <div>
+                            <button id="button_MenuCart" class="headerNavigationButton">
+                                <a href="orderOnline.html" title="Menu" style="color: #008080;font-size: 22px;"><i class="fa fa-bars"></i></a>
+                            </button>  
+                        </div>   
+                        <!-- <div>
+                            <button id="button_Dining" class="headerNavigationButton">
+                                <a href="dining.html" title="Book a Table" style="color:  #008080;font-size: 22px;"><i class="fa fa-table"></i></a>
+                            </button>
+                        </div> -->
+                       <!-- <div>
+                            <button id="button_Orders" class="headerNavigationButton">
+                                <a href="orderDetails.html" title="Order History" style="color:  #008080;font-size: 22px;"><i class="fa fa-history"></i></a>
+                            </button> 
+                       </div> -->
+                        <div>
+                            <button id="button_HeaderCart" class="headerNavigationButton">
+                               <a href="orderDetails.html" title="Shopping Cart" style="color:#008080;font-size: 17px; text-decoration: none;"><i class="fa fa-cart-arrow-down" id="icon_HeaderCart" style="font-size: 25px;"></i>Cart</a> 
+                            </button> 
+                        </div>                                
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div id="div_OrderHistoryContainer" style="border: 2px solid salmon; margin:auto; opacity: 0.7;background-color: rgba(250, 131, 117, 0.37);width:700px;height:525px;border-radius: 20px;margin-top: 7px;">
+                <div id="div_OrderHistory_TopContainer" style=" height:10%;">
+                    <p style="text-align: center;justify-content: center; font-weight: bold; font-size: large;" hidden> Your Orders History</p>
+                </div>
+                <div id="div_OrderHistory_MidContainer" class="scrollAddedItemsInCart" style="height:80%;">
+                    <table id="table_InHistoryItems" class="table_InHistoryItems" style="margin-left: 50px;" >
+                        <thead>
+                            <th style="width : 150px">Order Id</th>                           
+                            <th style="width : 200px">Item Name</th>
+                            <!-- <th style="width : 100px">Item Price</th> -->
+                            <th style="width : 100px">Quantity</th>
+                            <th style="width : 100px">Total Price</th>                         
+                        </thead>
+                        <tbody id="table_Body_InHistoryItems" >
+                            <span id="span_History_EmptyText" hidden style="color: #000000; font-size: bolder; margin-left:270px;font-size: 20px;text-align: center;justify-content: center;"><b>No orders placed yet !</b></span>
+                        </tbody>
+                        <!-- <tfoot>
+                                <td colspan="2" style="text-align: right;" >Total:</td>
+                                <td colspan="2" style="text-align:left">0</td>
+                        </tfoot> -->
+                    </table>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div id="div_homePage_Footer_AllContainer">
+                <div id="div_homePage_Footer_DownloadLinksContainer">
+                    <a href="https://apps.apple.com/in/app/zomato-food-delivery-dining/id434613896?_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3Kz00sydfNzC8GAFKYbuoiAAAA" target="_blank"><img src="images/homePage/download_AppleStore.png" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.application.zomato&_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3STcxLKcrPTAEABp6kzyEAAAA%3D" target="_blank"><img src="images/homePage/download_PlayStore.png" /></a>
+                </div>
+                <div id="div_homePage_Footer_SocialLinksContainer">
+                    <a href="https://www.facebook.com/zomato" target="_blank" title="Facebook"><img src="images/icons/facebook.png"/></a>
+                    <a href="https://www.instagram.com/zomato/" target="_blank"  title="Instagram"><img src="images/icons/instagram.png"/></a>
+                    <a href="https://in.linkedin.com/company/zomato" target="_blank"  title="LinkedIn"><img src="images/icons/linkedIn.png"/></a>
+                    <a href="https://www.youtube.com/zomato" target="_blank"  title="Youtube"><img src="images/icons/youtube.png"/></a>             
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="js/orderHistory.js"></script>
+</html>

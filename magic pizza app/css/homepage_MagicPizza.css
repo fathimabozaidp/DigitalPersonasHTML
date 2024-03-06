@@ -1,0 +1,160 @@
+/* header{
+    background-color: bisque;
+    height:70px;  
+    padding: 1%;
+    align-items: center;
+    justify-content: center;
+} */
+header{
+    background-color: #ffffff;
+    border: 2px solid rgb(251, 190, 184);
+    border-radius: 10px;
+    opacity: 0.7;
+
+    position: fixed;
+    left: 10;
+    top: 0;
+    width: 99%;
+}
+body{
+    background-image: url("/images/orderOnline/backgroundOnline.png");
+    background-size: cover;
+    /* height:520px; */
+}  
+
+#div_homePage_NavigationBar{
+    display:flex; 
+    margin-left: 20px;   
+}
+.headerNavigationButton{
+    border: none; 
+    background: none;
+}
+.headerNavigationButton i:hover{
+    color: black;
+    font-size: 26px;
+}
+#div_magicPizzaImageLinkWithText{
+    margin-top: 20px;
+    margin-left: 30px;
+    display: flex;
+    width:50%;
+}
+
+#div_buttonLinks{
+    display: flex;
+    margin-left: 450px;  
+    padding: 20px;
+}
+#div_buttonLinks button{
+    float: right;
+    margin-left: 10px;
+}
+#div_HomePage_MidSection_CenterContainer{
+    display: flex;
+    padding: 40px;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: center;
+}
+#div_Homepage_MidSection_OnlineDeliveryContainer{
+    display: flex;
+    width:50%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 145px;
+    margin-bottom: 145px;
+}
+#div_Homepage_MidSection_DiningContainer{
+    display: flex;
+    width:50%;
+    align-items: center;
+    justify-content: center;
+}
+#div_HomePage_MidSection_CenterContainer img{
+    border-radius: 20px;
+    width: 300px; 
+    height: 300px;    
+}
+#div_HomePage_MidSection_CenterContainer img:hover{
+    transform: scale(1.05);    
+}
+#div_HomePage_MidSection_OnlineDelivery_TextContainer{
+    margin-left: 25px;
+   
+}
+#div_HomePage_MidSection_OnlineDelivery_TextContainer a{
+    font-size: x-large;
+    text-decoration: none;
+    color: #000000
+}
+#div_HomePage_MidSection_OnlineDelivery_TextContainer a:hover{
+    font-size: xx-large;
+    text-decoration: none;
+    color: #086d2a;    
+}
+#div_HomePage_MidSection_Dining_TextContainer{
+    margin-left: 25px;
+}
+#div_HomePage_MidSection_Dining_TextContainer a{
+    font-size: x-large;
+    text-decoration: none;
+    color: #000000
+}
+#div_HomePage_MidSection_Dining_TextContainer a:hover{
+    font-size: xx-large;
+    text-decoration: none;
+    color: #086d2a;    
+}
+
+#div_homePage_Footer_AllContainer{
+    display: flex;
+}
+#div_homePage_Footer_DownloadLinksContainer {
+    float: left;
+    width: 50%;
+    margin-top: 15px;
+    margin-left: 50px; 
+    
+}
+#div_homePage_Footer_DownloadLinksContainer img{
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+}
+#div_homePage_Footer_SocialLinksContainer{
+    width: 50%; 
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+#div_homePage_Footer_SocialLinksContainer a{
+    margin-left: 30px;
+    margin-top: 3%;
+    float: right;
+    font-size: x-large;
+    align-items: center;    
+}
+#div_homePage_Footer_SocialLinksContainer img{
+    width: 30px;
+    height: 30px;   
+}
+#div_homePage_Footer_SocialLinksContainer img:hover{
+  transform: scale(1.1);
+}
+footer{  
+    /* margin-top: 11.4%; */
+    position: fixed;
+    left: 10;
+    bottom: 0;
+    width: 99%;
+    opacity: 1;
+}
+#div_homePage_Footer_AllContainer{
+    margin: 0px;
+    background-color: #ffffff;
+    border: 2px solid rgb(251, 224, 222);
+    border-radius: 10px;
+    opacity: 0.7;
+}

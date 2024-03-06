@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="css/orderOnline.css">
+    <link rel="stylesheet" href="css/orderDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
+      
+</head>
+<body>
+    <div id="div_orderDetails_AllContainer">
+        <header>
+            <div id="div_orderOnline_TopSectionContainer">
+                <div id="div_OrderOnline_BackButton" class="backButton">
+                    <a href="orderOnline.html" style="color: #008080;" title="Back"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                <div id="div_orderOnline_TopSection_HeaderData">
+                    <div id="div_magicPizzaImageLinkWithText">
+                        <a href="index.html" title="Home"><img src="images/icons/magicPizzaIcon.jpeg" style="width: 50px; border-radius: 25px;"></a>
+                        <a href="index.html" style="color: #008080;" title="Home"><p id="para_onlineOrder_MagicPizzaText">Magic Pizza Cafe</p></a>                  
+                    </div> 
+                    <!-- <div id="div_magicPizza_About_Info">
+                        <p id="para_onlineOrder_PizzasDesserts_Text"><h3>Pizzas, Desserts, Beverages</h3></p>
+                        <p id="para_onlineOrder_KurnoolText" style="font-size: small;"> 11am - 10:30pm(today)<i class="fa fa-info-circle" title="Opening Hours : Mon-Sun (11am - 10:30pm)"></i></p>
+                        <p></p>
+                    </div>                        -->
+                </div>
+        
+                <div id="div_onlineOrder_Header_TopRightSectionContainer">
+                    <div id="div_onlineOrder_DiningStarWithText">
+                        <div id="div_onlineOrder_DiningStar">
+                            <div>4.1</div>
+                            <div><i class = "fa fa-star" style="font-size:14px"></i></div>
+                        </div>
+                        <div id="div_onlineOrder_DiningText">
+                            <div>157</div>
+                            <div style="font-size: small;">Dining Ratings<hr></div>
+                           
+                        </div>
+                    </div>
+                    <div id="div_onlineOrder_DeliveryStarWithText">
+                        <div id="div_onlineOrder_DeliveryStar">
+                            <div>4.0</div>
+                            <div><i class = "fa fa-star" style="font-size:14px"></i></div>
+                        </div>
+                        <div id="div_onlineOrder_DeliveryText">
+                            <div>1,505</div>
+                            <div style="font-size: small;">Delivery Ratings<hr></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="div_OnlineOrder_HeaderNavigation">
+                   
+                    <div id="div_buttonLinks"> 
+                        <div>
+                            <button id="button_MenuCart" class="headerNavigationButton">
+                                <a href="orderOnline.html" title="Menu" style="color: #008080;font-size: 22px;"><i class="fa fa-bars"></i></a>
+                            </button>  
+                        </div>   
+                        <!-- <div>
+                            <button id="button_Dining" class="headerNavigationButton">
+                                <a href="dining.html" title="Book a Table" style="color:  #008080;font-size: 22px;"><i class="fa fa-table"></i></a>
+                            </button>
+                        </div> -->
+                       <div>
+                            <button id="button_Orders" class="headerNavigationButton">
+                                <a href="orderHistory.html" title="Order History" style="color:  #008080;font-size: 22px;"><i class="fa fa-history"></i></a>
+                            </button> 
+                       </div>
+                        <!-- <div>
+                            <button id="button_HeaderCart" class="headerNavigationButton">
+                               <a href="orderDetails.html" title="Shopping Cart" style="color:#008080;font-size: 17px; text-decoration: none;"><i class="fa fa-cart-arrow-down" id="icon_HeaderCart" style="font-size: 25px;"></i>Cart</a> 
+                            </button> 
+                        </div>                                 -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section id="section_OrderDetailsContainer" style="margin-top: 8px; display: flex;">
+            <!-- LEFT SECTION -->
+            <div id="div_OrderDetails_LeftContainer" style="border: 2px solid salmon; margin-left:10px; opacity: 0.7;background-color: rgba(250, 131, 117, 0.37);width:380px;height:525px;border-radius: 20px;">
+             <div style="margin-top:50px;margin-left: 20px;">
+                <div id="div_OrderDetails_Left_DeliveryTime">
+                    <i class="fas fa-stopwatch" style="color: #008080;font-size: 25px;margin-top: 10px;"></i>
+                    <span style="color: black; margin-left: 10px;">Delivery in <b>25-30 mins</b></span>
+                </div>
+                <div id="div_OrderDetails_Left_DeliveryAddress" >
+                    <div id="div_OrderDetails_DeliveryAddress_MainContainer" style="display: flex; align-content: center;">
+                        <div id="div_OrderDetails_DeliveryAddress_HeadlineContainer">
+                            <i class="fas fa-home" style="color: #008080;font-size: 20px;margin-top: 30px;"></i>
+                            <span style="color: black; margin-left: 10px;text-decoration: underline;text-decoration-style:dotted;text-underline-offset: 7px; ">Delivery at <b>Home</b></span>
+                        </div>
+                        <div id="div_orderDetails_Address_RightArrow" class="divRightArrow">                                                     
+                            <button id="button_orderDetails_Address_RightArrow" class="buttonRightArrow" style="background: none;border: none;" onclick="showHideDiv('div_OrderDetails_DeliveryAddress_FullAddressContainer')">
+                                <a href="#" style="font-size: 15px; "><i class="fa fa-chevron-right" style="color: #000000;margin-top:32px;margin-left: 170px;"></i></a>
+                            </button>
+                        </div>
+                    </div>                   
+                </div>
+                <div id="div_OrderDetails_Left_UserDetails">
+                    <i class="fas fa-phone" style="color: #008080;font-size: 20px;margin-top: 30px;"></i>
+                    <span style="color: black; margin-left: 10px;">B M FATHIMA KHATOON, <b>+91-9865356987</b></span>
+                </div>
+                <div id="div_OrderDetails_Left_TotalBillAmount">
+                    <div id="div_OrderDetails_TotalBillAmount_MainContainer" style="display: flex; align-content: center;">
+                        <div id="div_OrderDetails_TotalBillAmount_HeadlineContainer">
+                            <i class="fas fa-receipt" style="color: #008080;font-size: 25px;margin-top: 30px;"></i>
+                            <span style="color: black; margin-left: 10px;text-decoration: underline;text-decoration-style:dotted;text-underline-offset: 7px;">Total Bill</span>
+                        </div>
+                        <div>
+                            <i class="fa fa-rupee" style="color: #000000;font-size: 13px;margin-left:18px;margin-top: 40px;"></i><span id="span_TotalBillValue" style="color: #000000;margin-left: 5px;"><b></b></span>
+                        </div>
+                        <div id="div_orderDetails_TotalBillAmount_RightArrow" class="divRightArrow">                                                     
+                            <button id="button_orderDetails_TotalBillAmount_RightArrow" class="buttonRightArrow" style="background: none;border: none;" onclick="showHideDiv('div_OrderDetails_TotalBill_Container')">
+                                <a href="#" style="font-size: 15px; "><i class="fa fa-chevron-right" style="color: #000000;margin-top:32px;margin-left: 153px;"></i></a>
+                            </button>
+                        </div>
+                    </div>   
+                </div>
+             
+                <div id="div_Payment_PlaceOrder_MainContainer" style="display: flex; width:350px; margin-top:50px; height:70px; border-radius: 10px;position: absolute;">
+                    <div id="div_PaymentContainer" style="margin-left:0px; height:70px;margin-top: 5px;width:180px;background-color: rgb(245, 154, 144);border-radius: 10px;">
+                        <div id="div_Payment_Icon_OptionConatiner" style="display: flex;margin-top: 5px; margin-left:5px;margin-right: 5px;height:25px;" >
+                            <div id="div_Payment_Icon_Image_Container" style="width: 40px;">
+                                <i class="fa fa-money" id="i_PaymentTypeValue" style="height:25px;width:30px; margin-left: 5px;margin-top: 5px;"></i>
+                                <!-- <img id="img_PaymentTypeValue" src="images/icons/upi_Payment.png" style="height:25px;width:30px"> -->
+                            </div>
+                            <div id="div_Payment_Option_Container" style="margin-top: 3px; width:150px" onclick="displayPaymentOptions()">
+                                <span style="color: #000000;margin-left: 0px;width:100px">Pay Using</span>
+                                <button id="button_orderDetails_PayUsing_UpArrow" class="buttonRightArrow" style="background: none;border: none;margin-left: 25px;">
+                                    <a href="#" style="font-size: 15px; "><i class="fa fa-chevron-down" style="color: #000000;"></i></a>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="div_Payment_Info_Container" style="margin-top: 5px; margin-left:5px;margin-right: 5px; width:70px; color:#ffffff" >
+                            <pre><span id="span_PaymentTypeValue" style="color: #000000;margin-left: 5px; font-weight: bold; font-size: 15px;"><b></b></span></pre>
+                        </div>
+                    </div>
+                    <div id="div_PlaceOrderAllContainer" style="display: flex; height:70px;margin-top: 5px;width:160px;border-radius: 10px;margin-left: 5px;">
+                        <!-- <div id="div_TotalBillValueAndTextContainer" style="margin-left: 5px;margin-top: 0px;" >
+                            <div id="div_TotalBillValueContainer" style="margin-top: 20px;" >
+                                <i class="fa fa-rupee" style="color: #ffffff;"></i><span id="p_TotalBillValue" style="color: #ffffff;margin-left: 5px;font-size: 17px;">0000</span>
+                            </div>                            
+                        </div> -->
+
+                        <div id="div_PlaceOrderContainer" style="margin:auto" >
+                            <button id="button_PlaceOrder" disabled onclick="placeOrder()"><b>Place Order</b></button>                            
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_AllPayment_OptionContainer" style="width:150px;height: 100px; margin-top: 125px; margin-bottom: 0px;margin-left: 5px; background-color:antiquewhite;border-radius: 10px;" hidden>
+                    <div id="div_UpiPayment" class="div_PaymentOptionsContainer" style="height: 25px;margin-left: 10px;" onclick="showPopUp('div_Dialog_Upi')">UPI Payment</div>
+                    <div id="div_BankTransfer" class="div_PaymentOptionsContainer" style="height: 25px;margin-left: 10px;" onclick="showPopUp('div_Dialog_Banking')">Bank Transfer</div>
+                    <div id="div_DebitCreditCard" class="div_PaymentOptionsContainer" style="height: 25px;margin-left: 10px;" onclick="showPopUp('div_Dialog_Card')">Debit/Credit Card</div>
+                    <div id="div_QRScanner" class="div_PaymentOptionsContainer" style="height: 25px;margin-left: 10px;" onclick="showPopUp('div_Dialog_QRScanner')">QR Scanner</div>
+                </div>
+             </div>
+            </div>
+
+            <!-- DIALOG FOR ALL PAYMENT METHODS -->
+            <div id="div_AllPaymentOptions">
+                <div id="div_Dialog_Upi" class="div_PaymentDialog">
+                    <div id="div_Dialog_UpiContent" class="div_DialogContent">
+                      <span class="div_closePaymentDialog" onclick="closePopUp('div_Dialog_Upi')" style="color: black;font-size: 20px;"><i class="fa fa-window-close"></i></span>
+                      <h2>UPI Payment</h2>
+                      <br>
+                      <input type="text" id="input_UpiId" placeholder="Enter UPI ID" style="width:250px" oninput="validateInput('input_UpiId')"><br>
+                      <p id="p_UpiErrorText" style="color:red;text-align: center;" hidden>Enter a valid UPI ex: username@bankname</p><br>
+                      <button id="button_UpiId" disabled onclick="savePaymentDetails('button_UpiId')">Save UPI ID</button>
+
+                    </div>
+                </div>
+    
+                <div id="div_Dialog_Banking" class="div_PaymentDialog">
+                    <div id="div_Dialog_BankingContent" class="div_DialogContent">
+                      <span class="div_closePaymentDialog" onclick="closePopUp('div_Dialog_Banking')" style="color: black;font-size: 20px;"><i class="fa fa-window-close"></i></span>
+                      <h2>Net Banking</h2>
+                      <br>
+                      <input type="text" id="input_AccountNumber" placeholder="Enter account no." style="width:250px" oninput="validateInput('input_AccountNumber')"><br>                      
+                      <p id="p_BankErrorText" style="color:red;text-align: center;" hidden>Enter your 15 Digit account no.</p><br>
+                      <button id="button_Banking" disabled onclick="savePaymentDetails('button_Banking')">Save Account</button>
+                    </div>
+                </div>
+    
+                <div id="div_Dialog_Card" class="div_PaymentDialog">
+                    <div id="div_Dialog_CardContent" class="div_DialogContent">
+                        <span class="div_closePaymentDialog" onclick="closePopUp('div_Dialog_Card')" style="color: black;font-size: 20px;"><i class="fa fa-window-close"></i></span>
+                        <h2>Credit/Debit Card</h2>
+                        <br>                    
+                        <input type="text" id="input_CardNo" placeholder="Enter card no." style="width:250px" oninput="validateInput('input_CardNo')"><br><br>
+                        <div style="display: flex;">
+                            <input id="input_ExpiryDate" placeholder="MM / YY" style="left:40%;width:100px" oninput="validateInput('input_ExpiryDate')"><br><br>
+                            <input id="input_CVV" placeholder="CVV" style="left:60%;width:50px" oninput="validateInput('input_CVV')">
+                        </div>
+                        <button id="button_Card" onclick="savePaymentDetails('button_Card')" disabled  style=" margin: 0; position: absolute; left: 50%; top:80%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">Save Card</button>
+                                           
+                    </div>
+                </div>
+    
+                <div id="div_Dialog_QRScanner" class="div_PaymentDialog">
+                    <div id="div_Dialog_QRScannerContent" class="div_DialogContent">                        
+                        <span class="div_closePaymentDialog" onclick="closePopUp('div_Dialog_QRScanner')" style="color: black;font-size: 20px;"><i class="fa fa-window-close"></i></span>
+                        <h2>QR Scanner</h2>
+                        <img id="img_QrScanner" src="images/icons/QrScanner.png" style="height:100px;width:100px; margin-left:37%;">
+
+                        <!-- <input type="text" id="input_UpiId" placeholder="Enter UPI ID"> --><br><br>
+                        <button id="button_QRScanner" disabled onclick="savePaymentDetails('button_QRScanner')">Proceed to Place Order</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIDDLE SCETION -->
+            <div id="div_OrderDetailsContainer" style="border: 2px solid salmon; margin:auto; opacity: 0.7;background-color: rgba(250, 131, 117, 0.37);width:700px;height:525px;border-radius: 20px;">
+                <div id="div_OrderDetails_TopContainer" style=" height:10%;">
+                    <p style="text-align: center;justify-content: center; font-weight: bold; font-size: large;" hidden> Your Order Details from Magic Pizza Cafe</p>
+                </div>
+                <div id="div_OrderDetails_MidContainer" class="scrollAddedItemsInCart" style="height:80%">
+                    <table id="table_InCartItems" class="table_InCartItems" >
+                        <thead>                           
+                            <th style="width : 300px">Item Name</th>
+                            <th style="width : 100px">Item Price</th>
+                            <th style="width : 100px">Quantity</th>
+                            <th style="width : 100px">Total</th>                         
+                        </thead>
+                        <tbody id="table_Body_InCartItems">
+                            <span id="emptyText" hidden style="color: #000000; font-size: bolder; margin-left:270px;font-size: 20px;text-align: center;justify-content: center;"><b> Your Cart is Empty!</b></span>
+                        </tbody>
+                        <!-- <tfoot>
+                                <td colspan="2" style="text-align: right;" >Total:</td>
+                                <td colspan="2" style="text-align:left">0</td>
+                        </tfoot> -->
+                    </table>
+                </div>
+            </div>
+
+            <!-- RIGHT SECTION -->
+            <div id="div_OrderDetails_RightContainer" style="border: 2px solid salmon; margin-right: 10px; opacity: 0.7;background-color: rgba(250, 131, 117, 0.37);width:380px;height:525px;border-radius: 20px;"">
+                
+                <h1 id="h_rightSide" style="margin-left:22% ;" hidden>Detailed Information</h1>
+                <div style="margin-top:50px;margin-left: 20px;">
+                    <!-- ADDRESS DIV -->
+                    <div id="div_OrderDetails_DeliveryAddress_FullAddressContainer" hidden style=" margin-right: 15px;">     
+                        <div><b>DELIVERS TO</b></div> 
+                        <div style="display: flex;margin-top: 10px;">
+                            <div style="width: 15%;margin-top: 13px; margin-left: 10px;">
+                                <i class="fas fa-home" style="color: #008080;font-size: 20px;"></i>
+                                <div>0 m</div>
+                            </div>
+                            <div style="width: 70%;"> 
+                                <b>Home</b> <br>
+                                703, HUDA Techno Enclave, <br> 
+                                HITEC City, Hyderabad<br> 
+                                Phone number:<b>+91-9865356987</b>
+                            </div>
+                            <div>
+                                <button id="button_CloseAddress" class="closeButton" style="background: none;border: none;" onclick="showHideDiv('div_OrderDetails_DeliveryAddress_FullAddressContainer')">
+                                    <a href="#" style="color: #000000;font-size: 15px;"><i class="fa fa-window-close" style="margin-top: 32px;"></i></a>
+                                </button>
+                            </div>  
+                            </div>                                                                                    
+                    </div>
+
+                    <!-- BILLING DIV -->
+                    <div id="div_OrderDetails_TotalBill_Container" hidden style=" margin-right: 15px;margin-top: 70px;">
+                        <div style="display: flex;">
+                            <div>
+                                <h3>Billing Summary</h2>
+                            </div>
+                            <div>
+                                <button id="button_CloseAddress" class="closeButton" style="margin-top: 1px; margin-left: 67px; background: none;border: none;" onclick="showHideDiv('div_OrderDetails_TotalBill_Container')">
+                                    <a href="#" style="color: #000000;font-size: 15px;margin-left: 100px;"><i class="fa fa-window-close" style="margin-top: 23px;"></i></a>
+                                </button>
+                            </div> 
+                        </div>
+                         <div id="div_AllBillingDetails" style="display: flex;">
+                            <div id="div_allBillingLabelsContainer">
+                               
+                                <div id="div_ItemTotalLabel">
+                                    <b>Item Total</b>
+                                </div>
+                                <div id="div_GSTChargesLabel">
+                                    <b>GST and Restaurant Charges</b>
+                                </div>
+                                <div id="div_DeliveryPartnerFeeLabel">
+                                    <b>DeliveryPartnerFee</b>
+                                </div>
+                                <div id="div_PlatformFeeLabel">
+                                    <b>Platform Fee</b>
+                                </div>
+                            </div>
+                            <div id="div_allBillingValuesContainer" style="margin-left: 60px;margin-top: 0px;">
+                                <div id="div_ItemTotalValue">
+                                    <i class="fa fa-rupee"></i><span id="span_ItemTotalValue" style="color: #000000;font-size: large;margin-left:18px;"></span>
+                                </div> 
+                                <div id="div_GSTChargesValue">
+                                    <i class="fa fa-rupee"></i><span id="span_GSTChargesValue" style="color: #000000;font-size: large;margin-left:18px;"></span>
+                                </div>
+                                <div id="div_DeliveryPartnerFeeValue">
+                                    <i class="fa fa-rupee"></i><span id="span_DeliveryPartnerFeeValue" style="color: #000000;font-size: large;margin-left:18px;">40</span>
+                                </div>
+                                <div id="div_PlatformFeeValue">
+                                    <i class="fa fa-rupee"></i><span id="span_PlatformFeeValue" style="color: #000000;font-size: large;margin-left:18px;">3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAYMENT OPTIONS & CHECKOUT DETAILS -->
+                  
+                </div>
+            </div>  
+        </section>
+            
+        <footer>
+            <div id="div_homePage_Footer_AllContainer">
+                <div id="div_homePage_Footer_DownloadLinksContainer">
+                    <a href="https://apps.apple.com/in/app/zomato-food-delivery-dining/id434613896?_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3Kz00sydfNzC8GAFKYbuoiAAAA" target="_blank"><img src="images/homePage/download_AppleStore.png" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.application.zomato&_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3STcxLKcrPTAEABp6kzyEAAAA%3D" target="_blank"><img src="images/homePage/download_PlayStore.png" /></a>
+                </div>
+                <div id="div_homePage_Footer_SocialLinksContainer">
+                    <a href="https://www.facebook.com/zomato" target="_blank" title="Facebook"><img src="images/icons/facebook.png"/></a>
+                    <a href="https://www.instagram.com/zomato/" target="_blank"  title="Instagram"><img src="images/icons/instagram.png"/></a>
+                    <a href="https://in.linkedin.com/company/zomato" target="_blank"  title="LinkedIn"><img src="images/icons/linkedIn.png"/></a>
+                    <a href="https://www.youtube.com/zomato" target="_blank"  title="Youtube"><img src="images/icons/youtube.png"/></a>             
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+<script type="text/javascript" src="js/orderDetails.js"></script>
+</html>

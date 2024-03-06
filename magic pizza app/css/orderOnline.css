@@ -1,0 +1,377 @@
+body{
+    /* background-color: aquamarine; */
+    background: url('/images/orderOnline/backgroundOnline.png');
+    background-size: cover;
+}
+header{
+    background-color: #ffffff;
+    border: 2px solid rgb(251, 190, 184);
+    border-radius: 10px;
+    opacity: 0.7;
+    height: 70px;	
+    /* position: fixed; */
+    left: 10;
+    top: 0;
+    width: 100%;
+    
+}
+#div_orderOnline_TopSectionContainer{
+    /* margin-left: 10%; */
+    display: flex;
+    margin-top: 10px;
+}
+#div_OrderOnline_BackButton{
+    width:100px;
+    text-align: center;
+    justify-content: center;
+    margin-left: 0px;
+    margin-top: 0.5%;
+    margin-bottom: 2.5%;
+    font-size: xx-large;
+}
+#div_magicPizzaImageLinkWithText{
+    display: flex;
+    margin-left: 10%;
+}
+#para_onlineOrder_MagicPizzaText{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    margin-top: 15px;
+    margin-left: 10px;
+    width:140px;
+}
+#para_onlineOrder_PizzasDesserts_Text{
+    margin-top: -20px;
+}
+#div_magicPizza_About_Info{
+    margin-left: 60px;
+}
+#div_scooterContainer img{
+    width:70px;
+    height:70px; 
+}
+#div_scooterContainer{
+    margin-left: 20px;
+    margin-top: 2%; 
+    
+    position: relative;
+    animation-name: scooterAnim;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+}
+@keyframes scooterAnim{
+    0%{left:0%}
+    50%{left:25%}
+    100%{left:0%}    
+}
+#div_onlineOrder_Header_TopRightSectionContainer{
+    display: flex;
+    margin-left: 20%;
+    /* margin-top: 15px; */
+    width:400px
+}
+#div_onlineOrder_DiningStarWithText{
+    margin-left: 20px;
+    display: flex;
+}
+#div_onlineOrder_DiningStar, #div_onlineOrder_DeliveryStar{
+    display: flex;
+    background-color: #008080;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+#div_onlineOrder_DiningText, #div_onlineOrder_DeliveryText{
+    margin-left: 20px;
+}
+#div_onlineOrder_DeliveryStarWithText{
+    margin-left: 40px;
+    display: flex;
+}
+#div_OnlineOrder_HeaderNavigation{
+    /* margin-left: 35%; */
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width:500px;
+}
+#div_buttonLinks{
+    display: flex;
+    margin-left: 65%;
+}
+#div_buttonLinks button{
+    margin-left: 10px;
+    background: none;
+    border:none;
+}
+#div_orderOnline_LeftSection{
+    position: relative;
+    grid-row: 1 / 4;
+}
+/* #section_OnlineDelivery_MidSection{
+    height: 100px;
+} */
+#div_orderOnline_MidSectionContainer{
+    display: flex;     
+}
+#div_orderOnline_LeftSectionContainer{
+    width: 17%;
+}
+/* #div_orderOnline_LeftSectionContainer{
+    opacity: 0.5;
+    background-color:#72aaaa ;
+} */
+#div_Grid_AllContainer{
+    margin-top: 17px;
+    margin-left: 0%;
+    height: 510px;
+    width:60%
+}
+#div_Grid_AllContainer img{
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    opacity:1;
+}
+#div_Grid_AllContainer img:hover{
+   opacity: 1.0;
+   -webkit-transform: scaleX(-1);
+   transform: scaleX(-1);
+}
+#div_Grid_AllContainer .itemName{
+    font-size: medium;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.div_FoodItems{    
+  display: flex;
+  margin-left: 30px;
+}
+.class_Item_PriceRatings{
+    display:flex;
+}
+.div_Item_ImagePriceContainer{
+    width: 20%;
+}
+.div_Item_Name_Description_Ratings_Container{
+    margin-left: 10px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.div_StepInput_CartButtonContainer{     
+    /* background-color: rgb(237, 237, 144);    */
+    height: 100px;
+    margin-top: 10px;
+    width: 20%;
+    margin-left: 60px;    
+}
+div span{
+    color:orange;
+}
+.para_Ratings{
+    /* background-color: rgb(255, 227, 178); */
+    width:100px;
+    border-radius: 10px;
+}
+.checked {
+    color: orange
+}
+.div_Grid_Item_Quantity{
+    display: flex;
+    /* margin-top: 26% */
+    margin-left: 13px;
+}
+.addToCartButton{
+    background-color: #008080;
+    margin-top: 10%;
+    border-radius: 20px;
+    width:100px;
+    height:30px;
+    /* margin: auto; */
+    /* margin-left: 7%; */
+    color: rgb(255, 255, 255);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-color: #008080;
+    box-shadow: none;
+    border: none;
+}
+.addToCartButton:hover{
+    background-color: #016161;
+    border: #ffffff;
+    transform: scale(1.1);
+} 
+.addToCartButton i:hover{
+    transform: scale(1.2);
+}
+.removeItemButton{
+    background-color: antiquewhite;
+    border: 2px solid salmon;
+    border-right: none;
+    border-top-left-radius: 5px; 
+    border-bottom-left-radius: 5px ; 
+    align-items: center;
+    justify-content: center;
+    height:26px;
+} 
+.removeItemButton i{
+    font-size: 9px;
+}
+.removeItemButton:hover{
+    color: rgb(204, 0, 0);
+}
+.removeItemButton:disabled:hover{
+    color: rgb(208, 208, 208);
+}
+.inputItem{
+    border: 2px solid salmon; 
+    border-left: none;
+    border-right: none;
+    width:30px;
+    height:21px; 
+    text-align: center;
+    justify-content: center;
+    font-size: small;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: antiquewhite;
+}
+.addItemButton{
+    background-color: antiquewhite;
+    border: 2px solid salmon; 
+    border-left: none; 
+    border-top-right-radius: 5px ;
+    border-bottom-right-radius: 5px ;    
+    /* align-items: center;
+    justify-content: center; */
+    height:26px;
+}
+.addItemButton i{
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+} 
+.addItemButton i:hover{
+    color: rgb(8, 144, 54);
+}  
+#addToCartIcon{
+    font-size: 20px;
+}
+div.scrollMenu{    
+    height:185px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+div.scrollMenu div{
+    height:37px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 17px;
+}
+div.scrollMenu div:hover{
+    font-size: larger;
+    width: 185px;
+    opacity:1;
+    background-color:#008080;
+    color: #ffffff;
+    border-radius: 10px;
+    /* margin-left: 5px; */
+}
+div.scrollItems{    
+    height:520px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width:90%;
+    /* background-color: rgb(246, 172, 77); */
+}
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(241, 161, 152); 
+    border-radius: 100px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: salmon; 
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #008080; 
+  }
+footer{  
+    /* margin-top: 11.4%; */
+    position: fixed;
+    left: 10;
+    bottom: 0;
+    width: 99%;
+    opacity: 1;
+}
+#div_homePage_Footer_AllContainer{
+    display: flex;
+    margin: 0px;
+    background-color: #ffffff;
+    border: 2px solid rgb(251, 224, 222);
+    border-radius: 10px;
+    opacity: 0.7;
+}
+#div_homePage_Footer_DownloadLinksContainer {
+    float: left;
+    width: 50%;
+    margin-top: 15px;
+    margin-left: 50px; 
+    
+}
+#div_homePage_Footer_DownloadLinksContainer img{
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+}
+#div_homePage_Footer_SocialLinksContainer{
+    width: 50%; 
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+#div_homePage_Footer_SocialLinksContainer a{
+    margin-left: 30px;
+    margin-top: 3%;
+    float: right;
+    font-size: x-large;
+    align-items: center;    
+}
+#div_homePage_Footer_SocialLinksContainer img{
+    width: 30px;
+    height: 30px;   
+}
+#div_homePage_Footer_SocialLinksContainer img:hover{
+  transform: scale(1.1);
+}
+.h1_ComingSoon{
+    animation: glowText 1s ease-in-out infinite alternate;
+}
+@keyframes glowText {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e3e138, 0 0 40px #e3e138, 0 0 50px #e3e138, 0 0 60px #e3e138, 0 0 70px #e3e138;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}
+

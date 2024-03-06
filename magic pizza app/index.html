@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Pizza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="css/homepage_MagicPizza.css">
+</head>
+<style>
+    .myOnlineSlides {display:none;}
+    .myDinnerSlides {display: none;}
+    </style>
+<body>
+    <div id="div_homePage_AllContainer">
+    <!--Top Section has NAV Header, MagicPizza Headline, Search Bar-->
+        <div id="div_homePage_TopSectionContainer">
+            <header >
+                <div id="div_homePage_NavigationBar">
+                    <div id="div_magicPizzaImageLinkWithText" style="margin-top: 6px;">
+                        <a href="index.html" class="logoImage" title="Home"><img src="images/icons/magicPizzaIcon.jpeg" style="width: 60px; border-radius: 30px; margin-top: 0px; align-items: center; justify-content: center;"></a>
+                        <!-- <a href="index.html" style="text-decoration: none;"><p id="para_onlineOrder_MagicPizzaText">Magic Pizza Cafe</p></a>   -->
+                    </div>
+                    <div id="div_buttonLinks"> 
+                        <div>
+                            <button id="button_MenuCart" class="headerNavigationButton">
+                                <a href="orderOnline.html" title="Menu" style="color: #008080;font-size: 25px;"><i class="fa fa-bars"></i></a>
+                            </button>  
+                        </div>                      
+                        <!-- <div>
+                            <button id="button_Dining" class="headerNavigationButton">
+                                <a href="dining.html" title="Book a Table" style="color:  #008080;font-size: 25px;"><i class="fa fa-table"></i></a>
+                            </button>
+                        </div> -->
+                       <div>
+                            <button id="button_Orders" class="headerNavigationButton">
+                                <a href="orderHistory.html" title="Order History" style="color:  #008080;font-size: 25px;"><i class="fa fa-history"></i></a>
+                            </button> 
+                       </div>
+                        <div>
+                            <button id="button_HeaderCart" class="headerNavigationButton">
+                               <a href="orderDetails.html" title="Cart" style="color:#008080;font-size: 17px; text-decoration: none;"><i class="fa fa-cart-arrow-down" id="icon_HeaderCart" style="font-size: 25px;"></i>Cart</a> 
+                            </button> 
+                        </div>               
+                    </div>
+                     
+                </div>  <!--div_homePage_NavigationBar-->
+            </header>
+
+        <!--Order online, Dining-->
+        <section id="section_Homepage_MidSection">
+           <div id="div_Homepage_MidSectionContainer">
+                <div id="div_HomePage_MidSection_CenterContainer">  <!--flex this-->
+                    <div id="div_Homepage_MidSection_OnlineDeliveryContainer">
+                        <div id="div_HomePage_MidSection_OnlineDelivery_ImageContainer">
+                            <a href="orderOnline.html" target="_self">
+                                <img class="myOnlineSlides" src="images/orderOnline/biryani_chicken_dum.png" />
+                                <img class="myOnlineSlides"  src="images/orderOnline/bread_tandoori_roti.png" />
+                                <img class="myOnlineSlides"  src="images/orderOnline/cake_fruit.png" />
+                                <img class="myOnlineSlides"  src="images/orderOnline/nonveg_pizza.png" />
+                                <img class="myOnlineSlides"  src="images/orderOnline/strawberry_mojito.png" />
+                            </a>
+                        </div>
+                        <div id="div_HomePage_MidSection_OnlineDelivery_TextContainer">
+                            <a href="orderOnline.html" target="_blank"><b>Order Online</b></a>
+                            <p>Stay home and order to your doorstep</p>
+                        </div>
+                    </div>
+                    <!--div_Homepage_MidSection_OnlineDeliveryContainer-->
+                    <div id="div_Homepage_MidSection_DiningContainer">
+                        <div id="div_HomePage_MidSection_Dining_ImageContainer">
+                            <a href="dining.html">
+                                <img class="myDinnerSlides"  src="images/homePage/dining1.png" />
+                                <img class="myDinnerSlides"  src="images/homePage/dining2.png" />
+                                <img class="myDinnerSlides"  src="images/homePage/dining3.png" />
+                                <img class="myDinnerSlides"  src="images/homePage/dining4.png" />
+                                <img class="myDinnerSlides"  src="images/homePage/dining5.png" />
+                            </a>
+                        </div>
+                        <div id="div_HomePage_MidSection_Dining_TextContainer">
+                            <a href="dining.html" target="_blank"><b>Dining </b></a>
+                            <p>Visit us and enjoy your experience</p>
+                        </div>
+                    </div> <!-- div_Homepage_MidSection_DiningContainer-->
+                </div><!--div_HomePage_MidSection_CenterContainer-->         
+           </div> <!--div_Homepage_MidSectionContainer-->
+        </section>        
+        
+        <!--Social Links-->
+        <footer>
+            <div id="div_homePage_Footer_AllContainer">
+                <div id="div_homePage_Footer_DownloadLinksContainer">
+                    <a href="https://apps.apple.com/in/app/zomato-food-delivery-dining/id434613896?_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3Kz00sydfNzC8GAFKYbuoiAAAA" target="_blank"><img src="images/homePage/download_AppleStore.png" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.application.zomato&_branch_match_id=1278254698321856881&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT8pL1ssp0U%2FJL8%2FLyU9M0a3STcxLKcrPTAEABp6kzyEAAAA%3D" target="_blank"><img src="images/homePage/download_PlayStore.png" /></a>
+                </div>
+                <div id="div_homePage_Footer_SocialLinksContainer">
+                    <a href="https://www.facebook.com/zomato" target="_blank" title="Facebook"><img src="images/icons/facebook.png"/></a>
+                    <a href="https://www.instagram.com/zomato/" target="_blank"  title="Instagram"><img src="images/icons/instagram.png"/></a>
+                    <a href="https://in.linkedin.com/company/zomato" target="_blank"  title="LinkedIn"><img src="images/icons/linkedIn.png"/></a>
+                    <a href="https://www.youtube.com/zomato" target="_blank"  title="Youtube"><img src="images/icons/youtube.png"/></a>             
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        var myIndex = 0;
+        carouselOnline();
+        carouselDinner();
+        
+        function carouselOnline() {
+          var i;
+          var x = document.getElementsByClassName("myOnlineSlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carouselOnline, 2000); // Change image every 2 seconds
+        }
+        function carouselDinner() {
+          var i;
+          var x = document.getElementsByClassName("myDinnerSlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carouselDinner, 2000); // Change image every 2 seconds
+        }
+    </script>
+</body>
+
+</html>

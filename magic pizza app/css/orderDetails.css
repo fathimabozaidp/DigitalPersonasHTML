@@ -1,0 +1,145 @@
+#orderDetailsTableAndFormContainer{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 50px;
+}
+#orderDetails_Table{
+    padding: 20px;
+}
+#orderDetails_Form{
+    padding: 20px;
+}
+div.scrollAddedItemsInCart{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(241, 161, 152); 
+    border-radius: 100px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: salmon; 
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #008080; 
+  }
+  th{
+    font-size: 18px;
+  }
+  td{
+    text-align: center;
+    justify-content: center;
+    height: 40px;
+}
+.buttonRightArrow i:hover{
+  font-size: 18px;
+}
+div div.div_PaymentOptionsContainer:hover{
+  background-color:#008080;
+  color: #ffffff;
+  border-radius: 5px;  
+  margin-right: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+ /* Styles for the dialog */
+ .div_PaymentDialog {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for the dialog content */
+.div_DialogContent{
+  background-color: antiquewhite;
+  width: 400px;
+  height:200px;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#div_AllPaymentOptions h2 {
+  text-align: center;
+  color: #008080; 
+}
+#div_AllPaymentOptions span i:hover{
+  font-size: 22px;
+}
+#div_AllPaymentOptions input {
+  background-color: rgb(246, 189, 189);
+  border: 1px gainsboro solid;
+  border-radius: 4px;
+  height:25px; 
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); 
+}
+#div_AllPaymentOptions button {
+  /* background-color: rgb(245, 154, 144); */
+  background-color: #008080;
+  color:#ffffff;
+  font-weight: bold;
+  font-size:16px;
+  height:25px; 
+  border:none;
+  border-radius: 4px;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#div_AllPaymentOptions button:disabled{
+  background-color: #72aaaa;
+  color:rgb(223, 221, 221)
+}
+/* Close button styles */
+.div_closePaymentDialog {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+#button_PlaceOrder {
+  width: 165px;
+  height: 70px;
+  color: #ffffff;
+  background:none;
+  border:none;
+  border-radius: 5px;
+  font-size: large;
+}
+#div_PlaceOrderContainer button:disabled{
+   background-color: #72aaaa;
+  color:rgb(223, 221, 221);
+}
+#div_PlaceOrderContainer button:enabled{
+  background-color: #008080;
+  color:white;
+}
+#div_PlaceOrderContainer button:enabled:hover{
+  cursor: pointer;
+  transform: scale(1.025);
+}

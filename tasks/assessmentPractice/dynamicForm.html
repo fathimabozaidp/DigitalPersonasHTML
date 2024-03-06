@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form </title>
+    <style>
+        table, td,th  {
+                     border: 1px solid black;
+                    }
+        td,th{
+            width: 150px;
+            height:20px
+        }
+    </style>
+</head>
+<body>    
+</body>
+<script>
+    var form = document.createElement("form");
+    
+    //Product Name - INPUT
+    var productNameLabel = document.createElement("label");
+    productNameLabel.textContent = "Product Name";
+    var productNameInput = document.createElement("input");
+    productNameInput.id = "productNameId"
+    productNameInput.type = "text";
+    productNameInput.placeholder = "Enter Product Name";
+    var nextLine1 = document.createElement("br");
+    var nextLine2 = document.createElement("br");
+    
+    //Product Type - CHECKBOX
+    var productTypeLabel = document.createElement("label");
+    productTypeLabel.textContent = "Product Type";
+
+    var nextLine3 = document.createElement("br");
+    var nextLine4 = document.createElement("br");
+   
+    var productTypeGoodsInput = document.createElement("input");
+    productTypeGoodsInput.id = "productTypeGoodsId"
+    productTypeGoodsInput.type = "checkbox";
+    productTypeGoodsInput.value = "Goods";
+    var productTypeGoodsLabel = document.createElement("label");
+    productTypeGoodsLabel.textContent = "Goods";
+
+    var nextLine5 = document.createElement("br");
+    var nextLine6 = document.createElement("br");
+   
+    var productTypeMerchandiseInput = document.createElement("input");
+    productTypeMerchandiseInput.id = "productTypeMerchandiseId"
+    productTypeMerchandiseInput.type = "checkbox";
+    productTypeMerchandiseInput.value = "Merchandise";
+    var productTypeMerchandiseLabel = document.createElement("label");
+    productTypeMerchandiseLabel.textContent = "Merchandise";
+
+    var nextLine7 = document.createElement("br");
+    var nextLine8 = document.createElement("br");
+
+    var productTypeGroceriesInput = document.createElement("input");
+    productTypeGroceriesInput.id = "productTypeGroceriesId"
+    productTypeGroceriesInput.type = "checkbox";
+    productTypeGroceriesInput.value = "Groceries";
+    var productTypeGroceriesLabel = document.createElement("label");
+    productTypeGroceriesLabel.textContent = "Groceries";
+
+    var nextLine9 = document.createElement("br");
+    var nextLine10 = document.createElement("br");
+
+    //Product Quantity - DROPDOWN
+    var productQuantityLabel = document.createElement("label");
+    productQuantityLabel.textContent = "Product Quantity";
+
+    var productQuantitySelect = document.createElement("select");
+    productQuantitySelect.id = "productQuantityId";
+    var productQuantityOption1 = document.createElement("option");
+    productQuantityOption1.value = "";
+    productQuantityOption1.text = "No Selection";
+    var productQuantityOption2 = document.createElement("option");
+    productQuantityOption2.value = 1;
+    productQuantityOption2.text = 1;
+    var productQuantityOption3 = document.createElement("option");
+    productQuantityOption3.value = 2;
+    productQuantityOption3.text = 2;
+    var productQuantityOption4 = document.createElement("option");
+    productQuantityOption4.value = 3;
+    productQuantityOption4.text = 3;
+    var productQuantityOption5 = document.createElement("option");
+    productQuantityOption5.value = 4;
+    productQuantityOption5.text = 4;
+    var productQuantityOption6 = document.createElement("option");
+    productQuantityOption6.value = 5;
+    productQuantityOption6.text = 5;
+
+    productQuantitySelect.add(productQuantityOption1, null);
+    productQuantitySelect.add(productQuantityOption2, null);
+    productQuantitySelect.add(productQuantityOption3, null);
+    productQuantitySelect.add(productQuantityOption4, null);
+    productQuantitySelect.add(productQuantityOption5, null);
+
+    var nextLine11 = document.createElement("br");
+    var nextLine12 = document.createElement("br");
+
+    //Product Delivery Date
+    var productDeliveryDateLabel = document.createElement("label");
+    productDeliveryDateLabel.textContent = "Product Delivery Date";
+    var productDeliveryDateInput = document.createElement("input");
+    productDeliveryDateInput.id = "productDeliveryDateId"
+    productDeliveryDateInput.type = "date";
+
+    var nextLine13 = document.createElement("br");
+    var nextLine14 = document.createElement("br");
+
+    //Product Delivery Status
+    var productDeliveryStatusLabel = document.createElement("label");
+    productDeliveryStatusLabel.textContent = "Product Delivery Status";
+
+    var nextLine15 = document.createElement("br");
+    var nextLine16 = document.createElement("br");
+    
+    //Product Delivery Status - Partially Delivered
+    var productDeliveryStatusPartialInput = document.createElement("input");
+    productDeliveryStatusPartialInput.id = "productDeliveryStatusPartialId"
+    productDeliveryStatusPartialInput.type = "radio";
+    productDeliveryStatusPartialInput.name = "radio_DeliveryStatus"
+    productDeliveryStatusPartialInput.value = "Partially Delivered";
+    // productDeliveryStatusPartialInput.required;
+
+    var productDeliveryStatusPartialLabel = document.createElement("label");
+    productDeliveryStatusPartialLabel.textContent = "Partially Delivered";
+
+    var nextLine17 = document.createElement("br");
+    var nextLine18 = document.createElement("br");
+
+    //Product Delivery Status - Delivered
+    var productDeliveryStatusDeliveredInput = document.createElement("input");
+    productDeliveryStatusDeliveredInput.id = "productDeliveryStatusDeliveredId"
+    productDeliveryStatusDeliveredInput.type = "radio";
+    productDeliveryStatusDeliveredInput.name = "radio_DeliveryStatus";
+    productDeliveryStatusDeliveredInput.value = "Delivered";
+    var productDeliveryStatusDeliveredLabel = document.createElement("label");
+    productDeliveryStatusDeliveredLabel.textContent = "Delivered";
+
+    var nextLine19 = document.createElement("br");
+    var nextLine20 = document.createElement("br");
+
+    var submitButton = document.createElement("button");
+    submitButton.id = "submitButtonId";
+    submitButton.textContent = "Submit"
+   
+    form.appendChild(productNameLabel);
+    form.appendChild(productNameInput);
+    form.appendChild(nextLine1);
+    form.appendChild(nextLine2);
+    form.appendChild(productTypeLabel);
+    form.appendChild(nextLine3);
+    form.appendChild(nextLine4);
+    form.appendChild(productTypeGoodsInput);
+    form.appendChild(productTypeGoodsLabel);
+    form.appendChild(nextLine5);
+    form.appendChild(nextLine6);
+    form.appendChild(productTypeMerchandiseInput);
+    form.appendChild(productTypeMerchandiseLabel);
+    form.appendChild(nextLine7);
+    form.appendChild(nextLine8);
+    form.appendChild(productTypeGroceriesInput);
+    form.appendChild(productTypeGroceriesLabel);
+    form.appendChild(nextLine9);
+    form.appendChild(nextLine10);
+    form.appendChild(productQuantityLabel);
+    form.appendChild(productQuantitySelect);
+    form.appendChild(nextLine11);
+    form.appendChild(nextLine12);
+    form.appendChild(productDeliveryDateLabel);
+    form.appendChild(productDeliveryDateInput);
+    form.appendChild(nextLine13);
+    form.appendChild(nextLine14);
+    form.appendChild(productDeliveryStatusLabel);
+    form.appendChild(nextLine15);
+    form.appendChild(nextLine16);
+    form.appendChild(productDeliveryStatusPartialInput);
+    form.appendChild(productDeliveryStatusPartialLabel);
+    form.appendChild(nextLine17);
+    form.appendChild(nextLine18);
+    form.appendChild(productDeliveryStatusDeliveredInput);
+    form.appendChild(productDeliveryStatusDeliveredLabel);
+    form.appendChild(nextLine19);
+    form.appendChild(nextLine20);
+
+    document.body.appendChild(form);
+    document.body.appendChild(submitButton);
+
+    submitButton.setAttribute("onclick", 'displayTable()');
+
+    var table = document.createElement('table');        
+    table.setAttribute("id", "dynamicTableId");
+
+    var tableHeaderRow = document.createElement('tr');
+    var tableHeader1 = document.createElement('th');
+    tableHeader1.textContent = "Product Name";
+    var tableHeader2 = document.createElement('th');
+    tableHeader2.textContent = "Product Type";
+    var tableHeader3 = document.createElement('th');
+    tableHeader3.textContent = "Product Quantity";
+    var tableHeader4 = document.createElement('th');
+    tableHeader4.textContent = "Product Delivery Date";
+    var tableHeader5 = document.createElement('th');
+    tableHeader5.textContent = "Product Delivery Status";
+    tableHeaderRow.appendChild(tableHeader1);
+    tableHeaderRow.appendChild(tableHeader2);
+    tableHeaderRow.appendChild(tableHeader3);
+    tableHeaderRow.appendChild(tableHeader4);
+    tableHeaderRow.appendChild(tableHeader5);
+    table.appendChild(tableHeaderRow);
+    document.body.appendChild(table);
+
+    function displayTable() {
+        debugger;
+        var productNameValue;
+        var productTypeValue;
+        var productQuantityValue;
+        var productDeliveryDateValue;
+        var productDeliveryStatusValue;
+        var purchasePayload;
+        var arrayOfPurchasePayload = [];
+        var table1,tableRows,tableColumns;
+        productNameValue = document.getElementById("productNameId").value;
+        // alert(productNameValue);
+        
+        productTypeGoodsInput = document.getElementById("productTypeGoodsId");
+        productTypeMerchandiseInput = document.getElementById("productTypeMerchandiseId");
+        productTypeGroceriesInput = document.getElementById("productTypeGroceriesId");
+
+        if(productTypeGoodsInput.checked == true){
+        productTypeValue = productTypeGoodsInput.value;
+        }
+        if(productTypeMerchandiseInput.checked  == true){
+            productTypeValue = productTypeMerchandiseInput.value;
+        }
+        if(productTypeGroceriesInput.checked  == true){
+            productTypeValue = productTypeGroceriesInput.value;
+        }
+        //1,2
+        if(productTypeGoodsInput.checked == true && productTypeMerchandiseInput.checked == true){
+            productTypeValue = productTypeGoodsInput.value+" , "+productTypeMerchandiseInput.value;
+        }//1,3
+        if(productTypeGoodsInput.checked == true && productTypeGroceriesInput.checked == true){
+            productTypeValue = productTypeGoodsInput.value+" , "+productTypeGroceriesInput.value;
+        }
+        //2,3
+        if(productTypeMerchandiseInput.checked == true && productTypeGroceriesInput.checked == true ){
+            productTypeValue = productTypeMerchandiseInput.value+" , "+productTypeGroceriesInput.value;
+        }
+        //1,2,3
+        if(productTypeGoodsInput.checked == true && productTypeMerchandiseInput.checked == true && productTypeGroceriesInput.checked == true ){
+            productTypeValue = productTypeGoodsInput.value+" , "+productTypeMerchandiseInput.value+" , "+productTypeGroceriesInput.value;
+        }
+        //none
+        else if(productTypeGoodsInput.checked == false && productTypeMerchandiseInput.checked == false && productTypeGroceriesInput.checked == false ){
+            productTypeValue = "";
+        }
+
+        //3.product Quantity
+        productQuantityValue = document.getElementById("productQuantityId").value
+
+        //4.product Delivery Date
+        productDeliveryDateValue = document.getElementById("productDeliveryDateId").value
+        
+        //5.DeliveryStatus 
+
+        productDeliveryStatusPartiallyDeliveredInput = document.getElementById("productDeliveryStatusPartialId");
+        productDeliveryStatusDeliveredInput = document.getElementById("productDeliveryStatusDeliveredId");
+        if(productDeliveryStatusPartiallyDeliveredInput.checked == true){
+            productDeliveryStatusValue = productDeliveryStatusPartiallyDeliveredInput.value;
+        }else if(productDeliveryStatusDeliveredInput.checked = true){
+            productDeliveryStatusValue = productDeliveryStatusDeliveredInput.value;
+        }
+        
+        purchasePayload = {
+            "PName" : productNameValue,
+            "PType" : productTypeValue,
+            "PQuantity" : productQuantityValue,
+            "PDeliveryDate" : productDeliveryDateValue,
+            "PDeliveryStatus" : productDeliveryStatusValue,
+        }
+
+        //storing object in array
+        arrayOfPurchasePayload.push(purchasePayload);
+
+        table1=document.getElementById('dynamicTableId');
+
+        //ADDS ROW
+        tableRows = table1.insertRow();
+        for(var i in purchasePayload){
+            tableColumns = tableRows.insertCell();
+            tableColumns.innerHTML = purchasePayload[i];
+        }
+       
+    };
+</script>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Practice 3</title>
+</head>
+<body>
+    <h2>Is Subset?</h2>  
+    <label for="input_Array1">Array1</label>&nbsp;
+    <input id="input_Array1" placeholder="Enter array values">&nbsp;&nbsp;&nbsp;
+    <label for="input_Array2">Array2</label>&nbsp;
+    <input id="input_Array2" placeholder="Enter array values"><br><br>
+    <button id="button_SubsetArray" onclick="isSubset();">Find Subset</button><br><br>
+    <p id="para_SubsetArray"></p>
+
+    <hr>
+
+    <h2>Merge Arrays</h2> 
+    <button id="button_MergeArrays" onclick="mergeArrays();">Merge Arrays</button><br><br>
+    <p id="para_MergedArray"></p>
+
+    <hr>
+
+    
+    <h2>Rotate Array</h2> 
+    <label for="input_Array">Array</label>&nbsp;
+    <input id="input_Array" placeholder="Enter array values"><br><br>  
+    <label for="input_RotatePosition">Rotate By Number of Positions</label>&nbsp;
+    <input id="input_RotatePosition" placeholder="Rotate By Number of Positions" size="5px"><br><br>  
+    <button id="button_RotateLeft" onclick="rotateLeftArray();">Rotate Left</button>
+    <button id="button_RotateRight" onclick="rotateRightArray();">Rotate Right</button><br><br>
+    <p id="para_RotateLeftArray"></p>
+    <p id="para_RotateRightArray"></p>
+
+    <hr>
+
+    <h2>Middle Element in Array</h2> 
+    <label for="input_ArrayMiddle">Array</label>&nbsp;
+    <input id="input_ArrayMiddle" placeholder="Enter array values"><br><br>
+    <button id="button_Find_Middle" onclick="findMiddleElement();">Find</button>
+    <p id="para_MiddleElement"></p>
+
+    <hr>
+
+    <h2>Union & Intersection of Arrays</h2> 
+    <button id="button_MergeArrays" onclick="arrayIntersectionUnion();">Find</button><br><br>
+    <p id="para_UnionOfArrays"></p>
+    <p id="para_IntersectionOfArrays"></p>
+
+    <hr>
+ 
+    <h2>Average(age) - Median(marks) </h2>
+
+    <h4>Student-A</h4>
+
+    <label for="input_MarksA">Marks</label>
+    <input id="input_MarksA" size="5px">&nbsp;&nbsp;&nbsp;
+    <label for="input_AgeA">Age</label>
+    <input id="input_AgeA" size="5px"><br><br>
+
+    <h4>Student-B</h4>
+
+    <label for="input_MarksB">Marks</label>
+    <input id="input_MarksB" size="5px">&nbsp;&nbsp;&nbsp;
+    <label for="input_AgeB">Age</label>
+    <input id="input_AgeB" size="5px"><br><br>
+
+    <h4>Student-C</h4>
+
+    <label for="input_MarksC">Marks</label>
+    <input id="input_MarksC" size="5px">&nbsp;&nbsp;&nbsp;
+    <label for="input_AgeC">Age</label>
+    <input id="input_AgeC" size="5px"><br><br><br>
+
+    <button id="button_AverageMedian" onclick="averageMedian()">Calculate</button>
+    <p id="para_Average"></p>
+    <p id="para_Median"></p>
+
+    <hr>
+</body>
+<script>
+    //1. Check if an array is a subset of another array.
+    function isSubset(){
+        debugger;  
+        var input1 = document.getElementById("input_Array1");
+        var input2 = document.getElementById("input_Array2");
+        var array1 = input1.value.split(",");
+        var array2 = input2.value.split(",");      
+        var paraSubset = document.getElementById("para_SubsetArray");       
+        var isSubset = array2.every(item => array1.includes(item));
+        paraSubset.innerHTML = "Is subset : " +isSubset;
+        // input1.value = "";
+        // input2.value = "";
+    }
+   
+    //2.Merge two arrays and remove duplicate values.
+    function mergeArrays(){
+        debugger;
+        var input1 = document.getElementById("input_Array1");
+        var input2 = document.getElementById("input_Array2");
+        var array1 = input1.value.split(",");
+        var array2 = input2.value.split(",");
+        var paraMergedArray = document.getElementById("para_MergedArray");
+        var mergedArray = array1.concat(array2);
+        for(i=0;i<mergedArray.length;i++){
+            for(j=i+1; j<mergedArray.length;j++){
+                if(mergedArray[i] == mergedArray[j]){
+                    mergedArray.splice(j--, 1);
+                }
+            }
+        }
+        // var mergedArray = [...new Set(mergedArrayWithDuplicates)];         
+        paraMergedArray.innerHTML = "Merged array is : [" +mergedArray.sort() + "]";
+        input.value = "";
+    }
+   
+
+    //3. Rotate an array to the left and right by a given number of positions.
+    function rotateLeftArray(){
+        debugger;
+        var input1 = document.getElementById("input_Array");
+        var input2 = document.getElementById("input_RotatePosition");
+        var paraRotateArray = document.getElementById("para_RotateLeftArray");
+
+        var array = input1.value.split(",");
+        var noOfPositions = parseInt(input2.value);      
+        // var weeks = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        for(i=0;i<noOfPositions;i++){
+            var shifted = array.shift(noOfPositions);
+            array.push(shifted);
+        }        
+        paraRotateArray.innerHTML = "Left rotate by given position [" + array + "]";
+        // input1.value = "";
+        // input2.value = "";
+
+    }
+    
+    function rotateRightArray(){
+        debugger;
+        var input1 = document.getElementById("input_Array");
+        var input2 = document.getElementById("input_RotatePosition");
+        var paraRotateArray = document.getElementById("para_RotateRightArray");
+
+        var array = input1.value.split(",");
+        var noOfPositions = parseInt(input2.value);   
+        for(i=0;i<noOfPositions;i++){
+            var shifted = array.pop();
+            array.unshift(shifted);
+        }        
+        paraRotateArray.innerHTML =  "Right rotate by given positions [" + array + "]";
+        // input1.value = "";
+        // input2.value = "";
+    }
+   
+    //4. Return the middle element(s) of an array.
+    function findMiddleElement(){
+        debugger;
+        var input = document.getElementById("input_ArrayMiddle");
+        var paraMiddleElementInArray = document.getElementById("para_MiddleElement");
+        var array = input.value.split(",");
+        var middleElement = array.length/2;
+        //odd array
+        if(array.length % 2 !== 0){
+            paraMiddleElementInArray.innerHTML = "Middle Element is [" + array[Math.floor(middleElement)] + "]";   
+        }else
+        //even array
+        {
+            paraMiddleElementInArray.innerHTML = "Middle Element is [" + array[middleElement-1]+","+ array[middleElement] + "]";   
+        }
+        // input.value = "";
+    }
+    
+
+    //5. Find the intersection and Union of two arrays.
+    function arrayIntersectionUnion(){
+        debugger;
+        var input1 = document.getElementById("input_Array1");
+        var input2 = document.getElementById("input_Array2");
+        var array1 = input1.value.split(",");
+        var array2 = input2.value.split(",");
+        var paraUnionOfArray = document.getElementById("para_UnionOfArrays");
+        var paraIntersectionOfArray = document.getElementById("para_IntersectionOfArrays");
+
+        var concatenatedArray = array1.concat(array2);
+        var intersectionArray = [];
+        for(i=0;i<concatenatedArray.length;i++){
+           for(j=i+1; j<concatenatedArray.length;j++){
+                if(concatenatedArray[i] == concatenatedArray[j]){
+                    if(!intersectionArray.includes(concatenatedArray[i])){
+                        intersectionArray.push(concatenatedArray[i]);
+                    }
+                    concatenatedArray.splice(j--, 1);                    
+                }
+           }
+        }
+        paraUnionOfArray.innerHTML = 'Union of Arrays is: ['+concatenatedArray.sort()+ "]";
+        paraIntersectionOfArray.innerHTML = 'Intersection of Arrays is: ['+intersectionArray.sort() + "]";
+        input1.value = "";
+        input2.value = "";
+    }
+    
+    //6. Write a function that takes an array of objects and returns the average value and median value of a specified property across all objects.
+    function averageMedian(){
+        debugger;
+        var marksinput1 = document.getElementById("input_MarksA");
+        var marksinput2 = document.getElementById("input_MarksB");
+        var marksinput3 = document.getElementById("input_MarksC");
+
+        var ageInput1 = document.getElementById("input_AgeA");
+        var ageInput2 = document.getElementById("input_AgeB");
+        var ageInput3 = document.getElementById("input_AgeC");
+
+        var studentObject1 = {"marks" : parseInt(marksinput1.value), "age" : parseInt(ageInput1.value)};
+        var studentObject2 = {"marks" : parseInt(marksinput2.value), "age" : parseInt(ageInput2.value)};
+        var studentObject3 = {"marks" : parseInt(marksinput3.value), "age" : parseInt(ageInput3.value)};
+
+        var paraAverage = document.getElementById("para_Average");
+        var paraMedian = document.getElementById("para_Median");
+
+        var studentsArray= [studentObject1,studentObject2,studentObject3];
+        
+        var medianMarks = studentsArray.length/2; 
+
+        //calculating average - age
+        var ageTotal=0;
+        studentsArray.forEach((item)=>{
+            ageTotal += item.age;
+        });
+        var ageAverage = ageTotal/studentsArray.length;
+        paraAverage.innerHTML = "Average age is : " + ageAverage.toFixed(2);
+
+        //calculating median - marks
+        if(studentsArray.length % 2 == 0){
+            //even array
+            paraMedian.innerHTML = "Median of marks is : " + studentsArray[medianMarks-1].marks +", " + studentsArray[medianMarks].marks;
+        }else{
+            paraMedian.innerHTML = "Median of marks is : " + studentsArray[Math.floor(medianMarks)].marks;
+        }
+    }  
+</script>
+</html>

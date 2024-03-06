@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Sort</title>
+</head>
+<body>
+    <!-- <div style="margin: auto; width: 0%;align-items: center;justify-content: center;"> -->
+        <label for="input_Search"></label>
+        <input id="input_Search" type="text" placeholder="search by name, age" onkeyup="searchText()"><br><br>
+        <button id="button_Search">Search</button><br><br>
+        <table id="table1" border="1px">
+            <thead>
+                <th style="width:80px">Name</th>
+                <th style="width:20px">Age</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Feeha</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Fathima</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>Rahath</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Abbas</td>
+                    <td>25</td>
+                </tr> 
+                <tr>
+                    <td>Sajida</td>
+                    <td>55</td>
+                </tr>                         
+            </tbody>
+        </table><br><br>
+    <!-- </div> -->
+    
+    <button id="button_SortByName" onclick="sortByName()">Sort By Name</button>
+    <button id="button_SortByAge" onclick="sortByAge()">Sort By Age</button>
+</body>
+</html>
+<script>
+    debugger;
+
+    var table, rows,input, tr, td, textValue;
+    table= document.getElementById("table1");
+    input = document.getElementById("input_Search");
+
+    rows = table.rows;
+
+    function sortByName(){
+        debugger;       
+            let sortedRowsByName = Array.from(table.tBodies[0].rows).sort((rowA, rowB) => rowA.cells[0].innerHTML.localeCompare(rowB.cells[0].innerHTML));
+            table.tBodies[0].append(...sortedRowsByName);
+    }
+    function sortByAge(){
+        debugger;
+        let sortedRowsByAge = Array.from(table.tBodies[0].rows).sort((rowA, rowB) => rowA.cells[1].innerHTML.localeCompare(rowB.cells[1].innerHTML));
+        table.tBodies[0].append(...sortedRowsByAge);
+    }
+    function searchText(){
+        debugger;
+        // tr = table.tBodies[0].rows;
+        filter = input.value.toUpperCase();
+        tr = table.tBodies[0].getElementsByTagName("tr");
+
+        for(i=0;i<tr.length;i++){
+            //name
+            tdName = tr[i].getElementsByTagName("td")[0];
+            tdAge =  tr[i].getElementsByTagName("td")[1] ;
+            //age
+            // td = tr[i].getElementsByTagName("td")[1];
+            if(tdName || tdAge){
+                nameTextValue = tdName.textContent || tdName.innerText;
+                ageTextValue = tdAge.textContent || tdAge.innerText;
+                if(nameTextValue.toUpperCase().indexOf(filter) > -1 || ageTextValue.toUpperCase().indexOf(filter) > -1){
+                    tr[i].style.display = "";
+                }else{
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

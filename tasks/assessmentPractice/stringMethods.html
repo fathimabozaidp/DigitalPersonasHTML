@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Methods</title>
+
+</head>
+<body>
+    <h2>String Length</h2>
+    <label>String</label>
+    <input id="FindLengthInputId" placeholder="Enter your string here"><br><br>
+    <button id="FindLengthButtonId" onclick="findStringLength()">Find</button>
+    <p id="stringLengthParaId"></p>
+
+    <hr>
+
+    <h2>Uppercase and Lowercase Conversion</h2>
+    <button id="toLowercaseButtonId" onclick="toLowercase()">To Lowercase</button>
+    <button id="toUppercaseButtonId" onclick="toUppercase()">To Uppercase</button>
+    <p id="lowercaseStringParaId"></p>
+    <p id="uppercaseStringParaId"></p>
+
+    <hr>
+
+    <h2>Substring from a given string</h2>
+    <label>String</label>
+    <input id="findSubStringInputId" placeholder="Enter your string here">
+    <label>From Position</label>
+    <input id="fromInputId" placeholder="start position">
+    <label>To Position</label>
+    <input id="toInputId" placeholder="end position"><br><br><br><br>
+    <button id="findSubStringButtonId" onclick="findSubString()">Find SubString</button>
+    <button id="findSubStringWithSliceButtonId" onclick="findSubStringWithSlice()">Find SubString with Slice</button>
+    <p id="subStringParaId"></p>
+    <p id="subStringWithSpliceParaId"></p>
+
+    <hr>
+
+    <h2>String Concatenation</h2>
+    <label>String 1</label>
+    <input id="string1InputId" placeholder="Enter your string here">
+    <label>String 2</label>
+    <input id="string2InputId" placeholder="start position">
+    <label>String 3</label>
+    <input id="string3InputId" placeholder="end position"><br><br>
+    <button id="stringConcatenateButtonId" onclick="stringConcatenation()">Concatenate</button>
+    <p id="stringConcatenateParaId"></p>
+
+    <hr>
+    <h2>Trim Whitespaces</h2>
+    <button id="trimWhitespacesButtonId" onclick="trimWhitespaces()">Trim</button>
+    <p id="trimWhitespacesParaId"></p>
+
+    <hr>
+    <h2>String Search</h2>
+    <input id="stringSearchInputId" placeholder="Enter your string here">
+    <input id="stringSearchValueInputId" placeholder="Enter string to be searched"><br><br>
+    <button id="stringSearchWithIndexOfButtonId" onclick="stringSearchWithIndexOf()">Search-IndexOf</button>
+    <button id="stringSearchWithLastIndexOfButtonId" onclick="stringSearchWithLastIndexOf()">Search-LastIndexOf</button>
+    <button id="stringSearchWithIncludesOfButtonId" onclick="stringSearchWithIncludes()">Search-Includes</button>
+    <p id="stringSearchWithIndexOfParaId"></p>
+    <p id="stringSearchWithLastIndexOfParaId"></p>
+    <p id="stringSearchWithIncludesParaId"></p>
+
+    <hr>
+
+    <h2>Split String</h2>
+    <button id="stringSplitButtonId" onclick="splitString()">Split String</button>
+    <p id="stringAfterSplitParaId"></p>
+
+    <hr>
+    <h2>String Replace</h2>
+    <label>String</label>
+    <input id="stringReplaceInputId"><br><br>
+    <label>Find</label>
+    <input id="stringToFindInputId">
+    <label>Replace</label>
+    <input id="stringToReplaceInputId"><br><br>
+    <button id="stringReplaceButtonId" onclick="replaceStringWithSubString()">Replace</button>
+    <p id="stringReplaceParaId"></p>
+
+    <hr>
+
+    <h2>String is alphanumeric</h2>
+    <button id="isAlphaNumericButtonId" onclick="isAlphaNumeric()">Is AlphaNumeric</button>
+    <p id="isAlphaNumericParaId"></p>
+
+    <hr>
+
+    <h2>String Reverse</h2>    
+    <button id="reverseButtonId" onclick="reverseString()">Reverse</button>
+    <p id="stringReverseParaId"></p>
+
+    <hr>
+
+    <h2>Starts and Ends with or not !</h2>
+    <label>Enter a String:</label>&nbsp;
+    <input id="stringInputId" placeholder="Enter String"><br><br>
+    <label>Enter Starting substring :</label>&nbsp;
+    <input id="startSubStringInputId" placeholder="Enter Starting substring"><br><br>
+    <label>Enter Ending substring :</label>&nbsp;
+    <input id="endSubStringInputId" placeholder="Enter Ending substring"><br><br>
+
+    <button id="button_Check" type="submit" onclick="checkString()">Check Senetnce</button>
+    <p id="startsEndsWithSubStringParaId"></p>
+    <hr>
+
+    <h2>Individual Characters</h2>
+    <button id="individualCharactersButtonId" onclick="individualCharacters()">Find Characters</button>
+    <p id="charactersParaId"></p>
+
+    <hr>
+    
+    <h2>Compares the given Strings</h2>
+    <label for="input_String1">Enter a String : </label>&nbsp;
+    <input id="input_String1" type="text" placeholder="Enter String"><br><br>
+    <label for="input_String2">Enter a String : </label>&nbsp;
+    <input id="input_String2" type="text" placeholder="Enter String"><br><br><br>
+    <button id="button_Compare" type="submit" value="compare" onclick="compareStrings()">Compare</button>
+    <button id="button_CompareWithLowerCase" type="submit" value="compare" onclick="compareStringsWithLowerCase()">Compare with LowerCase</button><br><br>
+    <p id="para_CompareText"></p>
+    <p id="para_CompareTextWithLowerCase"></p>
+
+</body>
+<script>
+    //1. Write a function to calculate the length of a given string using the length property.
+    function findStringLength(){
+        debugger;
+        var string = document.getElementById("FindLengthInputId").value;
+        var stringLength = string.length;
+        var paraString = document.getElementById("stringLengthParaId");
+        paraString.innerHTML = `The length of string is : ${stringLength}`;
+    }
+
+    //2. Write a script that converts a given string to uppercase and lowercase using the toUpperCase() and toLowerCase() 
+    function toLowercase(){
+        debugger;
+        var string = document.getElementById("FindLengthInputId").value;
+        var lowerCaseString = string.toLowerCase();
+        var lowerCaseStringPara = document.getElementById("lowercaseStringParaId");
+        lowerCaseStringPara.innerHTML = `String converted to lower case is : ${lowerCaseString}`;
+    }
+    function toUppercase(){
+        debugger;
+        var string = document.getElementById("FindLengthInputId").value;
+        var upperCaseString = string.toUpperCase();
+        var upperCaseStringPara = document.getElementById("uppercaseStringParaId");
+        upperCaseStringPara.innerHTML = `String converted to upper case is : ${upperCaseString}`;
+    }
+    
+    //3. Write a function that extracts a substring from a given string using methods like substring(), slice(), or substr().
+    function findSubString(){
+        debugger;
+        var substring;
+        var string = document.getElementById("findSubStringInputId").value;
+        var fromPosition = document.getElementById("fromInputId").value;
+        var toPosition = document.getElementById("toInputId").value;
+        var paraString = document.getElementById("subStringParaId");
+        
+        if(fromPosition != "" && toPosition != ""){
+            //from and to positions are given
+            substring = string.substring(fromPosition, toPosition);
+            paraString.innerHTML = `Extracted sub string with substring is : ${substring}`;
+        }else if(fromPosition != "" && toPosition == ""){
+            substring = string.substring(fromPosition);
+            paraString.innerHTML = `Extracted sub string with substring  is : ${substring}`;
+        }else if(fromPosition == "" && toPosition == ""){
+            paraString.innerHTML = "Substring cannot be extracted";
+        }
+    }
+    function findSubStringWithSlice(){
+        var substring;
+        var string = document.getElementById("findSubStringInputId").value;
+        var fromPosition = document.getElementById("fromInputId").value;
+        var elementSliceCount = document.getElementById("toInputId").value;
+        var paraString = document.getElementById("subStringWithSpliceParaId");
+
+        if(fromPosition != "" && elementSliceCount != ""){
+            //from and to positions are given
+            substring = string.substring(fromPosition, elementSliceCount);
+            paraString.innerHTML = `Extracted sub string with slice is : ${substring}`;
+        }else if(fromPosition != "" && elementSliceCount == ""){
+            substring = string.substring(fromPosition);
+            paraString.innerHTML = `Extracted sub string with slice is : ${substring}`;
+        }else if(fromPosition == "" && elementSliceCount == ""){
+            paraString.innerHTML = "Substring cannot be extracted";
+        }
+    }
+   
+    //4. Write a script that concatenates two or more strings using the concat() method or the + operator.
+    function stringConcatenation(){
+        debugger;
+        var string1 = document.getElementById('string1InputId').value;
+        var string2 = document.getElementById('string2InputId').value;
+        var string3 = document.getElementById('string3InputId').value;
+        var paraStringConcatenation = document.getElementById('stringConcatenateParaId');
+        var concatenatedStringWithConcatMethod = string1.concat(string2, string3);
+        var concatenatedStringWithPlusOperator = string1+string2+string3;
+        if(string1 != "" && string2 != "" && string3 != ""){
+            paraStringConcatenation.innerHTML = `String after concatenation with concat is ${concatenatedStringWithConcatMethod} and + operator is ${concatenatedStringWithPlusOperator}`;
+        }else{
+            paraStringConcatenation.innerHTML = "String Missing, concatenation cannot be performed!"
+        }
+    }
+
+    //5. Write a function to remove leading and trailing whitespace from a string using the trim() method.
+    function trimWhitespaces(){
+        debugger;
+        var string = document.getElementById("FindLengthInputId").value;
+        var stringAfterTrim = string.trim();
+        var paraStringTrim = document.getElementById('trimWhitespacesParaId');
+        paraStringTrim.innerHTML = `String after trimming whitespaces is ${stringAfterTrim} and it's length is ${stringAfterTrim.length}`;
+    }
+
+    //6. Write a script to search for a specific substring within a given string using methods like indexOf(), lastIndexOf(), or includes().
+    function stringSearchWithIndexOf(){
+        debugger;
+        var string = document.getElementById("stringSearchInputId").value;
+        var stringToBeSearched = document.getElementById("stringSearchValueInputId").value;
+        var stringSearch = string.indexOf(stringToBeSearched);
+        var paraStringSearchWithIndexOf = document.getElementById('stringSearchWithIndexOfParaId'); 
+        paraStringSearchWithIndexOf.innerHTML = `Index of ${stringToBeSearched} is ${stringSearch}`;
+    }
+    function stringSearchWithLastIndexOf(){
+        debugger;
+        var string = document.getElementById("stringSearchInputId").value;
+        var stringToBeSearched = document.getElementById("stringSearchValueInputId").value;
+        var stringSearch = string.lastIndexOf(stringToBeSearched);
+        var paraStringSearchWithLastIndexOf = document.getElementById('stringSearchWithLastIndexOfParaId');
+        paraStringSearchWithLastIndexOf.innerHTML = `Last Index of ${stringToBeSearched} is ${stringSearch}`;
+    }
+    function stringSearchWithIncludes(){
+        debugger;
+        var string = document.getElementById("stringSearchInputId").value;
+        var stringToBeSearched = document.getElementById("stringSearchValueInputId").value;
+        var stringSearch = string.includes(stringToBeSearched);
+        var paraStringSearchWithIncludes = document.getElementById('stringSearchWithIncludesParaId');
+        paraStringSearchWithIncludes.innerHTML = `${stringToBeSearched} is included in ${string} : ${stringSearch}`;
+    }
+    
+    //7.Write a function to split a string into an array of substrings based on a delimiter using the split() method.
+    function splitString(){
+        debugger;
+        var string = document.getElementById("stringSearchInputId").value;
+        var stringArray = string.split("/");
+        var paraStringSplit = document.getElementById("stringAfterSplitParaId");
+        paraStringSplit.innerHTML = `String after split is : ${stringArray}`;
+    }
+
+    //8. Write a script that replaces occurrences of a specific substring with another substring using the replace() method.
+    function replaceStringWithSubString(){
+        debugger;
+        var string = document.getElementById("stringReplaceInputId").value;
+        var stringToFind =  document.getElementById("stringToFindInputId").value;
+        var stringToReplace =  document.getElementById("stringToReplaceInputId").value;
+        var paraStringReplace =  document.getElementById("stringReplaceParaId");
+        var replacedString = string.replace(stringToFind, stringToReplace);
+        paraStringReplace.innerHTML = `${string} after replacing ${stringToFind} with ${stringToReplace} is ${replacedString}`;
+    }
+
+    //9.Write a function to check if a given string contains only alphanumeric characters using regular expressions or methods like match().
+    function isAlphaNumeric(){
+        debugger;
+        var string = document.getElementById("stringReplaceInputId").value;
+        var paraAlphaNumeric = document.getElementById("isAlphaNumericParaId");
+        var regExpAlpha = /[A-Za-z]/;
+        var regExpNumeric = /[0-9]/;
+        var regExpSpecial = /[^A-zA-z]/;
+        if(string.match(regExpAlpha) && string.match(regExpNumeric) && string.match(regExpSpecial)){
+            paraAlphaNumeric.innerHTML = `Given String ${string} is alphanumeric!`
+        }else{
+            paraAlphaNumeric.innerHTML = `Given String ${string} is not alphanumeric!`
+  
+        }
+    }
+    //10. Write a function to reverse a given string using methods like split(), reverse(), and join()
+    function reverseString(){
+        debugger;
+        var string = document.getElementById("stringReplaceInputId").value;
+        var paraReverse = document.getElementById("stringReverseParaId");
+        var reversedString = string.split("").reverse().join("");
+        paraReverse.innerHTML = `Reversed string is ${reversedString}`;
+    }
+    //11. Write a script that checks if a given string starts or ends with a specific substring using methods like startsWith() and endsWith().
+    function checkString(){
+        debugger;
+            var inputString = document.getElementById("stringInputId").value;
+            var startsSubString = document.getElementById("startSubStringInputId").value;
+            var endsSubString =  document.getElementById("endSubStringInputId").value;
+            var para = document.getElementById("startsEndsWithSubStringParaId");
+            var startsWith = inputString.startsWith(startsSubString);
+            var endsWith = inputString.endsWith(endsSubString);
+
+           
+            if(inputString == ""){
+                para.innerHTML = `Please enter a String`;
+            }
+            else if(startsWith == true && endsWith != true){
+                para.innerHTML = `String starts with ${startsSubString} but doesn't ends with ${endsSubString}`;     
+            }
+            else if(startsWith != true && endsWith == true ){
+                para.innerHTML = `String doesn't starts with ${startsSubString} but ends with ${endsSubString}`;
+            }
+            else if(startsWith == true && endsWith == true ){
+                para.innerHTML = `String does starts with ${startsSubString} as well as ends with ${endsSubString}`;
+            }
+            else if(startsWith != true && endsWith != true ){
+                para.innerHTML = `String neither starts with ${startsSubString} nor ends with ${endsSubString}`;
+            }
+    }
+    //12. Write a function to access individual characters of a string by index using bracket notation ([]).
+    function individualCharacters(){
+        debugger;
+        var string = document.getElementById("stringInputId").value;
+        var paraCharacters = document.getElementById("charactersParaId");        
+        var stringArray = string.split("");
+        var charactersInString;
+        for(var i=0; i<stringArray.length; i++){
+            charactersInString = stringArray[i];
+            paraCharacters.innerHTML += charactersInString + "\n";
+        }
+    }
+    //13. Write a script to format a string with placeholders using techniques like template literals or the replace() method with regular expressions
+
+    //14. Write a script that converts a string to an array of characters or words using methods like split() or spreading syntax (...)
+
+    //15. Write a function to compare two strings alphabetically using methods like localeCompare() or by converting them to lowercase and using relational operators
+    function compareStrings(){
+        debugger;
+        var string1Value = document.getElementById("input_String1").value;
+        var string2Value = document.getElementById("input_String2").value;
+        var stringResult = string1Value.localeCompare(string2Value);
+        var paraText = document.getElementById("para_CompareText");
+        if(stringResult == 0){
+            paraText.innerHTML = stringResult;
+        }else if(stringResult == 1){
+            paraText.innerHTML = stringResult
+        }else if(stringResult == -1){
+            paraText.innerHTML = stringResult
+        }
+    }
+    function compareStringsWithLowerCase(){
+        debugger;
+        var string1Value = document.getElementById("input_String1").value;
+        var string2Value = document.getElementById("input_String2").value;
+        var stringResult = string1Value.localeCompare(string2Value);
+        var paraText = document.getElementById("para_CompareText");
+        if((string1Value == "" && string2Value == "") || string1Value == "" || string2Value == ""){
+            paraText.innerHTML = "Strings cannot be compared"
+        }else if(string1Value.toLowerCase() == string2Value.toLowerCase()){
+            paraText.innerHTML = "Both strings are equal"
+        }else{
+            paraText.innerHTML = "Strings are not equal"
+        }
+    }
+</script>
+
+</html>

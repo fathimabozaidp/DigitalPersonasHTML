@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchronous and Asynchronous</title>
+</head>
+<body>
+    <h2>Synchrnous Operations</h2>
+    <button id="synchronousButtonId" onclick="synchronousOperation()">Synchronous </button>
+    <p id="synchronousParaId"></p>
+    
+    <hr>
+
+    <h2>Synchronous Array Operations and Array Iteration</h2>
+    <input id="arrayInputId"><br><br>
+    <button id="synchronousArrayButtonId" onclick="synchronousArrayOperation()">Synchronous Array - Each </button>
+    <p id="synchronousArrayParaId"></p>
+    <button id="synchronousArrayIterationButtonId" onclick="synchronousArrayIteration()">Synchronous Array Iteration </button>
+    <p id="synchronousArrayIterationParaId"></p>
+
+    <hr>
+    
+    <h2>Asynchrnous Operations and Set INterval</h2>
+    <button id="asynchronousButtonId" onclick="asynchronousOperation()">Asynchronous </button>
+    <p id="asynchronousParaId"></p>
+    <button id="setIntervalButtonId" onclick="asynchronousSetInterval()">Set Interval </button>
+    <button id="stopIntervalButtonId" onclick="stopSetInterval()">Stop Interval </button>
+    <p id="setIntervalParaId"></p>
+
+</body>
+<script>
+    var input1 = 10;
+    var input2 = 5;
+    var addValue, subtractValue, multiplyValue, divideValue;
+    var randomNumberInterval;
+    //1. Write a function that performs a series of synchronous operations (e.g., mathematical calculations) and returns the result.
+    function synchronousOperation(){  
+        debugger;
+        add();          
+        subtract();
+        multiply();
+        divide();
+        document.getElementById("synchronousParaId").innerHTML = `ADD: ${addValue}, SUBTRACT: ${subtractValue}, Multiply: ${multiplyValue}, DIVIDE: ${divideValue}`;
+    }
+
+    //2 Write a function that synchronously processes each element of an array (e.g., doubling each number) and returns the modified array.
+    function synchronousArrayOperation(){
+        debugger;
+        var input = document.getElementById("arrayInputId").value;
+        var paraSynchronousArray = document.getElementById("synchronousArrayParaId");
+        var inputArray = input.split(",");
+        var doubledArray = [];
+        inputArray.forEach((item) => {           
+           doubledArray.push(item*2);
+        });
+        paraSynchronousArray.innerHTML =`Double array is : [${doubledArray}]`;
+    }
+ 
+    function add(){
+       addValue =  input1 + input2;
+    }
+    function subtract(){
+        subtractValue =  input1 - input2;
+    }
+    function multiply(){
+        multiplyValue =  input1 * input2;
+    }
+    function divide(){
+        divideValue =  input1 / input2;
+    }
+    
+
+    //3. Synchronous Loop: Write a loop that iterates synchronously over an array and performs an operation on each element.
+    function synchronousArrayIteration(){
+        debugger;
+        var input = document.getElementById("arrayInputId").value;
+        var paraSynchronousArrayIteration = document.getElementById("synchronousArrayIterationParaId");
+        var inputArray = input.split(",");
+        var squaredArray = [];
+        for(i=0;i<inputArray.length;i++){
+            squaredArray.push(inputArray[i]**2);
+        }
+        paraSynchronousArrayIteration.innerHTML =`Squared array is : [${squaredArray}]`;
+    }
+
+    //4. Asynchronous Function with Callback: Write a function that asynchronously performs an operation (e.g., setTimeout) and invokes a callback function with the result.
+    function asynchronousOperation(){  
+        debugger;
+        addValue =  input1 + input2;
+        setTimeout(()=>{
+            document.getElementById("asynchronousParaId").innerHTML = `ADD: ${addValue}`;  
+        }, 5000);   
+        subtract();
+        multiply();
+        divide();            
+        document.getElementById("asynchronousParaId").innerHTML = `SUBTRACT: ${subtractValue}, Multiply: ${multiplyValue}, DIVIDE: ${divideValue}`;
+    }
+
+    //5. Asynchronous Timer: Write a script that sets a timer using setTimeout or setInterval and performs an operation asynchronously when the timer expires.
+    function asynchronousSetInterval(){
+        debugger;
+        randomNumberInterval = setInterval(()=> displayRandomNumbers(10,30), 3000);   
+    }
+    function displayRandomNumbers(min, max){
+        var randomNumbers = Math.round(Math.random() * (max-min)+min);
+        var paraAsynchronousInterval = document.getElementById("setIntervalParaId") 
+        paraAsynchronousInterval.innerHTML += randomNumbers+"\n";
+    }
+    function stopSetInterval(){
+        clearInterval(randomNumberInterval);
+    }
+</script>
+</html>

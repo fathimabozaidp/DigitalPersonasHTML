@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Practice 5</title>
+</head>
+<body>
+    <h2>Total Price of all products</h2>
+
+    <label for="input_Name1">Name</label>
+    <input id="input_Name1">
+    <label for="input_Price1">Price</label>
+    <input id="input_Price1">
+    <label for="input_Quantity1">Quantity</label>
+    <input id="input_Quantity1"><br><br>
+
+    <label for="input_Name2">Name</label>
+    <input id="input_Name2">
+    <label for="input_Price2">Price</label>
+    <input id="input_Price2">
+    <label for="input_Quantity2">Quantity</label>
+    <input id="input_Quantity2"><br><br>
+
+    <label for="input_Name3">Name</label>
+    <input id="input_Name3">
+    <label for="input_Price3">Price</label>
+    <input id="input_Price3">
+    <label for="input_Quantity3">Quantity</label>
+    <input id="input_Quantity3"><br><br>
+
+    <label for="input_Name4">Name</label>
+    <input id="input_Name4">
+    <label for="input_Price4">Price</label>
+    <input id="input_Price4">
+    <label for="input_Quantity4">Quantity</label>
+    <input id="input_Quantity4"><br><br>
+
+    <button id="button_Calculate" onclick="calculateTotalPrice()">Calculate</button>
+    <p id="para_Total"></p>
+
+    <hr>
+
+    <h2>Array Methods</h2>
+    <label for="input_Array">Array</label>
+    <input id="input_Array">
+    <label>Value</label>
+    <input id="input_Value" size="5px"><br><br>
+    <button id="button_Map" onclick="mapSquareRoot()">Map</button>
+    <button id="button_Filter" onclick="filterString()">Filter</button>
+    <button id="button_Reduce" onclick="reduceMethod()">Reduce</button>
+    <button id="button_ForEach" onclick="forEachMethod()">For Each</button>
+    <button id="button_Find" onclick="findElement()">Find</button>
+    <button id="button_IndexOf" onclick="indexOfElement()">Index of</button>
+    <button id="button_Slice" onclick="sliceArray()">Slice</button>
+    <button id="button_Splice" onclick="spliceArray()">Splice</button><br><br>
+    <p id="para_Map"></p>
+    <p id="para_Filter"></p>
+    <p id="para_Reduce"></p>
+    <p id="para_ForEach"></p>
+    <p id="para_Find"></p>
+    <p id="para_IndexOf"></p>
+    <p id="para_Slice"></p>
+    <p id="para_Splice"></p>
+
+    <hr>
+
+    <h2>Object Methods</h2>
+    <button id="button_Keys" onclick="displayKeys()">Keys</button>
+    <button id="button_Values" onclick="displayValues()">Values</button>
+    <button id="button_Entries" onclick="entriesMethod()">Entries</button>
+    <button id="button_Assign" onclick="assignMethod()">Assign</button>
+    <button id="button_Stringify" onclick="stringifyMethod()">JSON Stringify</button><br><br>
+    <p id="para_Keys"></p>
+    <p id="para_Values"></p>
+    <p id="para_Entries"></p>
+    <p id="para_Assign"></p>
+    <p id="para_Stringify"></p>
+
+    <hr>
+
+    <h2>Filter Odd and Double remaining using map</h2>
+    <button id="button_FilterOdd" onclick="filterOddandDoubleOthers()">Filter Odd</button><br><br>
+    <p id="para_FilterOdd"></p>
+    <hr>
+
+    <h2>Sum of All elements with reduce</h2>
+    <button id="button_SumOfAll" onclick="sumOfAll()">Sum</button><br><br>
+    <p id="para_SumOfAll"></p>
+
+    <hr>
+
+    <h2>Product with price greater than 100 and it's index</h2>
+    <button id="button_FindGreater" onclick="findPrice()">Find</button><br><br>
+    <p id="para_FindGreater"></p>
+
+    <hr>
+
+    <h2>Concatenate 2 Arrays and extract a potion of array using slice method</h2>
+    <label for="input_Array1">Array1</label>&nbsp;
+    <input id="input_Array1" placeholder="Enter array values">&nbsp;&nbsp;&nbsp;
+    <label for="input_Array2">Array2</label>&nbsp;
+    <input id="input_Array2" placeholder="Enter array values"><br><br>
+    <button id="button_Concatenate" onclick="concatenateAndExtract()">Concatenate-Extract</button><br><br>
+    <p id="para_Extract"></p>
+    
+</body>
+<script>
+    var inputForMethods, inputArrayForMethods;
+    var goodsPaylod;
+
+   //1. Write a function that takes an array of objects representing products with properties like name, price, and quantity, and returns the total price of all products (price * quantity).
+    function calculateTotalPrice(){
+        debugger;
+        var nameInput1 = document.getElementById("input_Name1").value;
+        var nameInput2 = document.getElementById("input_Name2").value;
+        var nameInput3 = document.getElementById("input_Name3").value;
+        var nameInput4 = document.getElementById("input_Name4").value;
+
+        var priceInput1 = document.getElementById("input_Price1").value;
+        var priceInput2 = document.getElementById("input_Price2").value;
+        var priceInput3 = document.getElementById("input_Price3").value;
+        var priceInput4 = document.getElementById("input_Price4").value;
+
+        var quantityInput1 = document.getElementById("input_Quantity1").value;
+        var quantityInput2 = document.getElementById("input_Quantity2").value;
+        var quantityInput3 = document.getElementById("input_Quantity3").value;
+        var quantityInput4 = document.getElementById("input_Quantity4").value;
+       
+        var paraTotal = document.getElementById("para_Total");
+        goodsPaylod = [
+        {
+            "name" : nameInput1,
+            "price" : priceInput1,
+            "quantity" : quantityInput1
+        },
+        {
+            "name" : nameInput2,
+            "price" : priceInput2,
+            "quantity" : quantityInput2
+        },
+        {
+            "name" : nameInput3,
+            "price" : priceInput3,
+            "quantity" : quantityInput3
+        },
+        {
+            "name" : nameInput4,
+            "price" : priceInput4,
+            "quantity" : quantityInput4
+        }
+    ]; 
+        var total = 0;
+        for(i=0;i<goodsPaylod.length; i++){
+            total += goodsPaylod[i].price * goodsPaylod[i].quantity;
+        }   
+        paraTotal.innerHTML = "Total Price is: "+total.toLocaleString();     
+    }
+
+    // 2. array methods such as map, filter, reduce, forEach, find, indexOf, slice, and splice to manipulate arrays.
+    function mapSquareRoot(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var paraMap = document.getElementById("para_Map");
+
+        inputArrayForMethods =inputForMethods.split(",");
+        paraMap.innerHTML = inputArrayForMethods.map(Math.sqrt).toLocaleString(2);
+    }
+    function filterString(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var paraFilter = document.getElementById("para_Filter");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        var filteredItems = inputArrayForMethods.filter((item) => {
+           if(typeof(item) == "string"){
+            return item;
+           }
+        });
+        paraFilter.innerHTML = filteredItems;
+    }
+    function reduceMethod(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var paraReduce = document.getElementById("para_Reduce");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        var reduceItems = inputArrayForMethods.reduce((currentTotal,item) =>{
+           return currentTotal + parseInt(item);
+        },0);
+        paraReduce.innerHTML = reduceItems;
+
+    }
+    function forEachMethod(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var paraForEach = document.getElementById("para_ForEach");
+        inputArrayForMethods = inputForMethods.split(",");
+        var allElements= [];
+        inputArrayForMethods.forEach((item) => {
+            allElements.push(item);
+        });
+        paraForEach.innerHTML  = allElements;
+
+    }
+    function findElement(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var inputSearch = document.getElementById("input_Value").value;
+        var paraFind = document.getElementById("para_Find");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        var found = inputArrayForMethods.find(item => { return item == inputSearch});
+        paraFind.innerHTML =  found;
+    }
+    function indexOfElement(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var inputSearch = document.getElementById("input_Value").value;
+        var paraIndexOf = document.getElementById("para_IndexOf");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        if(inputSearch != "" && inputForMethods != ""){
+            var foundIndex = inputArrayForMethods.indexOf(inputSearch);
+            paraIndexOf.innerHTML =  foundIndex;
+        }else{
+            alert("Both fields are mandatory");
+        }
+    }
+    function sliceArray(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var inputSearch = document.getElementById("input_Value").value;
+        var paraSlice = document.getElementById("para_Slice");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        if(inputSearch != "" && inputForMethods != ""){
+            var sliced = inputArrayForMethods.slice(inputSearch);
+            paraSlice.innerHTML = `Sliced at Index: "${inputSearch}", array after slicing is : [${sliced}]`;
+        }else{
+            alert("Both fields are mandatory");
+        }
+    }
+    function spliceArray(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var inputSearch = document.getElementById("input_Value").value;
+        var paraSplice = document.getElementById("para_Splice");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        if(inputSearch != "" && inputForMethods != ""){
+            var spliced = inputArrayForMethods.slice(inputSearch);
+            paraSplice.innerHTML = `Spliced at Index: "${inputSearch}", array after splicing is : [${spliced}]`;
+        }else{
+            alert("Both fields are mandatory");
+        }
+        
+
+    }
+
+    // 3. object methods such as Object.keys, Object.values, Object.entries, Object.assign, and JSON.stringify to manipulate objects.
+    function displayKeys(){
+        debugger;
+        var nameInput1 = document.getElementById("input_Name1").value;
+        // var nameInput2 = document.getElementById("input_Name2").value;
+        // var nameInput3 = document.getElementById("input_Name3").value;
+        // var nameInput4 = document.getElementById("input_Name4").value;
+
+        var priceInput1 = document.getElementById("input_Price1").value;
+        // var priceInput2 = document.getElementById("input_Price2").value;
+        // var priceInput3 = document.getElementById("input_Price3").value;
+        // var priceInput4 = document.getElementById("input_Price4").value;
+
+        var quantityInput1 = document.getElementById("input_Quantity1").value;
+        // var quantityInput2 = document.getElementById("input_Quantity2").value;
+        // var quantityInput3 = document.getElementById("input_Quantity3").value;
+        // var quantityInput4 = document.getElementById("input_Quantity4").value;
+        goodsPaylod = 
+        // [
+        {
+            "name" : nameInput1,
+            "price" : priceInput1,
+            "quantity" : quantityInput1
+        }
+        // ,
+        // {
+        //     "name" : nameInput2,
+        //     "price" : priceInput2,
+        //     "quantity" : quantityInput2
+        // },
+        // {
+        //     "name" : nameInput3,
+        //     "price" : priceInput3,
+        //     "quantity" : quantityInput3
+        // },
+        // {
+        //     "name" : nameInput4,
+        //     "price" : priceInput4,
+        //     "quantity" : quantityInput4
+        // }
+    // ]; 
+        var paraKeys = document.getElementById("para_Keys");
+        var payloadKeys = Object.keys(goodsPaylod);
+        paraKeys.innerHTML = payloadKeys;
+    }
+    function displayValues(){
+        debugger;
+        var nameInput1 = document.getElementById("input_Name1").value;
+        var priceInput1 = document.getElementById("input_Price1").value;
+        var quantityInput1 = document.getElementById("input_Quantity1").value;
+        goodsPaylod ={
+            "name" : nameInput1,
+            "price" : priceInput1,
+            "quantity" : quantityInput1
+        }
+        var paraValues = document.getElementById("para_Values");
+        var payloadValues = Object.values(goodsPaylod);
+        paraValues.innerHTML = payloadValues;
+    }
+    function entriesMethod(){
+        var nameInput1 = document.getElementById("input_Name1").value;
+        var priceInput1 = document.getElementById("input_Price1").value;
+        var quantityInput1 = document.getElementById("input_Quantity1").value;
+        goodsPaylod ={
+            "name" : nameInput1,
+            "price" : priceInput1,
+            "quantity" : quantityInput1
+        }
+        var paraEntries = document.getElementById("para_Entries");
+        var payloadEntries = Object.entries(goodsPaylod);
+        paraEntries.innerHTML = payloadEntries;
+    }
+    function assignMethod(){
+        var nameInput1 = document.getElementById("input_Name1").value;
+        var priceInput1 = document.getElementById("input_Price1").value;
+        var quantityInput1 = document.getElementById("input_Quantity1").value;
+        goodsPaylod ={
+            "name" : nameInput1,
+            "price" : priceInput1,
+            "quantity" : quantityInput1
+        }
+        var paraAssign = document.getElementById("para_Assign");
+        var payloadAssign = Object.assign({},goodsPaylod);
+        paraAssign.innerHTML = payloadAssign;
+    }
+    function stringifyMethod(){
+        var nameInput1 = document.getElementById("input_Name1").value;
+        var priceInput1 = document.getElementById("input_Price1").value;
+        var quantityInput1 = document.getElementById("input_Quantity1").value;
+        goodsPaylod ={
+            "name" : nameInput1,
+            "price" : priceInput1,
+            "quantity" : quantityInput1
+        }
+        var paraStringify = document.getElementById("para_Stringify");
+        var payloadStringify = JSON.stringify(goodsPaylod);
+        paraStringify.innerHTML = payloadStringify;
+    }
+    
+    // 4. Given an array of numbers, filter out the odd numbers and then double each remaining number using the map method.
+   function filterOddandDoubleOthers(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var paraFilterOdd = document.getElementById("para_FilterOdd");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        var parsedArray = [],intValue=0;
+        
+        for(i=0;i<inputArrayForMethods.length;i++){
+            intValue = parseInt(inputArrayForMethods[i]);
+            parsedArray.push(intValue);
+        }
+        var paraFilter = document.getElementById("");
+        var oddArray=[], multipliedArray=[];
+        parsedArray.forEach((item)=>{
+            if(item%2 != 0){
+                //it is odd as remainder is not 0
+                oddArray.push(item)
+            }else{
+                var multipliedItem = item * 2;
+                multipliedArray.push(multipliedItem);
+            }
+        });
+        paraFilterOdd.innerHTML = `Odd array : [${oddArray}] and Remaining array doubled is : [${multipliedArray}]`;       
+   }
+    // 5. Write a function that calculates the sum of all elements in an array using the reduce method. 
+    function sumOfAll(){
+        debugger;
+        inputForMethods = document.getElementById("input_Array").value;
+        var paraSum = document.getElementById("para_SumOfAll");
+        inputArrayForMethods = inputForMethods.split(",");
+
+        var sum = inputArrayForMethods.reduce((total, item) => {
+           return parseInt(item)+total;
+        },0);
+        paraSum.innerHTML = `Sum of all values is : ${sum}`;        
+    }	
+    
+    // 6. Given an array of objects representing products, find the first product with a price greater than $100 and return its index.
+    function findPrice(){
+        debugger;
+        var nameInput1 = document.getElementById("input_Name1").value;
+        var nameInput2 = document.getElementById("input_Name2").value;
+        var nameInput3 = document.getElementById("input_Name3").value;
+        var nameInput4 = document.getElementById("input_Name4").value;
+
+        var priceInput1 = document.getElementById("input_Price1").value;
+        var priceInput2 = document.getElementById("input_Price2").value;
+        var priceInput3 = document.getElementById("input_Price3").value;
+        var priceInput4 = document.getElementById("input_Price4").value;
+
+        var quantityInput1 = document.getElementById("input_Quantity1").value;
+        var quantityInput2 = document.getElementById("input_Quantity2").value;
+        var quantityInput3 = document.getElementById("input_Quantity3").value;
+        var quantityInput4 = document.getElementById("input_Quantity4").value;
+       
+        var paraFindGreater = document.getElementById("para_FindGreater");
+        goodsPaylod = [
+            {
+                "name" : nameInput1,
+                "price" : priceInput1,
+                "quantity" : quantityInput1
+            },
+            {
+                "name" : nameInput2,
+                "price" : priceInput2,
+                "quantity" : quantityInput2
+            },
+            {
+                "name" : nameInput3,
+                "price" : priceInput3,
+                "quantity" : quantityInput3
+            },
+            {
+                "name" : nameInput4,
+                "price" : priceInput4,
+                "quantity" : quantityInput4
+            }
+        ]
+        
+            var index = goodsPaylod.findIndex((item) =>{
+            return item.price >= 100;        
+            });
+            paraFindGreater.innerHTML = index;
+          
+    }
+    
+    // 7. Concatenate two arrays and then extract a portion of the resulting array using the slice method.
+    function concatenateAndExtract(){
+        debugger;
+        var input1 = document.getElementById("input_Array1");
+        var input2 = document.getElementById("input_Array2");
+        var array1 = input1.value.split(",");
+        var array2 = input2.value.split(",");
+        var paraExtract = document.getElementById("para_Extract");
+        var concatenatedArray = array1.concat(array2);
+        for(i=0;i<concatenatedArray.length;i++){
+            for(j=i+1; j<concatenatedArray.length;j++){
+                if(concatenatedArray[i] == concatenatedArray[j]){
+                    concatenatedArray.splice(j--, 1);
+                }
+            }
+        }
+        // var mergedArray = [...new Set(mergedArrayWithDuplicates)];
+        var slicedArray = concatenatedArray.slice(1);         
+        paraExtract.innerHTML = `Concatenated array is : [${concatenatedArray.sort()}] and sliced array is : [${slicedArray}]`;        
+    }
+
+</script>
+</html>

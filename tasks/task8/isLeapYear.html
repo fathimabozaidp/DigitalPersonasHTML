@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year</title>
+</head>
+<body>
+    <center>
+        <label>Enter Year: </label>&nbsp;
+        <input id="input_Year" type="text" maxlength="4"><br><br>
+        <button id="button_Find" onclick="isLeapYear()">Find</button>
+        <p id="para_LeapYearText"></p>
+    </center>
+    <script>
+        function isLeapYear(){
+            year = document.getElementById('input_Year').value;
+            const leap = new Date(year, 1, 29).getDate() === 29;
+            if(leap){
+                console.log("It's a leap year");
+            }else{
+                console.log("It's not a leap year");
+            }
+        }
+            // var arr= [1,2,3,4,5];
+            // for(i=0;i<arr.length;i++){
+            //     var center = Math.floor(arr.length/2);
+            //     console.log("Center Element is "+arr[center]);
+            // }
+    </script>
+    
+</body>
+</html>

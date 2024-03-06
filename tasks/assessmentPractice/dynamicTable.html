@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <style>
+        table, td,th   {
+                     border: 1px solid black;
+                    }
+        td{
+            width: 50px;
+            height:20px
+        }
+    </style>
+</head>
+<body>
+    <input id="tableRowId" placeholder="rows">
+    <!-- <input id="tableColumnId" placeholder="columns"><br><br> -->
+    <button id="createTableButtonId" onclick="createTable()">Create Table</button><br><br>
+</body>
+<script>
+    function createTable(){      
+        if(!table){
+            var table=document.getElementById('dynamicTableId');
+         } if(table!==null){
+            table.parentNode.removeChild(table);
+     
+         }
+        var rowsInput = document.getElementById("tableRowId");
+        var rowsValue = parseInt(rowsInput.value)
+        var table = document.createElement('table');        
+        table.setAttribute("id", "dynamicTableId");
+        document.body.appendChild(table);
+        var headerRow = document.createElement('tr'); 
+        var headerItems = ["Name","Age","Mobile","Email"];
+        headerItems.forEach((item) =>{
+            var tableHeader = document.createElement('th');
+            tableHeader.innerHTML = item;
+            headerRow.appendChild(tableHeader);
+            table.appendChild(headerRow);
+        });
+        for(i=0; i<rowsValue; i++){
+            var tableRows = document.createElement('tr');
+            for(j=0;j<4;j++){
+                var tableColumns = document.createElement('td');
+                // var tableColumns = tableRows.insertCell();
+                tableRows.appendChild(tableColumns);                
+            }
+            table.appendChild(tableRows);
+        }  
+        rowsInput.value = "";
+        columnsInput.value = "";      
+        // tableDiv.appendChild(table);
+    }    
+</script>
+</html>

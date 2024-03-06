@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Duplicates without input</title>
+
+</head>
+<body>
+    <button id="findDuplicatesButtonId" onclick="onFindDuplicates()">Find Duplicates</button>
+    <p id="duplicatesParaId"></p>
+</body>
+<script>
+    function onFindDuplicates(){
+        var arrayOfObjects = [
+            {
+                "name" : "Fathima",
+                "age" : 29,
+                "city": "Hyderabad"
+            },
+            {
+                "name" : "Bozai",
+                "age" : 30,
+                "city": "Hyderabad"
+            },
+            {
+                "name" : "Mubasheera",
+                "age" : 29,
+                "city": "Delhi"
+            },
+            {
+                "name" : "Feeha",
+                "age" : 1,
+                "city": "Hyderabad"
+            },
+            {
+                "name" : "Rahath",
+                "age" : 25,
+                "city": "Kurnool"
+            },
+            {
+                "name" : "Ibrahim",
+                "age" : 10,
+                "city": "Kurnool"
+            },
+            {
+                "name" : "Ibrahim",
+                "age" : 10,
+                "city": "Kurnool"
+            }        
+        ];
+
+        var distinct = [];
+        var duplicates = [];
+        arrayOfObjects.forEach((item, index, object) => {
+            if (distinct.find(current => current.name === item.name)) {
+                duplicates.push(item);
+            } else {
+                distinct.push(item);
+            }
+        });
+        document.getElementById("duplicatesParaId").innerHTML = JSON.stringify(duplicates);
+    }
+
+
+</script>
+</html>

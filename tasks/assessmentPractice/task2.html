@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Practice 2</title>
+</head>
+<body>  
+    <h2>ASCII to Hexadecimal format</h2>
+    <!-- <input id="input_Ascii" placeholder="Enter ASCII value"><br><br> -->
+    <button id="button_Convert_ASCII_To_Hexa" onclick="asciiToHexa()">ASCII to HexaDecimal</button><br><br>
+    <button id="button_Convert_ASCII_To_Binary" onclick="asciiToBinary()">ASCII to Binary</button><br><br>
+    <button id="button_Convert1_ASCII_To_Decimal" onclick="asciiToDecimal()">ASCII to Decimal</button><br><br>
+
+    <hr>
+
+    <h2>Positive Array</h2>  
+    <label for="input_Array">Array</label>&nbsp;
+    <input id="input_Array" placeholder="Enter array values"><br><br>
+    <button id="button_PositiveArray" onclick="findPositiveArray();">Submit</button><br><br>
+    <p id="para_PositiveArray"></p>
+    <hr>
+
+    <h2>Words in Text</h2> 
+    <label for="input_Sentence">Sentence</label>&nbsp;
+    <input id="input_Sentence" placeholder="Enter any sentence" size="70px"><br><br>
+    <button id="button_FindWords" onclick="numberOfWords();">Find Words</button><br><br>
+    <p id="para_WordsInText"></p>
+
+    <hr>
+
+</body>
+
+<script>
+    //ASCII to HexaDecimal
+    function asciiToHexa(){
+        debugger;
+        var array_Hex=[];
+        var ascii = prompt("Enter ASCII value");
+        // var asciiArray = Array.from(ascii)
+        for(var i=0;i<ascii.length;i++){
+            var hexaNumber = Number(ascii.charCodeAt(i)).toString(16);
+            array_Hex.push(hexaNumber);
+        }
+        alert(array_Hex.join(''));        
+    }
+    //ASCII to Binary
+    function asciiToBinary(){
+        debugger;
+        var array_Binary=[];
+        var ascii = prompt("Enter ASCII value");
+        // var asciiArray = Array.from(ascii)
+        for(var i=0;i<ascii.length;i++){
+            var binaryNumber = 0+Number(ascii.charCodeAt(i)).toString(2);
+            array_Binary.push(binaryNumber);
+        }
+        alert(array_Binary.join('')); 
+    }
+    //ASCII to Decimal
+    function asciiToDecimal(){
+        debugger;
+        var array_Decimal=[];
+        var ascii = prompt("Enter ASCII value");
+        // var asciiArray = Array.from(ascii)
+        for(var i=0;i<ascii.length;i++){
+            var decimalNumber = Number(ascii.charCodeAt(i));
+            array_Decimal.push(decimalNumber);
+        }
+        alert(array_Decimal.join('')); 
+    }
+
+    //2. Create a function that receives an array of numbers as an argument and returns an array containing only the positive numbers
+    function findPositiveArray(){
+        debugger;
+        var input = document.getElementById("input_Array");
+        var inputValue = input.value;
+        var para = document.getElementById("para_PositiveArray");
+        var positiveArray = [];
+
+        var arrayOfNumbers = inputValue.split(",");
+        // var arrayOfNumbers = Array.from(inputValue.toString(), Number).map(Number);
+
+        for(var i=0;i<arrayOfNumbers.length;i++){
+            if(arrayOfNumbers[i] > 0){
+                positiveArray.push(arrayOfNumbers[i]);
+            }
+        }
+        // input.value = ""
+        para.innerHTML = "Positive Array is : [" + positiveArray + "]";
+    }
+    
+
+    //3. Create a function that will return the number of words in a text
+    function numberOfWords(){
+        var input = document.getElementById("input_Sentence");
+        var textPara = document.getElementById("para_WordsInText");
+        var textArray = input.value.split(' ');
+        var words = textArray.filter((item) => item != "");
+        textPara.innerHTML = "Total words are : " + words.length;
+    }
+
+    //4. Create a function to calculate the sum of all the numbers in a jagged array 
+    function calculateSumInJaggedArray(jaggedArray){
+        debugger;
+                       
+        var flatArray = jaggedArray.flat(2);
+        console.log(flatArray);
+
+        //using reducer on flat array
+        var sum = flatArray.reduce((currentTotal, item)=>{
+            return item + currentTotal;
+        },0);
+        console.log(sum);
+    }
+    calculateSumInJaggedArray([10,3,[1,2],[1,[3,5]],[2,4,6,8]]);
+
+    //5. Find the maximum number in a jagged array of numbers or array of number
+    function maximumInJaggedArray(jaggedArr){
+        //flattening jagged array of depth 2
+        var flatArr = jaggedArr.flat(2);
+
+        //finds max in flattened-Jagged array
+        var maximum = Math.max(...flatArr);
+        console.log(maximum); 
+    }
+    maximumInJaggedArray([10,3,[1,2],[1,[3,5]],[2,4,6,8]]);
+</script>
+</html>

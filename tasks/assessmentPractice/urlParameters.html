@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Parameters</title>
+</head>
+<body>
+    <button id="getAllParametersId" onclick="getFirstParameterFromURL()">Get First Parameter</button>
+    <p id="parametersParaId"></p>
+    <button id="convertParametersToObjectId" onclick="urlParametersAsObject()">URL Parameters as Object</button>
+    <p id="parametersAsObjectParaId"></p>
+</body>
+<script>
+    function getFirstParameterFromURL(){
+        debugger;
+        var url = new URL("https://www.domain.com/?utm_source=twitter&utm_medium=tweet&utm_campaign=summer-sale&");
+        var isfirstParameterPresent = url.searchParams.has('utm_source');
+        var firstParameter = url.searchParams.get('utm_source');
+        document.getElementById("parametersParaId").innerHTML = firstParameter;
+    }
+    function urlParametersAsObject(){
+        debugger;
+        var url = 'https://www.domain.com/?utm_source=twitter&utm_medium=tweet&utm_campaign=summer-sale';
+        var queryString = url.split('/')[3];
+        var urlParams = new URLSearchParams(queryString);
+        var urlParamsAsObject = Object.fromEntries(urlParams.entries());
+        document.getElementById("parametersAsObjectParaId").innerHTML = JSON.stringify(urlParamsAsObject);
+    }
+</script>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Practice 4</title>
+</head>
+<body>
+    <h2>Adding Items into Empty Array</h2>  
+    <label for="input_Items">Items</label>&nbsp;
+    <input id="input_Items" placeholder="Enter item values"><br><br>
+    <button id="button_AddToArray" onclick="addItemsToBlankArray()">Add to Array</button><br><br>
+    <p id="para_DisplayArray"></p>
+
+    <hr>   
+    
+    <h2>Copy of the object where the keys become the values and the values are the keys</h2>
+    <label for="input_Brand">Brand</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input id="input_Brand"><br><br>
+    <label for="input_Dimensions">Dimensions</label>
+    <input id="input_Dimensions"><br><br>
+    <label for="input_Color">Color</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input id="input_Color"><br><br>
+    <button id="button_Swap" onclick="objectReplica()">Swap</button>
+    <p id="para_SwapObjectKeyValue"></p>
+
+    <hr>
+    <h2>Accessing an object with key</h2>
+    <label>Enter a key value</label>&nbsp;
+    <input id="input_Key" placeholder="Enter key value"><br><br>
+    <button id="button_Submit" onclick="accessObjectWithKey()">Submit</button>
+    <p id="para_ObjectProperties"></p>
+
+    <hr>
+    <h2>Flatten Object</h2>
+    <label for="input_Name">Name</label>
+    <input id="input_Name"><br><br>
+    <label for="input_Age">Age</label>
+    <input id="input_Age"><br><br>
+    <h4>Address</h4>
+    <label for="input_Flat">Flat</label>
+    <input id="input_Flat"><br><br>
+    <label for="input_Street">Street</label>
+    <input id="input_Street"><br><br>
+    <label for="input_Area">Area</label>
+    <input id="input_Area"><br><br>
+
+    <button id="button_Swap" onclick="flattenObject()">Flatten</button>
+    <p id="para_FlattenObject"></p>
+
+    <hr>
+    
+    <h2>Object Filter</h2>
+
+    <label for="input_Title1">Title</label>
+    <input id="input_Title1">
+    <label for="input_Genre1">Genre</label>
+    <input id="input_Genre1">
+    <label for="input_Rating1">Rating</label>
+    <input id="input_Rating1"><br><br>
+    
+
+    <label for="input_Title2">Title</label>
+    <input id="input_Title2">
+    <label for="input_Genre2">Genre</label>
+    <input id="input_Genre2">
+    <label for="input_Rating2">Rating</label>
+    <input id="input_Rating2"><br><br>
+
+    <label for="input_Title3">Title</label>
+    <input id="input_Title3">
+    <label for="input_Genre3">Genre</label>
+    <input id="input_Genre3">
+    <label for="input_Rating3">Rating</label>
+    <input id="input_Rating3"><br><br>
+
+    <label for="input_Title4">Title</label>
+    <input id="input_Title4">
+    <label for="input_Genre4">Genre</label>
+    <input id="input_Genre4">
+    <label for="input_Rating4">Rating</label>
+    <input id="input_Rating4"><br><br>
+
+    <label for="input_Title5">Title</label>
+    <input id="input_Title5">
+    <label for="input_Genre5">Genre</label>
+    <input id="input_Genre5">
+    <label for="input_Rating5">Rating</label>
+    <input id="input_Rating5"><br><br>
+
+    <label for="input_Title6">Title</label>
+    <input id="input_Title6">
+    <label for="input_Genre6">Genre</label>
+    <input id="input_Genre6">
+    <label for="input_Rating6">Rating</label>
+    <input id="input_Rating6"><br><br>
+    
+    <input id="input_Find" placeholder="Enter your value">
+    <button id="button_Find" onclick="movies()">Find</button>
+    <p id="Movie"></p>
+    
+</body>
+<script>
+    //1. Write a JavaScript program to add items to a blank array and display them.
+    function addItemsToBlankArray(){
+        var input = document.getElementById("input_Items");
+        var para = document.getElementById("para_DisplayArray");
+        var array = input.value.split(",");
+        var blankArray = [];
+        array.forEach(item=> blankArray.push(item));
+        para.innerHTML = `Array after adding items is : [${blankArray}]`;
+    }
+    
+    //2. Write a JavaScript function to get a copy of the object where the keys become the values and the values are the keys.
+    function objectReplica(){
+        debugger;
+        var input1 = document.getElementById("input_Brand").value;
+        var input2 = document.getElementById("input_Dimensions").value;
+        var input3 = document.getElementById("input_Color").value;
+        var para = document.getElementById("para_SwapObjectKeyValue");
+        var Payload = {
+            "Brand" : input1,
+            "Dimensions": input2,
+            "Color" : input3,
+        };    
+        var swappedKeysValue = Object.entries(Payload).map(([key,value])=>[value,key]);
+        para.innerHTML = JSON.stringify(Object.fromEntries(swappedKeysValue));  
+
+    }
+        
+    //3. Write a function that takes an array of objects and groups them by a specified property, returning an object where the keys are unique values from that property and the values are arrays of objects with that property value.
+    function accessObjectWithKey(){
+        var vegetables = [
+            {
+                "name" : "Carrot",
+                "color" : "Orange"
+            },
+            {
+                "name" : "Tomatoes",
+                "color" : "Red"
+            },
+            {
+                "name" : "Cucumber",
+                "color" : "Green"
+            },
+            {
+                "name" : "Lemon",
+                "color" : "Yellow"
+            }
+        ];
+        var inputValue = document.getElementById("input_Key").value;
+        var para = document.getElementById("para_ObjectProperties");
+        vegetables.forEach(item =>{
+            if(item.name.toLowerCase() == inputValue.toLowerCase()){
+                para.innerHTML = JSON.stringify(item);
+            }
+        });
+    }
+
+
+    //4. Write a function to flatten a nested object.
+    function flattenObject(){
+        var input1 = document.getElementById("input_Name").value;
+        var input2 = document.getElementById("input_Age").value;
+        var input3 = document.getElementById("input_Flat").value;
+        var input4 = document.getElementById("input_Street").value;
+        var input5 = document.getElementById("input_Area").value;
+        var para = document.getElementById("para_FlattenObject");
+        var Payload={
+            "name" : input1,
+            "age" : input2,
+            "address": {              
+                "flat" : input3,
+                "street" :input4,
+                "area" : input5
+            }
+        } 
+        var childObject = Payload.address;
+        delete Payload.address;
+        Payload.flat = childObject.flat;
+        Payload.street = childObject.street;
+        Payload.area = childObject.area;
+        para.innerHTML = JSON.stringify(Payload);
+    }
+    
+
+    //5. Create a function that takes an array of objects representing movies with properties like title, genre, and rating, and returns an array of objects containing only the movies with a genre of "Action"
+   
+    function movies(){
+        debugger;
+        var arrayOfObjects = [
+        {
+            "title" : document.getElementById("input_Title1").value,
+            "genre" : document.getElementById("input_Genre1").value,
+            "rating": document.getElementById("input_Rating1").value,
+
+        },
+        {
+            "title" : document.getElementById("input_Title2").value,
+            "genre" : document.getElementById("input_Genre2").value ,
+            "rating": document.getElementById("input_Rating2").value,
+        },
+        {
+            "title" : document.getElementById("input_Title3").value,
+            "genre" : document.getElementById("input_Genre3").value ,
+            "rating": document.getElementById("input_Rating3").value,
+        },
+        {
+            "title" : document.getElementById("input_Title4").value,
+            "genre" : document.getElementById("input_Genre4").value ,
+            "rating": document.getElementById("input_Rating4").value,
+        },
+        {
+            "title" : document.getElementById("input_Title5").value,
+            "genre" : document.getElementById("input_Genre5").value ,
+            "rating": document.getElementById("input_Rating5").value,
+        },
+        {
+            "title" : document.getElementById("input_Title6").value,
+            "genre" : document.getElementById("input_Genre6").value ,
+            "rating": document.getElementById("input_Rating6").value,
+        }
+    ];        
+        var inputSearch = document.getElementById("input_Find");
+        var para = document.getElementById("Movie");
+        for(var i in arrayOfObjects){
+            if(arrayOfObjects[i].genre == inputSearch.value){
+                para.innerHTML += JSON.stringify(arrayOfObjects[i]);
+                
+            }
+        }
+    }
+</script>
+</html>

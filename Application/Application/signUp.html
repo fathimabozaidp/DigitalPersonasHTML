@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signUp</title>
+    <style>
+        body {
+            background-image: url(Screenshot\ 2024-01-24\ 202807.png);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 300px;
+            height: 450px;
+            border-radius: 10px;
+            opacity: 0; /* Initially set to invisible */
+            transform: translateY(-50px); /* Move the form up */
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .show-form {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+        }
+
+        label {
+            color: black;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+
+        input {
+            width: 250px;
+            height: 20px;
+            background-color: #EEF0E5;
+            border: 0;
+            border-radius: 4px;
+            margin-left: 30px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #A1EEBD;
+            margin-left: 30px;
+            cursor: pointer;
+            text-align: center;
+            align-items: center;
+            margin-left: 100px;
+            border-radius: 5px;
+            height: 30px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container" id="myForm">
+        <h2>Login to Royal Travels</h2>
+        <label>Enter Number or Email to continue</label><br>
+        <input type="email" placeholder="9840346574 or nandu@gmail.com"><br><br>
+        <label>Enter password</label><br>
+        <input type="password" placeholder="Nandini@123"><br><br>
+        <button onclick="showForm()">Submit</button>
+    </div>
+
+    <script>
+       
+        function showForm() {
+            debugger;
+            document.getElementById('myForm').classList.add('show-form');
+        }
+
+        
+        setTimeout(showForm, 500);
+    </script>
+
+</body>
+</html>

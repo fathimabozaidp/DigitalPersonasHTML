@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            /* font-family: Arial, sans-serif; */
+             /* background: url('background-image.jpg') center/cover fixed; */ 
+            display : flex;
+            /* align-items: center;  */
+            /* justify-content: center; */
+            /* /* height: 100vh;  */
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        #paymentForm {
+            background: #fff;
+            margin-top: 200px;
+            margin-left: 500px;
+            height: 100px;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+    </style>
+    <title>Payment Page</title>
+</head>
+<body>
+<button onclick="paymentMethod()">payment</button>
+<div id="overlay"></div>
+    <div id="paymentContainer">
+        <form id="paymentform" style="background-color: #AAD7D9; width: 250px;" hidden>
+            <h3 style="background-color: #AAD7D9; width: 250px; padding-top: 10px; margin-top: 0px; text-align: center;">Payment Details </h3>
+            <input id="upiId" type="radio" name="paymentMethod" oninput="validateRadio()" />
+            <label>UPI</label><br><br>
+    
+            <input id="creditCardId" type="radio" name="paymentMethod" oninput="validateRadio()" />
+            <label>Credit Card</label><br><br>
+        </form>
+        <div id="paymentFooter" style="background-color: #6DA4AA; width: 250px;" hidden>
+            <button id="payBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA; margin-left: 140px; width: 50px; height: 30px;" onclick="pay()" disabled>Pay</button>
+            <button style="border: none; border-radius: 3px; background-color: #6DA4AA; margin-left: 0px; width: 50px; height: 30px;" onclick="cancel()">Cancel</button>
+        </div>
+    </div>    
+<script>
+
+
+function paymentMethod() {
+    debugger;
+
+    // Show the payment form and overlay
+    document.getElementById("paymentform").style.display = "block";
+    document.getElementById("paymentFooter").style.display = "block";
+}
+
+function validateRadio() {
+    // Check if at least one radio button is selected
+    var upiChecked = document.getElementById("upiId").checked;
+    var creditCardChecked = document.getElementById("creditCardId").checked;
+
+    // Enable or disable the "Pay" button based on radio button selection
+    document.getElementById("payBtnId").disabled = !(upiChecked || creditCardChecked);
+}
+
+function cancel() {
+    // Hide the payment form and overlay on cancel
+    document.getElementById("paymentform").style.display = "none";
+    document.getElementById("paymentFooter").style.display = "none";
+}
+
+function pay() {
+    // Process payment logic here
+
+    // Hide the payment form and overlay after payment
+    document.getElementById("paymentform").style.display = "none";
+    document.getElementById("paymentFooter").style.display = "none";
+}
+
+</script>
+</body>
+</html>

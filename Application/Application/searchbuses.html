@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="searchbuses.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    <title>searchBuses</title>
+</head>
+<body>
+    <div class="header" id="myHeader">
+        <header>
+            <a href="busdemo.html" style="margin-top: 30px;"><img src="backword.png" style="height: 50px; width: 50px; border: 0px;"></a>
+            <h1 style="text-align: center;">Royal Travels</h1>
+            <nav>
+                <ul>
+                    <i style="margin-left: 20px;" class="fa fa-bars" style='font-size:26px'></i>
+                    <li><a href="busdemo.html" target="_blank">Home</a></li>
+                    <i class="fa fa-ticket"  style='font-size:24px'></i>
+                    <li><a href="searchbuses.html">Bus Tickets</a></li>
+                    <i class="fa fa-certificate" style="font-size: 24px;"></i>
+                    <li><a href="offers.html">Offers</a></li>
+                    <i class="fa fa-phone" style="font-size: 24px;"></i>
+                    <li><a href="#">Contact</a></li>
+                    <!-- <img src="u.png" height="30px" width ="40px" style=< "margin-left: 650px; color: white;" > -->
+                    <li style= "margin-left: 650px;"><a href="signUp.html" target="_blank">login/signup</a></li>
+                    <!-- <li><a href="bookingHistory.html" target="_blank"><img src="" height="70px" />Booking History</a></li> -->
+                    <button type="button " id="bookingBtnId" onclick="createTable()">Booking History</button>
+                    
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <table   id="mytable" style="margin-top: 30px; text-align: center; margin-left: 50px;">
+                <tr>
+                <th style="width: 220px; ">
+                    Name
+                </th>
+                <th style="width: 220px; ">
+                    Class
+                </th>
+                <th style="width: 250px; height: 50px;">
+                    Time
+                </th style="width: 250px;">
+                <th style="width: 250px;">
+                    Price
+                </th >
+                <th style="width: 250px;">
+                   Rating
+                </th>
+                <th style="width: 250px;">
+                    Booking
+                </th>
+            </tr>
+            <tr>
+                <td style=" height: 50px;" >
+                    <b > IntrCity SmartBus</b>
+                    
+                </td>
+                <td>
+                    Sleeper
+                </td>
+                <td > 17:00 to 04:30 </td>
+                <td>
+                    INR <s>1800</s> <b>1450</b>
+                </td>
+                <td><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span></td>
+                <td>
+                    <button class="book-button" onclick="bookticket(this)"> Book now </button>
+                </td>
+            </tr>
+            <tr>
+                <td style=" height: 50px;">
+                    <b>BSR Tours And Travels</b>
+                </td>
+                <td>
+                    Seater
+                </td>
+                <td> 18:00 to 05:15</td>
+                <td>
+                    INR <s>1400</s> <b>1330</b>
+                </td>
+                <td><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span></td>
+                <td>
+                    <button class="book-button" onclick="bookticket(this)"> Book Now </button>
+                </td>
+            </tr>
+            <tr>
+                <td style=" height: 50px;">
+                    <b>Sri Maruthi Travels</b>
+                    
+                </td>
+                <td>
+                    Sleeper
+                </td>
+                <td> 10:45 to 8:30 </td>
+                <td>
+                    INR <s>1590</s> <b>1345</b>
+                </td>
+                <td><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-o checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span></td>
+                <td>
+                    <button class="book-button" onclick="bookticket(this)"> Book Now </button>
+                </td>
+            </tr>
+            <tr>
+                <td style=" height: 50px;">
+                    <b>V Kaveri Travels</b>
+                    
+                </td>
+                <td>
+                    Semi Sleeper
+                </td>
+                <td> 22:00 to 9:15 </td>
+                <td>
+                    INR <s>1980</s> <b>1760</b>
+                </td>
+                <td><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span></td>
+                <td>
+                    <button class="book-button"  onclick="bookticket(this)"> Book Now </button>
+                </td>
+            </tr>
+            <tr>
+                <td style=" height: 50px;">
+                    <b>Sri Krishna Travels</b>
+                    
+                </td>
+                <td>
+                    Seater
+                </td>
+                <td> 12:00 to 23:15 </td>
+                <td>
+                    INR <s>1380</s> <b>1190</b>
+                </td>
+                <td><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-o checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span></td>
+                <td>
+                    <button class="book-button"  onclick="bookticket(this)"> Book Now </button>
+                </td>
+            </tr>
+            <tr>
+                <td style=" height: 50px;">
+                    <b>Vikram Travels</b>
+                    
+                </td>
+                <td>
+                    Sleeper
+                </td>
+                <td> 15:00 to 01:45 </td>
+                <td>
+                    INR <s>1670</s> <b>1490</b>
+                </td>
+                <td><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-o checked"></span>
+                    <span class="fa fa-star"></span></td>
+                <td>
+                    <button class="book-button"  onclick="bookticket(this)"> Book Now </button>
+                </td>
+            </tr>
+            </table>
+        </section>
+        </div>
+        <footer>
+            <p>@copy; 2024 Royal Travels. All rights reserved.</p>
+        </footer>
+        <script>
+            
+            
+            
+            function bookticket(button){ 
+           debugger;
+           var table = document.getElementById('mytable');
+           var rowIndex=button.parentNode.parentNode.rowIndex;
+            var firstRow = table.rows[rowIndex]; // 
+            var busNameCell = firstRow.cells[0];
+            var busName = busNameCell.innerText.trim();           
+            localStorage.setItem("selectedBus",busName);
+            window.open('bookingForm.html','_blank');
+  
+
+            }
+            // function createTable()
+            //    {
+            //     window.open('bookingHistory.html');
+            //    }
+        </script>
+</body>
+</html>

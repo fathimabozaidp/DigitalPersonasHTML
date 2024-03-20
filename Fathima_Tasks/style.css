@@ -1,0 +1,38 @@
+body{
+background-color: azure;    
+}
+header {
+    margin-top: 50px;
+    background-color: rgb(66, 166, 133);
+}
+ul{
+    float: right;
+    overflow: auto;
+    list-style-type: none;
+}
+i{
+    color: aliceblue;
+    /* size-adjust: 5%; */
+    margin: 0%; 
+    padding: 20px;
+    transform: scale(1.5);
+}
+li{
+   display: inline-block;
+}
+
+a {
+    font-size:large;
+    text-decoration: none;
+    margin-right: 25px;
+    align-items: center;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+li :hover{
+    color: black;
+    background-color: rgb(214, 242, 237);
+    font-size:large;   
+}
+

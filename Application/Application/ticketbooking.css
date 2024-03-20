@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+  }
+header
+{
+    /* background-image: url(bus\ journey.jpg); */
+    height:100px
+}  
+article
+{
+    background-image: url(busHd.jpg);
+    background-color: antiquewhite;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+</head>
+<body>
+  
+
+    <form id="creditCard" style="background-color: #AAD7D9;width: 500px; margin-left: 500px;" >
+        
+        <!-- <fieldset style="width: 250px; height: 200px;"> -->
+            <h3  style="  margin-left: 160px; background-color: #AAD7D9; width: 250px; padding-top: 10px; margin-top: 50px ; ">Credit Card Details </h3>
+            <label style="margin-left: 10px;"><b>Card Number :</b> </label><br><br>
+            <input style="margin-left: 10px; height: 30px; width: 350px; border-radius: 3px;" id="cardNumber" type="text" oninput="validateCardNumber()"/><br><br>
+            <lable style="margin-left: 10px;"><b>Expiry Date :</b></lable><br>
+            <input style="margin-left: 10px; height: 30px; width: 250px; border-radius: 3px;" id="cardExpiryDate" type="text" placeholder="mm/yy" oninput="expiryDate()"/>
+            <input style="margin-left: 10px; height: 30px; width: 150px; border-radius: 3px;" id="cvv" type="text" placeholder="cvv" oninput="Cvv()"/><br><br>
+           
+        
+      <!-- </fieldset> -->
+      </form>
+      <footer style="background-color: #6DA4AA; width: 500px;margin-left: 500px;">
+      <button id="payBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 250px; width: 150px; height: 30px; " onclick="viewTicket()" disabled>View ticket</button>
+     <button style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 0px; width: 50px; height: 30px;" onclick="cancel()" >Cancel</button>
+    </footer>
+
+    <script>
+        
+        var creditCard_Number;
+        var expiry_Date;
+        var cvv;
+
+       var creditCardNumber_RegExp=/^(?:\d[ -]*?){13,16}$/;
+       var expiryDate_RegExp=/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+       var cvv_RegExp=/^[0-9]{3}$/;
+
+        function validateCardNumber()
+        { 
+            debugger;
+            creditCard_Number=document.getElementById('cardNumber').value;
+           
+             
+            if(creditCard_Number.match(creditCardNumber_RegExp))
+            {
+                document.getElementById('cardNumber').style.borderColor='green';
+            }
+            else
+            {
+                document.getElementById('cardNumber').style.borderColor='red';
+            }
+            enable();
+        }
+        function expiryDate()
+        {
+            debugger;
+            expiry_Date=document.getElementById('cardExpiryDate').value;
+            if(expiry_Date.match(expiryDate_RegExp))
+            {
+                document.getElementById('cardExpiryDate').style.borderColor='green';
+            }
+            else
+            {
+                document.getElementById('cardExpiryDate').style.borderColor='red';
+            }
+            enable();
+        }
+            
+        function Cvv()
+        {
+            debugger;
+            cvv=document.getElementById('cvv').value;
+            if(cvv.match(cvv_RegExp))
+            {
+                document.getElementById('cvv').style.borderColor='green';
+            }
+            else
+            {
+                document.getElementById('cvv').style.borderColor='red';
+            }
+            enable();
+        }
+
+        function enable()
+        {
+            debugger;
+            if((cvv.match(cvv_RegExp))&&(expiry_Date.match(expiryDate_RegExp))&&(creditCard_Number.match(creditCardNumber_RegExp)))
+            {
+                document.getElementById('payBtnId').disabled=false;
+            }
+            else{
+                document.getElementById('payBtnId').disabled=true;
+            }
+        }
+           
+
+      
+        function  viewTicket()
+        {
+            window.open(ticketDetails);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="demobus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="destinationIcon.png" crossorigin='anonymous'></script> -->
+    
+    <title>bus ticket booking</title>
+</head>
+<body>
+    <div class="header" id="myHeader">
+    <header>
+        <div style="">
+        <h1 style="text-align: center;"><i>Royal Travels</i></h1>
+    </div>
+    <div >
+        <nav>
+            <ul>
+                <!-- <i style="margin-left: 20px;" class="fa fa-bars" style='font-size:26px'></i> -->
+                
+                <li><a href="busdemo.html" target="_blank"><img src="BUS.png" height="70px" />Home</a></li>
+                <i class="fa fa-ticket"  style='font-size:24px'></i>
+                <li><a href="searchbuses.html">Bus Tickets</a></li>
+                <i class="fa fa-certificate" style="font-size: 24px;"></i>
+                <li><a href="offers.html">Offers</a></li>
+                <i class="fa fa-phone" style="font-size: 24px;"></i>
+                <li><a href="#">Contact</a></li>
+                <!-- <img src="u.png" height="30px" width ="40px" style=< "margin-left: 650px; color: white;" > -->
+                <li style= "margin-left: 500px;"><a href="signUp.html" target="_blank">login/signup</a></li>
+                <!-- <li><a href="bookingHistory.html" target="_blank"><img src="" height="70px" />Booking History</a></li> -->
+                <button type="button " id="bookingBtnId" onclick="createTable()">Booking History</button>
+                
+            </ul>
+        </nav>
+    </div>
+    </header>
+    </div>
+
+    <section class="main-content">
+        <h2 style="color: #fff;">Welcome to Royal travels</h2>
+        <p style="color: #fff;">Book your bus tickets with ease and convenience.</p>
+
+        <div id="input-container">
+            <div id="from station">
+                <i class="fa fa-bus"></i>
+                <select name="city" id="fromStation" style="border: 0px; width :200px; height: 40px;"  >
+                    <option value="selectCity" >From Station</option>
+                    <option value="Hyderabad">  Hyderabad</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Goa"> Goa</option>
+                    <option value="Vijayawada">Vijayawada</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Nellore">Nellore</option>
+                    <option value="Vizag"> Vizag</option> 
+                    <option value="Delhi">Delhi</option>
+                    <option value="Kolkata">Kolkata</option>
+                </select>
+                <button type="button" id="swapBtn" style="text-align: center; margin-top: 10px ;border: 0px;background-color: #fff; border-radius: 5px;" onclick="swapValues()" ><i style="font-size:24px "   class="fa">&#xf0ec;</i></button>
+            
+            <!-- id="toDestination" -->
+            <img src="destinationIcon.png" height="20px" width="20px" style="margin-top: 0px;">
+            <select name="city" id="toDestination" style="border: 0px; width :200px; height: 40px;"  >
+                <option value="selectCity" >From Station</option>
+                    <option value="Hyderabad">  Hyderabad</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Goa"> Goa</option>
+                    <option value="Vijayawada">Vijayawada</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Nellore">Nellore</option>
+                    <option value="Vizag"> Vizag</option> 
+                    <option value="Delhi">Delhi</option>
+                    <option value="Kolkata">Kolkata</option>
+            </select>
+             <!-- <input type="text" id="destinationId"  style="border: 0px; width :200px; height: 40px;"   placeholder="To Station"> -->
+                
+            <!-- </div> -->
+            <i style="font-size:24px" class="fa">&#xf073;</i>
+            <input type="date" id="journeyDate"  value="" style="border: 0px; width: 200px; height: 40px;" />
+            <button style="border-radius: 10px; width: 150px; height: 40px; border: 10px;" onclick="todayDate()"> <b> Today</b></button>
+            <button style="border-radius: 10px; width: 150px; height: 40px; border: 10px;" onclick="tomorrowDate()"><b>Tomorrow</b></button>
+            <button class="button button2"  id="searchBtnId" style="background-color: #AAD9BB; border-radius: 10px; width: 150px; height: 40px; border: 10px; " onclick="searchBuses()" > <b>Search</b>  </button>
+            
+            <br><br>
+        </div>
+    </div><br><br>
+        <button type="button"  id="bookNowBtn" class="book-button" onclick="bookNow()">Book Now</a>
+            
+
+    </section>
+
+    <footer>
+        <p>@copy; 2024 Royal Travels. All rights reserved.</p>
+    </footer>
+</body>
+<!-- <script>
+    window.onscroll = function() {myFunction()};
+    
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+    </script> -->
+    <script>
+
+            // function createTable()
+            //    {
+            //     window.open('bookingHistory.html');
+            //    }
+        var fromStation;
+        var destination;
+        var journeyDate;
+        function searchBuses()
+        {
+            debugger;
+            
+           fromStation=document.getElementById('fromStation').value;
+            destination=document.getElementById('toDestination').value;
+            journeyDate=document.getElementById('journeyDate').value;
+
+            localStorage.setItem("from",fromStation);
+            localStorage.setItem("to", destination);
+            localStorage.setItem("date",journeyDate);
+
+            if(fromStation!='selectCity'&&destination!='selectCity')
+            { 
+            if(fromStation!=destination)
+            {
+                if(journeyDate!=""){ 
+                    window.open('searchbuses.html', '_blank'); 
+                }else{alert('Enter Date')}             
+            }
+            else{
+                alert('From and Destinations locations should not be same')
+            }
+        }
+        else      
+        { 
+            document.getElementById('fromStation').style.borderColor='red'; 
+            destination=document.getElementById('toDestination').style.borderColor='red';
+           alert('Enter the locations');
+        }
+}
+    function swapValues()
+    {
+        debugger;
+    var fromStationElement = document.getElementById('fromStation');
+    var toDestinationElement = document.getElementById('toDestination');
+
+//   if(fromStationElement.value!=toDestinationElement.value)
+//   { 
+
+    var temp = fromStationElement.value;
+   
+    fromStationElement.value = toDestinationElement.value;
+   
+    toDestinationElement.value = temp;
+// }
+  
+//   else
+//   {
+//     alert(');
+//   }  
+
+
+    }
+    function todayDate()
+    {
+        debugger;
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth() + 1; 
+        var year = date.getFullYear();
+        var todayDate=year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+        document.getElementById('journeyDate').value  =todayDate;
+
+    }
+    function tomorrowDate()
+    {
+        debugger;
+        var date = new Date();
+        var day = date.getDate()+1;
+        var month = date.getMonth() + 1; 
+        var year = date.getFullYear();
+        var todayDate=year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+        document.getElementById('journeyDate').value  =todayDate;
+
+    }
+     function bookNow()
+     {
+        debugger;
+        searchBuses();
+        // if(fromStation!=""&&destination!=""&&journeyDate&&fromStation!=destination){
+        // window.open('bookingForm.html','_blank');
+        // }
+        
+     }
+    </script>
+</html>
+ 

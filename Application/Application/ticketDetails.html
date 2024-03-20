@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Details </title>
+    <link rel="stylesheet" href="searchbuses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="header" id="myHeader">
+        <header>
+            <div style="">
+            <h1 style="text-align: center;"><i>Ticket Details</i></h1>
+        </div>
+        <div >
+            <nav>
+                <ul>
+                    <!-- <i style="margin-left: 20px;" class="fa fa-bars" style='font-size:26px'></i> -->
+                    
+                    <li class="zoom"><a href="busdemo.html" target="_blank"><img src="BUS.png" height="70px" />Home</a></li>
+                    <i class="fa fa-ticket"  style='font-size:24px'></i>
+                    <li class="zoom"><a href="searchbuses.html">Bus Tickets</a></li>
+                    <i class="fa fa-certificate" style="font-size: 24px;"></i>
+                    <li class="zoom"><a href="offers.html">Offers</a></li>
+                    <i class="fa fa-phone" style="font-size: 24px;"></i>
+                    <li class="zoom"><a href="#">Contact</a></li>
+                    <!-- <img src="u.png" height="30px" width ="40px" style=< "margin-left: 650px; color: white;" > -->
+                    <li class="zoom" style= "margin-left: 500px;"><a href="signUp.html" target="_blank">login/signup</a></li>
+                    <!-- <li><a href="bookingHistory.html" target="_blank"><img src="" height="70px" />Booking History</a></li> -->
+                    <button type="button " id="bookingBtnId" onclick="createTable()">Booking History</button>
+                </ul>
+            </nav>
+        </div>
+        </header>
+        </div>
+       
+        <div>
+          
+          <p id="Name"></p>
+          <p id="Age"></p>
+          <p id="Gender"></p>
+          <p id="Contact"></p>
+          <p id="mail"></p>
+          <p id="busName"></p>
+          <p id="bookingId"></p>
+          <p id="Date"></p>
+          <p id="from"></p>
+          <p id="to"></p>
+         
+          
+        </div>
+        
+        <script>
+             function createTable()
+               {
+                window.open('bookingHistory.html');
+               }
+            debugger;
+            function ticketDetails()
+            { 
+              payload=
+            {
+            
+            "Name":localStorage.getItem('Name'),
+            "Age":localStorage.getItem('Age'),
+            "Gender":localStorage.getItem('Gender'),
+            "Contact":localStorage.getItem('Contact'),
+            "Mail":localStorage.getItem('Mail'),
+            "BusName": localStorage.getItem('BusName'),
+            "bookingId":localStorage.getItem('bookingId'),
+            "date":localStorage.getItem('date'),
+            "from":localStorage.getItem('from'),
+            "destination":localStorage.getItem('to'),
+            
+        };
+
+        document.getElementById('Name').innerHTML= "<b style='margin-left:100px'>Passenger Name :</b>"+ "<b style='margin-left:150px'>"+payload.Name;
+        document.getElementById('Age').innerHTML= "<b style='margin-left:100px'>Passenger Age :</b>"+ "<b style='margin-left:165px'>"+payload.Age;
+        document.getElementById('Gender').innerHTML= "<b style='margin-left:100px'>Passenger Gender :</b>"+ "<b style='margin-left:140px'>"+payload.Gender;
+        document.getElementById('Contact').innerHTML= "<b style='margin-left:100px'>Passenger Contact :</b>"+ "<b style='margin-left:135px'>"+payload.Contact;
+        document.getElementById('mail').innerHTML= "<b style='margin-left:100px'>Passenger Email :</b>"+ "<b style='margin-left:155px'>"+payload.Mail;
+        document.getElementById('busName').innerHTML= "<b style='margin-left:100px'>Bus Name :</b>"+ "<b style='margin-left:205px'>"+payload.BusName;
+        document.getElementById('bookingId').innerHTML= "<b style='margin-left:100px'>Booking Id :</b>"+ "<b style='margin-left:200px'>"+payload.bookingId;
+        document.getElementById('Date').innerHTML= "<b style='margin-left:100px'>Journey Date :</b>"+ "<b style='margin-left:183px'>"+payload.date;
+        document.getElementById('from').innerHTML= "<b style='margin-left:100px'>Departure  :</b>"+ "<b style='margin-left:210px'>"+payload.from;
+        document.getElementById('to').innerHTML= "<b style='margin-left:100px'>Destination :</b>"+ "<b style='margin-left:200px'>"+payload.destination;
+        }
+        ticketDetails();
+        </script>
+    
+</body>
+</html>

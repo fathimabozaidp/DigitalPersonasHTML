@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="searchbuses.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    <title>ticket Details</title>
+</head>
+<body>
+    <header>
+        <a href="busdemo.html" style="margin-top: 30px;"><img src="backword.png" style="height: 50px; width: 50px; border: 0px;"></a>
+        <h1 style="text-align: center;">Royal Travels</h1>
+        <nav>
+            <ul>
+                <i style="margin-left: 20px;" class="fa fa-bars" style='font-size:26px'></i>
+                <li><a href="busdemo.html" target="_blank">Home</a></li>
+                <i class="fa fa-ticket"  style='font-size:24px'></i>
+                <li><a href="searchbuses.html">Bus Tickets</a></li>
+                <i class="fa fa-certificate" style="font-size: 24px;"></i>
+                <li><a href="offers.html">Offers</a></li>
+                <i class="fa fa-phone" style="font-size: 24px;"></i>
+                <li><a href="#">Contact</a></li>
+                <!-- <img src="u.png" height="30px" width ="40px" style=< "margin-left: 650px; color: white;" > -->
+                <li style= "margin-left: 650px;"><a href="signUp.html" target="_blank">login/signup</a></li>
+                <!-- <li><a href="bookingHistory.html" target="_blank"><img src="" height="70px" />Booking History</a></li> -->
+                <button type="button " id="bookingBtnId" onclick="creataeTable()">Booking History</button>
+                
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1 id="tableHeader" style="text-align: center;" > Ticket Booking details </h1>
+        <table id= ticketDetailsTable style="text-align: center;" border="1"  >
+            <tr>
+                <th style="width: 250px; height: 50px;">NAME</th>
+                <th style="width: 250px; height: 50px;">Booking ID</th>
+                <th style="width: 250px; height: 50px;">Bus Name</th>
+                <th style="width: 250px; height: 50px;">Journey Date</th>
+                <th style="width: 250px; height: 50px;">Departure</th>
+                <th style="width: 250px; height: 50px;">Destination</th>
+                <th style="width: 250px; height: 50px;">Cancel Ticket </th>
+            </tr>
+        </table>
+       </section>
+    <script>
+        debugger;
+        bookingId();
+        var randomId
+        var array=[];
+        var table;
+        var rows;
+        var createRow;
+        var payload={};
+        var th;
+        function bookingId()
+        {
+            debugger;
+            randomId=Math.floor(Math.random()*1000000);
+            localStorage.setItem("bookingId",randomId);
+    
+        }
+           function createTable()
+           {
+            debugger;
+            table=document.getElementById('ticketDetailsTable');
+            rows=table.rows.length;
+            createRow=table.insertRow();
+            th=table.getElementsByTagName("th");
+        
+             payload={
+            
+            "Name":localStorage.getItem('Name'),
+            "bookingId":randomId,
+            "BusName": localStorage.getItem('BusName'),
+            "date":localStorage.getItem('date'),
+            "from":localStorage.getItem('from'),
+            "destination":localStorage.getItem('to'),
+            
+        };
+            array.push(payload);
+        
+        for(var i in payload)
+        {
+           
+              var td=document.createElement("td");
+              createRow.appendChild(td);
+              td.innerHTML=payload[i];
+        }
+            var cell6=createRow.insertCell(6);
+            cell6.innerHTML="<button id='cancelBtn' type='button' style='border-radius:3px width:150px heigth:20px' onclick='cancelTicket(this)' > Cancel Ticket </button> "
+        }  
+            function cancelTicket(del)
+            {
+                debugger;
+                var result=confirm('Are you sure to cancel ticket ?');
+                if(result)
+                {
+                 var table = document.getElementById('ticketDetailsTable');
+                 var rows=table.rows.length;
+                 var rowIndex = del.parentNode.parentNode.rowIndex;
+                 document.getElementById('ticketDetailsTable').deleteRow(rowIndex);
+
+                 array.shift(rowIndex-1);
+                 
+                if(rows==2)
+                {
+                    "<h2>No Data </h2>"
+                    
+                }
+                }
+            }
+            createTable();
+
+    </script>
+</body>
+
+</html>

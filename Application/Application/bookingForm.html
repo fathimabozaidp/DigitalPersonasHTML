@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="searchbuses.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Booking Form</title>
+</head>
+<body>
+   
+    <!-- <!-- <div class="header" id="myHeader"> -->
+        <header>
+          
+            <div >
+              <a href="searchbuses.html" style="margin-top: 30px;"><img src="backword.png" style="height: 50px; width: 50px; border: 0px;"></a>
+            <h1 style="text-align: center; ">Royal Travels</h1>
+        </div>
+        <div >
+            <nav>
+                <ul>
+                    <i style="margin-left: 20px;" class="fa fa-bars" style='font-size:26px'></i> 
+                    <!-- <img src="BUS.png" height="70px" > -->
+                    <li><a href="busdemo.html" target="_blank">Home</a></li>
+                    <i class="fa fa-ticket"  style='font-size:24px'></i>
+                    <li><a href="searchbuses.html">Bus Tickets</a></li>
+                    <i class="fa fa-certificate" style="font-size: 24px;"></i>
+                    <li><a href="offers.html">Offers</a></li>
+                    <i class="fa fa-phone" style="font-size: 24px;"></i>
+                    <li><a href="#">Contact</a></li>
+                    <!-- <img src="u.png" height="30px" width ="40px" style=< "margin-left: 650px; color: white;" > -->
+                    <li style= "margin-left: 500px;"><a href="signUp.html" target="_blank">login/signup</a></li>
+                    <!-- <li><a href="bookingHistory.html" target="_blank"><img src="" height="70px" />Booking History</a></li> -->
+                    <button type="button " id="bookingBtnId" onclick="createTable()">Booking History</button>
+                    
+                </ul>
+            </nav> 
+        </div>
+        </header> 
+        </div>
+        <section >
+            <form id="passengerDetailsForm" action="" style="width:300px;height: 350px; margin-left: 500px;">
+                <!-- <fieldset style="width:300px;height: 400px; margin-left: 500px;"> -->
+                <input id="passengerName" type="text" placeholder="passenger Name" style="width: 300px;height: 30px; margin-top: 10px;" oninput="validateName()"/>
+                <input id="passengerAge" type="number" placeholder="passenger Age" style="width: 300px;height: 30px; margin-top: 20px;" oninput="validateAge()"/>
+                <input id="passengerGender" type="text" placeholder="passenger Gender" style="width: 300px;height: 30px; margin-top: 20px;" oninput="validateGender()"/>
+                <input id="passengerContact" type="text" placeholder="Contact Number" style="width: 300px;height: 30px; margin-top: 20px;" oninput="validateContact()"/>
+                <select id="selectBusId" style="width: 305px;height: 30px; margin-top: 20px;" oninput="validateSelect">
+                    <option value="SelectBus">Select Bus</option>
+                    <option value="IntrCity SmartBus">IntrCity SmartBus</option>
+                    <option value="BSR Tours And Travels">BSR Tours And Travels</option>
+                    <option value="Sri Maruthi Travels">Sri Maruthi Travels</option>
+                    <option value="V Kaveri Travels">V Kaveri Travels</option>
+                    <option value="Sri Krishna Travels">Sri Krishna Travels</option>
+                    <option value="Vikram Travels">Vikram Travels</option>
+                </select>
+                <input id="passengerEmail" type="email" placeholder="passenger Email" style="width: 300px;height: 30px; margin-top: 20px;" oninput="validateEmail()"/>
+                <!-- </fieldset> -->
+        </form>
+
+        <button type="button " id="paymentBtn" onclick="paymentMethod()" style="width: 100px; height: 30px; margin-left: 600px;" hidden > Payment </button><br><br>
+           
+
+
+        <form id="passengerLocationDetails" style="margin-left: 450px;">
+           <label>
+            From :
+            <input id="from" type="text" placeholder="" style="width: 300px;height: 30px; margin-top: 0px;"/>
+           </label><br>
+           <label>
+           To :
+            <input id="to" type="text" placeholder="" style="width: 300px;height: 30px; margin-top: 20px; margin-left: 20px;"/><br>
+            <label>
+            Date :
+            <input id="date" type="text" placeholder="" style="width: 300px;height: 30px; margin-top: 20px;"/><br><br>
+        </form>
+        </section>
+
+  
+        
+        <div id="overlay" class="overlay">
+            <div class="form-container" style="width: 300px; width: 300px;">
+        
+            
+            <form  id="paymentform" style="background-color: #AAD7D9;width: 300px; height: 300px;  "hidden>
+                <h3  style="background-color: #AAD7D9; width: 200px; padding-top: 10px; margin-left: 50px ; text-align: center;">Payment Details </h3>
+                <input id="upiId" type="radio" name="upi" style="accent-color: red;" oninput="validateRadio()"/>
+                <label>UPI</label><br><br>
+    
+                <input id="creditCardId" type="radio" style="accent-color: red;" name="upi" oninput="validateRadio()"/>
+                <lable>Credit Card</lable><br><br>
+              </form>
+                <div id="paymentFooter" style="background-color: #6DA4AA; width: 300px; "hidden>
+                <button id="payBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 140px; width: 50px; height: 30px; " onclick="pay()" disabled>Pay</button>
+               <button style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 0px; width: 50px; height: 30px;" onclick="cancelPayment()" >Cancel</button>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div id="overlayupi" class="overlay">
+            <div class="form-container" style="width: 300px; height: 350px;">
+
+                <form id="upiPageId" style=" background-color: #AAD7D9; width: 300px; height: 300px; margin-left: 0px;" hidden>
+                    <h3 style="margin-left: 50px ">Select option to proceed </h3>
+                <input type="radio" name="googlepay" style="accent-color: green;" id="googlePay" onclick="upiScan()">
+                <lable>
+                    Google Pay
+                </lable>
+                <img src="gpayLogo-removebg-preview.png" style="height: 30px; width: 30px;  margin-left: 70px;"><br><br>
+        
+                <input type="radio" name="googlepay" style="accent-color: green;" id="phonePay" onclick="upiScan()">
+                <lable>
+                    Phone Pay
+                </lable>
+                <img src="phonePayLogo-removebg-preview.png" style="height: 30px; width: 30px; margin-left: 80px;"><br><br>
+        
+                <input type="radio" name="googlepay" style="accent-color: green;" id="paytmPay" onclick="upiScan()">
+                <lable>
+                  Paytm
+                </lable>
+                <img src="paytmLogo-removebg-preview.png" style="height: 30px; width: 30px;  margin-left: 110px;"><br><br>
+            </form>
+            </section>
+            <div id="upifooter" style="background-color: #6DA4AA; width: 300px; margin-left: 0px;" hidden>
+                <button id="proceedBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 120px; width: 70px; height: 30px; " onclick="proceed()" disabled>Proceed</button>
+               <button style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 0px; width: 50px; height: 30px;" onclick="cancelUpi()" >Cancel</button>
+              </div>
+            </div>
+        </div>
+
+
+        <div id="overlayupiscan" class="overlay">
+            <div class="form-container" style="width: 300px; height: 450px;">
+
+
+
+          <div id="googlePayId" hidden>
+            <form style="width: 300px;height: 400px; background-color: #AAD7D9; margin-left: 0px;">
+                <h2 style="text-align: center;">
+                    Scan QR code
+                </h2>
+                <img src="googlepay.jpeg" width="200px" height="270px" style="margin-left: 50PX;">
+                <!-- <input placeholder="Enter UTR id" id="gpayInputId" style="margin-left: 50px; height: 30px; width: 200px; border-radius: 3px;" type="text" oninput="gpayTransactionId()"/ > -->
+            </form>
+            <div id="paymentFooter" style="background-color: #6DA4AA; width: 300px; margin-left: 0px;"">
+                <button id="googlePayBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 140px; width: 70px; height: 35px; " onclick="viewticketDetails()" >Proceed</button>
+               <button style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 0px; width: 50px; height: 30px;" onclick="cancelScan()" >Cancel</button>
+                </div>
+            </div>
+
+
+          
+            <div id="phonePayId" hidden>
+              <form style="width: 300px;height: 400px; background-color: #AAD7D9; margin-left: 0px;">
+                  <h2 style="text-align: center;">
+                      Scan QR code
+                  </h2>
+                  <img src="phonepay.jpeg" width="200px" height="250px" style="margin-left: 50PX;"><br>
+                  <!-- <input placeholder="Enter UTR id" id="phonepayInputId" style="margin-left: 50px; height: 30px; width: 200px; border-radius: 3px;" type="text" oninput="phonePayTransactionId()"/ > -->
+              </form>
+              <div id="paymentFooter" style="background-color: #6DA4AA; width: 300px ;  margin-left: 0px;"">
+                  <button id="phonePayBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 140px; width: 70px; height: 35px;" onclick="viewticketDetails()"  >Proceed</button>
+                 <button style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 0px; width: 50px; height: 30px;" onclick="cancelScan()" >Cancel</button>
+                  </div>
+              </div>
+
+              
+
+              <div id="paytmId" hidden>
+                <form style="width: 300px;height: 400px; background-color: #AAD7D9; margin-left: 0px;">
+                    <h2 style="text-align: center;">
+                        Scan QR code
+                    </h2>
+                    <img src="paytm.jpeg" width="200px" height="270px" style="margin-left: 50PX;"><br>
+                    <!-- <input placeholder="Enter UTR id" id="paytmInputId" style="margin-left: 50px; height: 30px; width: 200px; border-radius: 3px;" type="text" oninput="paytmTransactionId()"/ ><br><br> -->
+                </form>
+                <div id="paymentFooter" style="background-color: #6DA4AA; width: 300px; margin-left:0px;"">
+                    <button id="paytmBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 140px; width: 70px; height: 35px; " onclick="viewticketDetails()"  >Proceed</button>
+                   <button style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 0px; width: 50px; height: 30px;" onclick="cancelScan()" >Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div id="overlaycreditcard" class="overlay">
+                    <div class="form-container" style="width: 500px; height: 300px;">
+                <form id="creditCard" style="background-color: #AAD7D9;width: 500px; margin-left: 0px;" hidden >
+        
+                    <!-- <fieldset style="width: 250px; height: 200px;"> -->
+                        <h3  style="  margin-left: 160px; background-color: #AAD7D9; width: 250px; padding-top: 10px; margin-top: 50px ; ">Credit Card Details </h3>
+                        <label style="margin-left: 10px;"><b>Card Number :</b> </label><br><br>
+                        <input style="margin-left: 10px; height: 30px; width: 350px; border-radius: 3px;" id="cardNumber" type="text" oninput="validateCardNumber()"/><br><br>
+                        <lable style="margin-left: 10px;"><b>Expiry Date :</b></lable><br>
+                        <input style="margin-left: 10px; height: 30px; width: 250px; border-radius: 3px;" id="cardExpiryDate" type="text" placeholder="mm/yy" oninput="expiryDate()"/>
+                        <input style="margin-left: 10px; height: 30px; width: 150px; border-radius: 3px;" id="cvv" type="text" placeholder="cvv" oninput="Cvv()"/><br><br>
+                       
+                    
+                  <!-- </fieldset> -->
+                  </form>
+                  <div id="creditcardFooter" style="background-color: #6DA4AA; width: 500px;margin-left: 0px;" hidden>
+                  <button id="paymentBtnId" style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 250px; width: 150px; height: 30px; " onclick="viewticketDetails()" disabled>View ticket</button>
+                 <button style="border: none; border-radius: 3px; background-color: #6DA4AA;  margin-left: 0px; width: 50px; height: 30px;" onclick="cancel()" >Cancel</button>
+                </div>
+                    </div>
+                </div>
+
+               
+
+        <script>
+
+            //     function createTable()
+            //    {
+            //     window.open('bookingHistory.html');
+            //    }
+          debugger;
+            var passengerName;
+            var passengerAge;
+            var passengerGender;
+            var passengerContact;
+            var passengerBus;
+            var passengerEmail;
+
+            var nameRegExp=/^[A-Za-z]+$/;
+            var ageRegExp=/^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|500)$/;
+            var numberRegExp=/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/;
+            var mailRegExp= /^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,})$/;
+
+            
+
+           
+        document.getElementById('selectBusId').value = localStorage.getItem('selectedBus');
+        document.getElementById('from').value = localStorage.getItem('from');
+        document.getElementById('to').value = localStorage.getItem('to');
+        document.getElementById('date').value = localStorage.getItem('date');
+
+        // passengerName=document.getElementById('passengerName').value;
+        
+  
+
+
+
+    function validateName()
+    {
+        debugger;
+       
+     
+         passengerName=document.getElementById('passengerName').value;
+         localStorage.setItem("Name",passengerName);
+
+        if(passengerName.match(nameRegExp))
+        {          
+        document.getElementById('passengerName').style.borderColor='green';
+         submitEnable();
+        
+        } 
+      else 
+        {
+        document.getElementById('passengerName').style.borderColor='red';
+         alert("Enter valid name ");
+         document.getElementById('paymentBtn').hidden=true;
+         submitEnable();
+        }
+        
+        
+    }
+    function validateAge ()
+        {  
+            debugger;
+            validateName(); 
+             
+            passengerAge=document.getElementById('passengerAge').value;   
+            localStorage.setItem("Age",passengerAge);
+            if(passengerAge.match(ageRegExp))
+            {
+            document.getElementById('passengerAge').style.borderColor='green';
+             submitEnable();
+            } 
+            else 
+            {
+            document.getElementById('passengerAge').style.borderColor='red';
+            
+            alert("Enter valid passengerAge ");
+            document.getElementById('paymentBtn').hidden=true;
+            submitEnable();
+            }
+             
+          
+        }
+        function validateGender()
+      { 
+        debugger;
+        validateAge ()
+         passengerGender=document.getElementById('passengerGender').value;
+         localStorage.setItem("Gender",passengerGender);
+        if(passengerGender.match(nameRegExp))
+        {          
+        document.getElementById('passengerGender').style.borderColor='green';
+         submitEnable();
+        
+        } 
+      else 
+        {
+        document.getElementById('passengerGender').style.borderColor='red';
+         alert("Enter valid gender ");
+         document.getElementById('paymentBtn').hidden=true;
+         submitEnable();
+        }
+         
+      }
+      function validateContact()
+    {
+        debugger;
+        validateGender()
+     
+         passengerContact=document.getElementById('passengerContact').value;
+         localStorage.setItem("Contact",passengerContact);
+        if(passengerContact.match(numberRegExp))
+        {          
+        document.getElementById('passengerContact').style.borderColor='green';
+        submitEnable();
+        
+        } 
+      else 
+        {
+        document.getElementById('passengerContact').style.borderColor='red';
+         alert("Enter valid Contact Number ");
+         document.getElementById('paymentBtn').hidden=true;
+         submitEnable();
+        }
+         
+        
+    }
+        function validateSelect()
+      {
+        validateContact();
+        
+        debugger;
+        passengerBus=document.getElementById('selectBusId').value;
+        localStorage.setItem("BusName",passengerBus);
+        if (passengerBus =='SelectBus') {
+            document.getElementById('selectBusId').style.borderColor='red';
+            alert("Please select a bus");
+            submitEnable();
+        // document.getElementById('paymentBtn').hidden=true;
+        }
+        else
+        {
+            document.getElementById('selectBusId').style.borderColor='green';
+            document.getElementById('paymentBtn').hidden=false;
+            submitEnable();
+        }
+        
+      }
+      
+      function validateEmail()
+      {
+        debugger;
+        validateSelect();
+        passengerEmail=document.getElementById('passengerEmail').value;
+        localStorage.setItem("Mail",passengerEmail)
+        if(passengerEmail.match(mailRegExp)){ 
+        document.getElementById('passengerEmail').style.borderColor='green';
+        submitEnable();
+        }
+        else
+        {
+            document.getElementById('passengerEmail').style.borderColor='red';
+            alert("Please Enter correct email ");
+            submitEnable();
+        }
+         
+      }
+
+      function submitEnable()
+      {
+        debugger;
+        passengerName=document.getElementById('passengerName').value;
+        passengerAge=document.getElementById('passengerAge').value;   
+        passengerGender=document.getElementById('passengerGender').value;
+        passengerContact=document.getElementById('passengerContact').value;
+        passengerBus=document.getElementById('selectBusId').value;
+        passengerEmail=document.getElementById('passengerEmail').value;
+
+        if((passengerName.match(nameRegExp))&&(passengerAge.match(ageRegExp))&&(passengerGender.match(nameRegExp))&&(passengerContact.match(numberRegExp))&&(passengerBus !='SelectBus')&&(passengerEmail.match(mailRegExp)))
+        {
+            document.getElementById('paymentBtn').hidden=false;
+        }
+        else
+        {
+            document.getElementById('paymentBtn').hidden=true;
+        }
+      }
+
+  
+
+      function  paymentMethod()
+      {
+        debugger;  
+        document.getElementById('overlay').style.display = 'flex';
+        document.getElementById("paymentFooter").hidden=false;
+        document.getElementById("paymentform").hidden=false;
+        
+      }
+      function cancelPayment()
+      {
+        debugger;
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById("paymentFooter").hidden=true;
+        document.getElementById("paymentform").hidden=true;
+      }
+
+      function upiPageVisible()
+      {
+        debugger;
+        document.getElementById('upiPageId').hidden=false;
+        document.getElementById('upifooter').hidden=false;
+      }
+      function upiPageHide()
+      {
+        debugger;
+        document.getElementById('upiPageId').hidden=true;
+        document.getElementById('upifooter').hidden=true;
+      }
+      
+        </script>
+        <script>
+          var upi;
+          var credit_card;
+          function validateRadio(){ 
+              debugger;
+               upi=document.getElementById('upiId');
+               credit_card=document.getElementById('creditCardId');
+              if(upi.checked==true||credit_card.checked==true)
+              {
+                  document.getElementById('payBtnId').disabled=false;
+              }
+          }
+          function pay()
+          {
+            debugger;
+              upi=document.getElementById('upiId');
+              if(upi.checked)
+              {
+               
+                cancelPayment();
+                document.getElementById('overlayupi').style.display = 'flex';
+                upiPageVisible();
+
+              }
+              else if(credit_card.checked)
+              {
+               
+               cancelPayment();
+               document.getElementById('overlaycreditcard').style.display = 'flex';
+               document.getElementById('creditCard').hidden=false;
+               document.getElementById('creditcardFooter').hidden=false;
+              }
+          }
+          function cancelUpi()
+          {
+            document.getElementById('overlayupi').style.display = 'none';
+            upiPageHide();
+            paymentMethod();
+            
+          }
+      </script>
+       <script>
+        var googlepay;
+        var phonepay;
+        var paytm;
+        function upiScan()
+        {
+            debugger;
+            googlepay=document.getElementById('googlePay');
+            phonepay=document.getElementById('phonePay');
+            paytm=document.getElementById('paytmPay');
+
+            if(googlepay.checked==true||phonepay.checked==true||paytm.checked==true)
+            {
+                document.getElementById('proceedBtnId').disabled=false;
+            }
+        }
+            function proceed()
+            { 
+            debugger;
+            googlepay=document.getElementById('googlePay');
+            phonepay=document.getElementById('phonePay');
+            paytm=document.getElementById('paytmPay');
+            if(googlepay.checked)
+            {
+                upiPageHide();
+                document.getElementById('overlayupiscan').style.display = 'flex';
+                
+                document.getElementById('googlePayId').hidden=false;
+            }
+            else if(phonepay.checked)
+            {
+                upiPageHide();
+                document.getElementById('overlayupiscan').style.display = 'flex';
+                document.getElementById('phonePayId').hidden=false;
+            }
+            else if(paytm.checked)
+            {
+                upiPageHide();
+                document.getElementById('overlayupiscan').style.display = 'flex';
+                document.getElementById('paytmId').hidden=false;
+            }
+        }
+        function cancel()
+        {
+            debugger;
+            
+            paymentMethod();
+            document.getElementById('creditCard').hidden=true;
+            document.getElementById('creditcardFooter').hidden=true;
+            document.getElementById('overlaycreditcard').style.display = 'none';
+
+        }
+
+        function cancelScan()
+        {
+            document.getElementById('googlePayId').hidden=true;
+            document.getElementById('phonePayId').hidden=true;
+            document.getElementById('paytmId').hidden=true;
+            document.getElementById('overlayupiscan').style.display = 'none';
+
+            upiPageVisible();
+
+        }
+        
+    </script>
+
+<script>
+
+    var gpayId;
+    var phonepayId;
+    var paytmId;
+    var gpayTransactionRegExp=/^[0-9]{11}$/;
+        
+    var creditCard_Number;
+    var expiry_Date;
+    var cvv;
+
+   var creditCardNumber_RegExp=/^(?:\d[ -]*?){16}$/;
+   var expiryDate_RegExp=/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+   var cvv_RegExp=/^[0-9]{3}$/;
+
+    function validateCardNumber()
+    { 
+        debugger;
+        creditCard_Number=document.getElementById('cardNumber').value;
+       
+         
+        if(creditCard_Number.match(creditCardNumber_RegExp))
+        {
+            document.getElementById('cardNumber').style.borderColor='green';
+            enable();
+        }
+        else
+        {
+            document.getElementById('cardNumber').style.borderColor='red';
+            enable();
+        }
+        
+    }
+    function expiryDate()
+    {
+        debugger;
+        expiry_Date=document.getElementById('cardExpiryDate').value;
+        if(expiry_Date.match(expiryDate_RegExp))
+        {
+            document.getElementById('cardExpiryDate').style.borderColor='green';
+            enable();
+        }
+        else
+        {
+            document.getElementById('cardExpiryDate').style.borderColor='red';
+            enable();
+        }
+        
+    }
+        
+    function Cvv()
+    {
+        debugger;
+        cvv=document.getElementById('cvv').value;
+        if(cvv.match(cvv_RegExp))
+        {
+            document.getElementById('cvv').style.borderColor='green';
+            enable();
+        }
+        else
+        {
+            document.getElementById('cvv').style.borderColor='red';
+            enable();
+        }
+        
+    }
+
+    function enable()
+    {
+        debugger;
+        creditCard_Number=document.getElementById('cardNumber').value;
+        expiry_Date=document.getElementById('cardExpiryDate').value;
+        cvv=document.getElementById('cvv').value;
+        if(creditCard_Number.match(creditCardNumber_RegExp)&&(expiry_Date.match(expiryDate_RegExp))&&(cvv.match(cvv_RegExp)))
+        {
+            document.getElementById('paymentBtnId').disabled=false;
+        }
+        else
+        {
+            document.getElementById('paymentBtnId').disabled=true;
+        }
+    }
+
+   function viewticketDetails()
+    {
+        window.open('ticketDetails.html');
+
+    }
+
+//     function gpayTransactionId()
+//     {
+//         debugger;
+//         gpayId= document.getElementById('gpayInputId').value;
+//        if(gpayId.match(gpayTransactionRegExp))
+//        {
+//         document.getElementById('googlePayBtnId').disabled=false;
+//         document.getElementById('gpayInputId').style.borderColor='green'
+
+//        }
+//        else{document.getElementById('gpayInputId').style.borderColor='red'}
+//     }
+//        function phonePayTransactionId()
+//        {
+//         phonepayId=document.getElementById('phonepayInputId').value;
+//         if(phonepayId.match(gpayTransactionRegExp))
+//        {
+//         document.getElementById('phonePayBtnId').disabled=false;
+//         document.getElementById('phonePayInputId').style.borderColor='green'
+
+//        }
+//        else{document.getElementById('phonePayInputId').style.borderColor='red'}
+//     }
+//     function paytmTransactionId()
+//     {
+//         if(paytmId.match(gpayTransactionRegExp))
+//        {
+//         paytmId=document.getElementById('paytmInputId').value;
+//         document.getElementById('paytmBtnId').disabled=false;
+//         document.getElementById('paytmInputId').style.borderColor='green'
+        
+//        }
+//        else{document.getElementById('paytmInputId').style.borderColor='red'}
+//     }
+    
+       
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f5f7;
+}
+
+*{
+    box-sizing: border-box
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=file], input[type=tel], select{
+  width: 100%;
+  padding: 15px;
+  margin: 5px;
+  display: inline-block;
+  border: none;
+  border-radius: 20px;
+  background: #f3f5f7;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus, select:focus{
+  background-color: #ffffff;
+  outline: none;
+  border: 1px solid #084cdf;
+}
+
+input[type=file]::file-selector-button{
+  margin-right: 20px;
+  border: none;
+  background: #be3b08;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover{
+  background: #084cdf;
+} 
+
+hr{
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+#saveContinueButton:disabled{
+  background-color: rgb(158, 202, 245);
+  color: white;
+  padding: 14px 20px;  
+  border: none;
+  border-radius: 20px;
+  cursor: not-allowed;
+  width: 10%;
+  opacity: 0.9;
+}
+
+#saveContinueButton:enabled{
+  background-color: rgb(18, 116, 213);
+  color: white;
+  padding: 14px 20px;  
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+#saveContinueButton:hover{
+  opacity:1;
+}
+
+/* Add padding to container elements */
+.container, .clearfix{
+  padding: 0px;
+}
+
+/* Clear floats */
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+div#headerDiv{
+  display: flex;
+  padding: 14px 150px;
+  background-color: white;
+}
+
+div#middleSectionLeftImageContainer{
+  margin-left: 5%;
+  height: 450px;
+  margin-top: 50px;
+  width:400px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+div#middleSectionLeftImageContainer img{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
+  /* margin-top: 25px; */
+  height: 100%;
+  /* border-radius: 100px; */
+  /* align-items: center;
+  justify-content: center; */
+}
+
+div#mainContainerDiv{
+  width: 60%;
+  margin-left: 5%;
+  margin-top: 50px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+a:visited{color:rgb(25, 0, 255)}
+
+#middleSectionLeftImageTextContainer p{
+  margin-left: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+div#mainContainerDiv button{
+  background-color: transparent;
+  color: rgb(9, 9, 9);
+  padding: 8px 20px;  
+  border: 2px solid gainsboro;
+  border-radius: 20px;
+  cursor: pointer;
+  width: auto;
+  margin-left: 10px;
+  opacity: 0.9;
+}
+div#qualificationButtonsContainer button:disabled{
+  cursor: no-drop;
+}
+div#row1_qualificationButtonsContainer, div#row2_qualificationButtonsContainer{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}

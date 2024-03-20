@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs: Explore jobs around the world</title>
+    <link rel="stylesheet" href="css/jobs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="headerDiv">
+        <a href="login.html" title="Back" style="font-size: 24px;margin-right: 70px;color:rgba(2, 67, 179, 0.771)"><i class="fa fa-arrow-left"></i></a>
+        <div style="width: 50%;">
+            <a href="register.html"><img src="images/naukri_Logo.png"></a>
+        </div>
+        <div style="width: 50%;">
+            <p style="float: right;">Welcome to your profile!<i class="fa fa-user-circle" style='font-size:24px;color: rgba(4, 4, 121, 0.81);' onclick="displayUserProfileDetails()"></i></p>
+        </div>
+       
+    </div> 
+    
+    <div style="margin-top: 20px;">
+        <label style="margin-left: 600px">Search by Location </label>
+        <input type="text" id="searchJobLocationInputId" style="border-radius: 10px;width:200px" onkeyup="searchJobByLocation()">
+    </div>
+    <div id="mainContainerDivId">
+        <div class="jobHeading">
+            <div style="display: flex;">
+                <div>
+                    <!-- <p>Company</p> -->
+                </div>
+                <div><p><b>Title</b></p></div>
+                <div>
+                    <p><b>Experience</b></p>
+                </div>
+                <div>
+                    <p><b>Location</b></p>
+                </div>
+                <div>
+                    <p><a href="jobsApplied.html">Jobs Applied</a></p>
+                    <!-- <button id="appliedJobsButtonId" style="background-color: none;border: none;">View Jobs Applied</button> -->
+                </div>  
+            </div>             
+        </div>
+        <div id="row1DivId" class="jobRows">
+            <div id="row1ItemsDivId" style="display: flex;">
+                <div id="row1ImageDivId">
+                    <img src="/images/jobs/ey_logo.png"/>
+                    <p id="row1CompanyNameParaId" hidden>EY</p>
+                </div>
+                <div id="row1TitleDivId">
+                    <p id="row1TitleParaId">Application Developer: SAP ABAP HANA</p>
+                </div>
+                <div id="row1ExperienceDivId">
+                    <p id="row1ExperienceParaId">1-2 Years</p>
+                </div>
+                <div id="row1LocationDivId">
+                    <p id="row1LocationParaId" class="jobLocation">Hyderabad</p>
+                </div>
+                <div>
+                    <button id="row1ApplyButtonId" onclick = "createJobsAppliedTable('row1ApplyButtonId','row1CompanyNameParaId','row1TitleParaId','row1ExperienceParaId','row1LocationParaId')">Apply</button>
+                </div>  
+            </div>             
+        </div>
+
+        <div id="row2DivId" class="jobRows">
+            <div id="row2ItemsDivId" style="display: flex;">
+                <div id="row2ImageDivId">
+                    <img src="/images/jobs/ibm logo.png"/>
+                    <p id="row2CompanyNameParaId" hidden>IBM</p>
+                </div>
+                <div id="row2TitleDivId">
+                    <p id="row2TitleParaId">Lead Consultant: Java Developer</p>
+                </div>
+                <div id="row2ExperienceDivId">
+                    <p id="row2ExperienceParaId">7-8 years</p>
+                </div>
+                <div id="row2LocationDivId">
+                    <p id="row2LocationParaId" class="jobLocation">Chennai</p>
+                </div>
+                <div>
+                    <button id="row2ApplyButtonId" onclick = "createJobsAppliedTable('row2ApplyButtonId','row2CompanyNameParaId','row2TitleParaId','row2ExperienceParaId','row2LocationParaId')">Apply</button>
+                </div>  
+            </div>   
+               
+        </div>
+
+        <div id="row3DivId" class="jobRows">
+            <div id="row3ItemsDivId" style="display: flex;">
+                <div id="row3ImageDivId">
+                    <img src="/images/jobs/NTT_Logo.svg"/>
+                    <p id="row3CompanyNameParaId" hidden>NTT Data</p>
+                </div>
+                <div id="row3TitleDivId">
+                    <p id="row3TitleParaId">Junior Java developer</p>
+                </div>
+                <div id="row3ExperienceDivId">
+                    <p id="row3ExperienceParaId">0-1 years</p>
+                </div>
+                <div id="row3LocationDivId">
+                    <p id="row3LocationParaId" class="jobLocation">Bangalore</p>
+                </div>
+                <div>
+                    <button id="row3ApplyButtonId" onclick = "createJobsAppliedTable('row3ApplyButtonId','row3CompanyNameParaId','row3TitleParaId','row3ExperienceParaId','row3LocationParaId')">Apply</button>
+                </div>   
+            </div>   
+              
+        </div>
+
+        <div id="row4DivId" class="jobRows">
+            <div id="row4ItemsDivId" style="display: flex;">
+                <div id="row4ImageDivId">
+                    <img src="/images/jobs/tcs_logo.svg"/>
+                    <p id="row4CompanyNameParaId" hidden>TCS</p>
+                </div>
+                <div id="row4TitleDivId">
+                    <p id="row4TitleParaId">Software Quality Engineer</p>
+                </div>
+                <div id="row4ExperienceDivId">
+                    <p id="row4ExperienceParaId">Freshers, upto 1 year</p>
+                </div>
+                <div id="row4LocationDivId">
+                    <p id="row4LocationParaId" class="jobLocation">Kolkata</p>
+                </div>
+                <div>
+                    <button id="row4ApplyButtonId" onclick = "createJobsAppliedTable('row4ApplyButtonId','row4CompanyNameParaId','row4TitleParaId','row4ExperienceParaId','row4LocationParaId')">Apply</button>
+                </div>
+            </div>   
+                
+        </div>
+        <div id="row5DivId" class="jobRows">
+            <div id="row5ItemsDivId" style="display: flex;">
+                <div id="row5ImageDivId">
+                    <img src="/images/jobs/tech_mahindra.png"/>
+                    <p id="row5CompanyNameParaId" hidden>Tech Mahindra</p>
+                </div>
+                <div id="row5TitleDivId">
+                    <p id="row5TitleParaId">Salesforce ztechnical Architect</p>
+                </div>
+                <div id="row5ExperienceDivId">
+                    <p id="row5ExperienceParaId">0-2 years</p>
+                </div>
+                <div id="row5LocationDivId">
+                    <p id="row5LocationParaId" class="jobLocation">Kolkata</p>
+                </div>
+                <div>
+                    <button id="row5ApplyButtonId" onclick = "createJobsAppliedTable('row5ApplyButtonId','row5CompanyNameParaId','row5TitleParaId','row5ExperienceParaId','row5LocationParaId')">Apply</button>
+                </div> 
+            </div>   
+                
+        </div> 
+
+        <div id="row6DivId" class="jobRows">
+            <div id="row6ItemsDivId" style="display: flex;">
+                <div id="row6ImageDivId">
+                    <img src="/images/jobs/ey_logo.png"/>
+                    <p id="row6CompanyNameParaId" hidden>EY</p>
+                </div>
+                <div id="row6TitleDivId">
+                    <p id="row6TitleParaId">Application Developer</p>
+                </div>
+                <div id="row6ExperienceDivId">
+                    <p id="row6ExperienceParaId">0-3 years</p>
+                </div>
+                <div id="row6LocationDivId">
+                    <p id="row6LocationParaId" class="jobLocation">Chennai</p>
+                </div>
+                <div>
+                    <button id="row6ApplyButtonId" onclick = "createJobsAppliedTable('row6ApplyButtonId','row6CompanyNameParaId','row6TitleParaId','row6ExperienceParaId','row6LocationParaId')">Apply</button>
+                </div> 
+            </div>   
+                
+        </div>
+
+        <div id="row7DivId" class="jobRows">
+            <div id="row7ItemsDivId" style="display: flex;">
+                <div id="row7ImageDivId">
+                    <img src="images/jobs/dp_logo.jpg"/>
+                    <p id="row7CompanyNameParaId" hidden>Digital Personas</p>
+                </div>
+                <div id="row7TitleDivId">
+                    <p id="row7TitleParaId">Software Fiori Trainee</p>
+                </div>
+                <div id="row7ExperienceDivId">
+                    <p id="row7ExperienceParaId">Fresher, 0-1 year</p>
+                </div>
+                <div id="row7LocationDivId">
+                    <p id="row7LocationParaId" class="jobLocation">Hyderabad</p>
+                </div>
+                <div>
+                    <button id="row7ApplyButtonId" onclick = "createJobsAppliedTable('row7ApplyButtonId','row7CompanyNameParaId','row7TitleParaId','row7ExperienceParaId','row7LocationParaId')">Apply</button>
+                </div>
+            </div>   
+               
+        </div>
+
+        <div id="row8DivId" class="jobRows">
+            <div id="row8ItemsDivId" style="display: flex;">
+                <div id="row8ImageDivId">
+                    <img src="images/jobs/NTT_Logo.svg"/>
+                    <p id="row8CompanyNameParaId" hidden>NTT Data</p>
+                </div>
+                <div id="row8TitleDivId">
+                    <p id="row8TitleParaId">SAP ABAP Developer</p>
+                </div>
+                <div id="row8ExperienceDivId">
+                    <p id="row8ExperienceParaId">2-4 years</p>
+                </div>
+                <div id="row8LocationDivId">
+                    <p id="row8LocationParaId" class="jobLocation">Hyderabad</p>
+                </div>
+                <div>
+                    <button id="row8ApplyButtonId" onclick = "createJobsAppliedTable('row8ApplyButtonId','row8CompanyNameParaId','row8TitleParaId','row8ExperienceParaId','row8LocationParaId')">Apply</button>
+                </div> 
+            </div>   
+               
+        </div>
+
+        <div id="row9DivId" class="jobRows">
+            <div id="row9ItemsDivId" style="display: flex;">
+                <div id="row9ImageDivId">
+                    <img src="/images/jobs/infosys_logo.webp"/>
+                    <p id="row9CompanyNameParaId" hidden>Infosys</p>
+                </div>
+                <div id="row9TitleDivId">
+                    <p id="row9TitleParaId">Software Analyst</p>
+                </div>
+                <div id="row9ExperienceDivId">
+                    <p id="row9ExperienceParaId">1-4 years</p>
+                </div>
+                <div id="row9LocationDivId">
+                    <p id="row9LocationParaId" class="jobLocation">Hyderabad</p>
+                </div>
+                <div>
+                    <button id="row9ApplyButtonId" onclick = "createJobsAppliedTable('row9ApplyButtonId','row9CompanyNameParaId','row9TitleParaId','row9ExperienceParaId','row9LocationParaId')">Apply</button>
+                </div>  
+            </div>   
+               
+        </div>
+
+        <div id="row10DivId" class="jobRows">
+            <div id="row10ItemsDivId" style="display: flex;">
+                <div id="row10ImageDivId">
+                    <img src="images/jobs/ibm logo.png"/>
+                    <p id="row10CompanyNameParaId" hidden>IBM</p>
+                </div>
+                <div id="row10TitleDivId">
+                    <p id="row10TitleParaId">Senior Software Engineer</p>
+                </div>
+                <div id="row10ExperienceDivId">
+                    <p id="row10ExperienceParaId">4-6 years</p>
+                </div>
+                <div id="row10LocationDivId">
+                    <p id="row10LocationParaId" class="jobLocation">Bangalore</p>
+                </div>
+                <div>
+                    <button id="row10ApplyButtonId" onclick = "createJobsAppliedTable('row10ApplyButtonId','row10CompanyNameParaId','row10TitleParaId','row10ExperienceParaId','row10LocationParaId')">Apply</button>
+                </div> 
+            </div>   
+                
+        </div>
+
+        <div id="row11DivId" class="jobRows">
+            <div id="row11ItemsDivId" style="display: flex;">
+                <div id="row11ImageDivId">
+                    <img src="images/jobs/infosys_logo.webp"/>
+                    <p id="row11CompanyNameParaId" hidden>Infosys</p>
+                </div>
+                <div id="row11TitleDivId">
+                    <p id="row11TitleParaId">Full Stack Developer (.NET)</p>
+                </div>
+                <div id="row11ExperienceDivId">
+                    <p id="row11ExperienceParaId">1-3 years</p>
+                </div>
+                <div id="row11LocationDivId">
+                    <p id="row11LocationParaId" class="jobLocation">Indore</p>
+                </div>
+                <div>
+                    <button id="row11ApplyButtonId" onclick = "createJobsAppliedTable('row11ApplyButtonId','row11CompanyNameParaId','row11TitleParaId','row11ExperienceParaId','row11LocationParaId')">Apply</button>
+                </div>  
+            </div>   
+          
+        </div>
+
+        <div id="row12DivId" class="jobRows">
+            <div id="row12ItemsDivId" style="display: flex;">
+                <div id="row12ImageDivId">
+                    <img src="images/jobs/NTT_Logo.svg"/>
+                    <p id="row12CompanyNameParaId" hidden>NTT Data</p>
+                </div>
+                <div id="row12TitleDivId">
+                    <p id="row12TitleParaId">Trainee Software Engineer</p>
+                </div>
+                <div id="row12ExperienceDivId">
+                    <p id="row12ExperienceParaId">0-1 years</p>
+                </div>
+                <div id="row12LocationDivId">
+                    <p id="row12LocationParaId" class="jobLocation">Indore</p>
+                </div>
+                <div>
+                    <button id="row12ApplyButtonId" onclick = "createJobsAppliedTable('row12ApplyButtonId','row12CompanyNameParaId','row12TitleParaId','row12ExperienceParaId','row12LocationParaId')">Apply</button>
+                </div>
+            </div>   
+                
+        </div>
+
+        <!-- <div id="row13DivId" class="jobRows">
+            <div id="row13temsDivId" style="display: flex;">
+                <div id="row13ImageDivId">
+                    <img src="images/jobs/tcs_logo.svg"/>
+                </div>
+                <div id="row13TitleDivId">
+                    <p id="row13TitleParaId"></p>
+                </div>
+                <div id="row13ExperienceDivId">
+                    <p id="row13ExperienceParaId"></p>
+                </div>
+                <div id="row13LocationDivId">
+                    <p id="row13LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row13ApplyButtonId">Apply</button>
+                </div> 
+            </div>   
+              
+        </div>
+
+        <div id="row14DivId" class="jobRows">
+            <div id="row14ItemsDivId" style="display: flex;">
+                <div id="row14ImageDivId">
+                    <img src="images/jobs/tech_mahindra.png"/>
+                </div>
+                <div id="row14TitleDivId">
+                    <p id="row14TitleParaId"></p>
+                </div>
+                <div id="row14ExperienceDivId">
+                    <p id="row14ExperienceParaId"></p>
+                </div>
+                <div id="row14LocationDivId">
+                    <p id="row14LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row14ApplyButtonId">Apply</button>
+                </div>
+            </div>                   
+        </div>
+
+        <div id="row15DivId" class="jobRows">
+            <div id="row15ItemsDivId" style="display: flex;">
+                <div id="row15ImageDivId">
+                    <img src="images/jobs/ey_logo.png"/>
+                </div>
+                <div id="row15TitleDivId">
+                    <p id="row15TitleParaId"></p>
+                </div>
+                <div id="row15ExperienceDivId">
+                    <p id="row15ExperienceParaId"></p>
+                </div>
+                <div id="row15LocationDivId">
+                    <p id="row15LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row15ApplyButtonId">Apply</button>
+                </div> 
+            </div>   
+             
+        </div>
+
+        <div id="row16DivId" class="jobRows">
+            <div id="row16ItemsDivId" style="display: flex;">
+                <div id="row16ImageDivId">
+                    <img src="images/jobs/dp_logo.jpg"/>
+                </div>
+                <div id="row16TitleDivId">
+                    <p id="row16TitleParaId"></p>
+                </div>
+                <div id="row16ExperienceDivId">
+                    <p id="row16ExperienceParaId"></p>
+                </div>
+                <div id="row16LocationDivId">
+                    <p id="row16LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row16ApplyButtonId">Apply</button>
+                </div> 
+            </div>   
+               
+        </div>
+
+        <div id="row17ivId" class="jobRows">
+            <div id="row17ItemsDivId" style="display: flex;">
+                <div id="row17ImageDivId">
+                    <img src="images/jobs/tcs_logo.svg"/>
+                </div>
+                <div id="row17TitleDivId">
+                    <p id="row17TitleParaId"></p>
+                </div>
+                <div id="row17ExperienceDivId">
+                    <p id="row17ExperienceParaId"></p>
+                </div>
+                <div id="row17LocationDivId">
+                    <p id="row17LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row17ApplyButtonId">Apply</button>
+                </div>
+            </div>   
+               
+        </div>
+
+        <div id="row18DivId" class="jobRows">
+            <div id="row18ItemsDivId" style="display: flex;">
+                <div id="row18ImageDivId">
+                    <img src="images/jobs/tech_mahindra.png"/>
+                </div>
+                <div id="row18TitleDivId">
+                    <p id="row18TitleParaId"></p>
+                </div>
+                <div id="row18ExperienceDivId">
+                    <p id="row18ExperienceParaId"></p>
+                </div>
+                <div id="row18LocationDivId">
+                    <p id="row10LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row18ApplyButtonId">Apply</button>
+                </div> 
+            </div>   
+              
+        </div>
+
+        <div id="row19DivId" class="jobRows">
+            <div id="row19ItemsDivId" style="display: flex;">
+                <div id="row19ImageDivId">
+                    <img src="images/jobs/NTT_Logo.svg"/>
+                </div>
+                <div id="row19TitleDivId">
+                    <p id="row19TitleParaId"></p>
+                </div>
+                <div id="row19ExperienceDivId">
+                    <p id="row19ExperienceParaId"></p>
+                </div>
+                <div id="row19LocationDivId">
+                    <p id="row19LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row19ApplyButtonId">Apply</button>
+                </div> 
+            </div>   
+              
+        </div>
+
+        <div id="row20DivId" class="jobRows">
+            <div id="row20ItemsDivId" style="display: flex;">
+                <div id="row20ImageDivId">
+                    <img src="images/jobs/tcs_logo.svg"/>
+                </div>
+                <div id="row20TitleDivId">
+                    <p id="row20TitleParaId"></p>
+                </div>
+                <div id="row20ExperienceDivId">
+                    <p id="row20ExperienceParaId"></p>
+                </div>
+                <div id="row20LocationDivId">
+                    <p id="row20LocationParaId"></p>
+                </div>
+                <div>
+                    <button id="row20ApplyButtonId">Apply</button>
+                </div>
+            </div>   
+               
+        </div> -->
+    </div>
+</body>
+<script type="text/javascript" src="js/jobs.js"></script>
+</html>

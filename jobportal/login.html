@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobseeker's Login: Search the Best jobs available in INdia and abroad</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
+    <div id="headerDiv">
+        <a href="register.html" title="Back" style="font-size: 24px;margin-right: 70px;color:rgba(2, 67, 179, 0.771)"><i class="fa fa-arrow-left"></i></a>
+        <div style="width: 50%;">
+            <a href="register.html"><img src="images/naukri_Logo.png"></a>
+        </div>
+        <div style="width: 50%;">
+            <p style="float: right;">Don't have an account?<a href="register.html" style="text-decoration: none;"> Register </a>here</p>
+        </div>
+    </div>
+    <div id="middleSection" style="display: flex;">
+        <div id="middleSectionLeftImageContainer">
+            <img src="images/login.svg"/>
+            <div id="middleSectionLeftImageTextContainer" style="margin-left: 14%;">
+                <h3>New to Naukri?</h3>
+                <div style="display: flex;">
+                    <i class="fa fa-check" style="margin-top: 17px;color: green;"></i>
+                    <p>One click apply using naukri profile.</p>
+                </div>
+                <div style="display: flex;">
+                    <i class="fa fa-check" style="margin-top: 17px;color: green;"></i>
+                    <P>Get relevant job recommendations.</P>
+                </div>
+                <div style="display: flex;">
+                    <i class="fa fa-check" style="margin-top: 17px;color: green;"></i>
+                    <p>Showcase profile to top companies and consultants.</p>
+                </div>
+                <div style="display: flex;">
+                    <i class="fa fa-check" style="margin-top: 17px;color: green;"></i>
+                    <p>Know application status on applied jobs.</p>
+                </div>
+            </div>
+        </div>   
+
+        <div id="mainContainerDiv" class="modal">
+            <!-- <form style="border:1px">       -->
+                <div id="formContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;">
+                    <h2>Login</h2>
+                    <hr>  
+                    
+                    <label><b>Email ID/ Username</b></label>
+                    <input id="emailInputId" type="text"  placeholder="Enter email" oninput="displayPasswordDiv()" required><br><br>
+                    <p id="emailMessageLoginPageParaId" style="color: red;"></p>
+
+                    <div id="passwordLoginPageInputId" hidden>
+                    <label><b>Password</b></label>
+                    <input id="passwordInputId" type="password" placeholder="Enter Password" required><br><br>
+                    <p id="passwordMessageLoginPageParaId" style="color: red;"></p>
+                    </div>
+
+                    <div id="loginButtonContainerDiv" class="clearfix" style="width:10%;margin: auto;margin-bottom: 10px;">
+                        <button id="loginButtonId" class="loginButton" style="width: 120px;margin: auto;" onclick="validateUser()" disabled>Login</button>
+                        <!-- <button id="cancelRegistrationButtonId" class="cancelRegistrationButton"style="width: 120px;margin: auto;margin-left: 50px;" onclick="document.getElementById('mainContainerDiv').style.display='none'">Cancel</button> -->
+                    </div>
+                </div>                
+            <!-- </form> -->
+        </div>  
+    </div>   
+</body>
+<script type="text/javascript" src="js/login.js"></script>
+</html>

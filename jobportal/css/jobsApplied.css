@@ -1,0 +1,26 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f5f7;
+}
+*{
+    box-sizing: border-box
+}
+hr{
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+div#headerDiv{
+    display: flex;
+    padding: 14px 150px;
+    background-color: white;
+}
+
+div#mainContainerDiv{
+    width: 60%;
+    height: auto;
+    margin-left: 20%;
+    margin-top: 25px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 10px 2px #638be2;
+}

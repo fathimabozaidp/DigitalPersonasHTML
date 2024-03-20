@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register on Naukri.com: Apply to Millions of Jobs Online</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
+    <div id="headerDiv">
+        <div style="width: 50%;">
+            <a href="register.html"><img src="images/naukri_Logo.png"></a>
+        </div>
+        <div style="width: 50%;">
+            <p style="float: right;">Already Registered?<a href="login.html" style="text-decoration: none;"> Login </a>here</p>
+        </div>
+    </div>
+
+    <div id="middleSection" style="display: flex;">
+        <div id="middleSectionLeftImageContainer">
+            <img src="images/hiringPeople.jpg"/>
+            <div id="middleSectionLeftImageTextContainer" style="margin-left: 14%;">
+                <h3>On registering, you can</h3>
+                <div style="display: flex;">
+                    <i class="fa fa-check-circle" style="margin-top: 17px;color: green;"></i>
+                    <p>Build your profile and let recruiters find you</p>
+                </div>
+                <div style="display: flex;">
+                    <i class="fa fa-check-circle" style="margin-top: 17px;color: green;"></i>
+                    <P>Get job postings delivered right to your email</P>
+                </div>
+                <div style="display: flex;">
+                    <i class="fa fa-check-circle" style="margin-top: 17px;color: green;"></i>
+                    <p>Find a job and grow your career</p>
+                </div>
+
+            </div>
+        </div>   
+       
+        <div id="mainContainerDiv" class="modal">
+            <form style="border:1px">      
+                <div id="formContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;">
+                    <h1>Sign Up</h1>
+                    <p>Please fill in this form to create an account.</p>
+                    <hr>
+    
+                    <label><b>Full Name</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <input id="fullNameInputId" type="text"  placeholder="What is your name?" name="fullname" required oninput="validateFullName()"><br><br>
+                    <p></p>
+
+                    <label><b>Email address</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <input id="emailAddressInputId" type="text" placeholder="Tell us your email" name="email" required oninput="validateEmail()"><br><br>
+                    <p id="emailRegisterPageParaId" style="color: red;"></p> 
+
+                    <label><b>Password</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <input id="passwordInputId" type="password" placeholder="(Minimum 6 characters)" name="password" required oninput="validatePassword()"><br><br>
+                    <p></p>
+
+                    <label><b>Mobile Number</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <input id="mobileNumberInputId" type="tel" placeholder="Enter Mobile Number" name="mobilenumber" required oninput="validateMobileNumber()">    
+                    <p id="mobileRegisterPageParaId" style="color: red;"></p> 
+
+                    <label><b>Work Status</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <div id="workStatusDivId" style="display: flex;width: 100%;">
+                        <div id="workStatusExperiencedDivId" onclick="displayResumeUpload()">
+                            <p><b>I'm experienced</b></p>
+                            <p style="color: gray;">I have work experience (excluding internships)</p>
+                        </div>
+                        <div id="workStatusFresherDivId" onclick="displayCurrentCity()" style="margin-left:5%; width: 40%;border: 1px solid gainsboro">
+                            <p><b>I'm a fresher</b></p>
+                            <p style="color: gray;">I'm a Student/ Haven't worked after graduation</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="resumeUploadDivId" hidden>
+                        <label for="filesInputId"><b>Resume</b></label>
+                        <!-- <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp; -->
+                        <input id="filesInputId" type="file" title="Upload Resume" value="Upload Resume" oninput="validateResume()" size="50%">
+                        <!-- <i class="fa fa-trash"></i> -->
+                        <small style="color: gray;margin-left: 20px;">Recruiters prefer candidates who have a resume on their profile</small>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="currentCityDivId" hidden>
+                        <label for="currentCityInputId"><b>Current city</b></label>
+                        <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                        <input id="currentCityInputId" type="text" oninput="validateCurrentCity()">
+                        <!-- <small style="color: gray;margin-left: 20px;">Recruiters prefer candidates who have a resume on their profile</small> -->
+                        <br>
+                        <br>
+                    </div>
+                    <br>
+                    <input type="checkbox" id="checkboxInputId" size="20px" required oninput="validateCheckbox()"><small>Send me important updates and promotions via SMS, email, and  WhatsApp</small>
+                    <br>
+                    <br>
+                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy policy</a>.</p>                 
+                </div>
+                <div id="formButtonsContainerDiv" class="clearfix" style="width:10%;margin: auto;margin-bottom: 10px;">
+                        <!-- <a href="register.html"> -->
+                            <button id="registerButtonId" class="registerButton" style="width: 120px;margin: auto;" disabled onclick="saveRegisterDetails()">
+                                <a href="#" style="text-decoration: none; font-weight: bold; font-size: medium;color: white;font-family: Georgia, 'Times New Roman', Times, serif;">Register</a>
+                            </button>
+                    <!-- <button id="cancelRegistrationButtonId" class="cancelRegistrationButton"style="width: 120px;margin: auto;margin-left: 50px;" onclick="document.getElementById('mainContainerDiv').style.display='none'">Cancel</button> -->
+                </div>
+            </form>
+        </div>     
+    </div>    
+</body>
+<script type="text/javascript" src="js/register.js"></script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register: Add Education</title>
+    <link rel="stylesheet" href="css/education.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
+    <div id="headerDiv">
+        <a href="register.html" title="Back" style="font-size: 24px;margin-right: 70px;color:rgba(2, 67, 179, 0.771)"><i class="fa fa-arrow-left"></i></a>
+        <div style="width: 50%;">
+            <a href="register.html"><img src="images/naukri_Logo.png"></a>
+        </div>
+        <div style="width: 50%;">
+            <p id="welcomeNoteParaId" style="float: right;">Welcome, </p>
+        </div>
+    </div>
+    <div id="middleSection" style="display: flex;">
+        <div id="middleSectionLeftImageContainer">
+            <img src="images/education.png"/>
+        </div>   
+
+        <div id="mainContainerDiv" class="modal" style="box-shadow: none;">
+            <!-- <form style="border:1px">       -->
+                <div id="qualificationFormContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;">
+                    <h2>Education Details</h2><span><small style="color: gray;">These details help recruiters identify your background</small></span>
+                    <hr> 
+
+                    <label><b>Highest qualification/Degree currently pursuing</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+
+                    <div id="qualificationButtonsContainer">
+                        <div id="row1_qualificationButtonsContainer">
+                            <button id="doctorate_PhdButtonId" onclick="showNextDiv('doctorate_PhdButtonId','qualificationFormContainerDiv')" disabled>Doctorate/PhD</button>
+                            <button id="masters_PostGraduationButtonId" onclick="showNextDiv('masters_PostGraduationButtonId','qualificationFormContainerDiv')" disabled>Masters/Post Graduation</button>
+                        </div>
+                        <div id="row2_qualificationButtonsContainer">
+                            <button id="graduation_DiplomaButtonId" onclick="showNextDiv('graduation_DiplomaButtonId','qualificationFormContainerDiv')">Graduation/Diploma</button>
+                            <button id="twelvthButtonId" onclick="showNextDiv('twelvthButtonId','qualificationFormContainerDiv')" disabled>12<sup>th</sup></button>
+                            <button id="tenthButtonId" onclick="showNextDiv('tenthButtonId','qualificationFormContainerDiv')" disabled>10<sup>th</sup></button>
+                            <button id="belowTenthButtonId" onclick="showNextDiv('graduation_DiplomaButtonId','qualificationFormContainerDiv')" disabled>Below 10<sup>th</sup></button>
+                        </div>
+                    </div>
+                    
+                </div>  
+                
+                <div id="courseFormContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;" hidden>                 
+                    <label><b>Course</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <select id="courseSelectId" required style="width: 100%;" oninput="showNextDiv('courseSelectId','courseFormContainerDiv')">
+                        <option value="">Please select your course</option>
+                        <option value="B.Tech/B.E.">B.Tech/B.E.</option>
+                        <option value="B.Com">B.Com</option>
+                        <option value="LLB">LLB</option>
+                        <option value="Other Graduate">Other Graduate</option>
+                    </select>
+                </div>  
+
+                <div id="specializationFormContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;" hidden>    
+                    <label><b>Specialization</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+
+                    <select id="specializationSelectId" style="width: 100%;" required oninput="showNextDiv('specializationSelectId','specializationFormContainerDiv')">
+                        <option value="">select your specialization</option>
+                        <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                        <option value="AI/ML">AI/ML</option>
+                        <option value="Electronics and communication Engineering">Electronics and communication Engineering</option>
+                    </select>
+                </div> 
+
+                <div id="universityFormContainerDiv" class="container" oninput="validateUniversity()" style="width:85%;margin-left: 55px;margin-top: 40px;" hidden> 
+                    <label><b>University</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <input id="universityInputId" type="text" placeholder="Enter your university name" required>                              
+                </div> 
+
+                <div id="startingYearFormContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;" hidden>       
+                    <label><b>Starting year</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;  
+                    <input id="startingDateId" type="date" oninput="validateStartingYear()" required>                        
+                </div>  
+
+                <div id="endingYearFormContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;" hidden>  
+                    <label><b>Ending year</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;         
+                    <input id="endingDateId" type="date" value="" oninput="validateEndingYear()" required>     
+                </div> 
+
+                <div id="percentageOutOfHundredFormContainerDiv" class="container" style="width:85%;margin-left: 55px;margin-top: 40px;" hidden>
+                    
+                    <label><b>Percentage out of 100</b></label>
+                    <sup><i class="fa fa-asterisk" style="font-size:10px;color:red"></i></sup>&nbsp;
+                    <input id="percentageInputId" type="text" placeholder="Enter your percentage" oninput="validatePercentage()" required>       
+                </div>           
+            <!-- </form> -->
+            <div id="saveContinueButtonContainerDiv" class="clearfix" style="width:10%;margin-bottom: 10px;">
+                <button id="saveContinueButton" class="saveContinueButton" style="width: 180px;margin-left: 65px;margin-top: 40px;" onclick="saveCompleteDetails()" disabled>Save and continue</button>
+            </div>
+        </div>  
+    </div>   
+</body>
+<script type="text/javascript" src="js/education.js"></script>
+</html>

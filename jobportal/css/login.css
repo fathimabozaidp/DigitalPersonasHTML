@@ -1,0 +1,108 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f5f7;
+}
+
+*{
+    box-sizing: border-box
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px;
+  display: inline-block;
+  border: none;
+  border-radius: 20px;
+  background: #f3f5f7;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus{
+  background-color: #ffffff;
+  outline: none;
+  border: 1px solid #084cdf;
+}
+hr{
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+button:disabled{
+    background-color: rgb(158, 202, 245);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: not-allowed;
+    width: 100%;
+    opacity: 0.9;
+}
+  
+button:enabled{
+    background-color: rgb(18, 116, 213);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+  
+button:hover{
+    opacity:1;
+}
+.container, .clearfix{
+    padding: 0px;
+}
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+div#headerDiv{
+    display: flex;
+    padding: 14px 150px;
+    background-color: white;
+}
+  
+div#middleSectionLeftImageContainer{
+    margin-left: 15%;
+    height: 500px;
+    margin-top: 50px;
+    width:500px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 2px #8f9090;
+}
+  
+div#middleSectionLeftImageContainer img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+    margin-top: 25px;
+    height: 170px;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+}
+  
+div#mainContainerDiv{
+    width: 50%;
+    height: 550px;
+    margin-left: 0%;
+    margin-top: 25px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 75px 2px #638be2;
+}
+  
+a:visited{color:rgb(25, 0, 255)}
+  
+#middleSectionLeftImageTextContainer p{
+    margin-left: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
